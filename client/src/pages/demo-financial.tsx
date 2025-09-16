@@ -45,7 +45,7 @@ export default function DemoFinancial() {
       isActive: selectedModule === 'relatorios'
     }
   ];
-  const [selectedPeriod, setSelectedPeriod] = useState('mes');
+  const [selectedPeriod, setSelectedPeriod] = useState('month');
   const [selectedAccount, setSelectedAccount] = useState<any>(null);
   const [showAccountModal, setShowAccountModal] = useState(false);
   const [showTransactionModal, setShowTransactionModal] = useState(false);
@@ -55,24 +55,24 @@ export default function DemoFinancial() {
 
   // Dynamic data states
   const [contasReceber, setContasReceber] = useState([
-    { cliente: "TechCorp Ltda", valor: "R$ 45.000", vencimento: "15/11/2024", status: "vencendo", dias: 2 },
-    { cliente: "Innovation Hub", valor: "R$ 28.900", vencimento: "20/11/2024", status: "normal", dias: 7 },
-    { cliente: "Digital Solutions", valor: "R$ 67.500", vencimento: "25/11/2024", status: "normal", dias: 12 },
-    { cliente: "StartupXYZ", valor: "R$ 15.670", vencimento: "10/11/2024", status: "vencido", dias: -3 }
+    { cliente: "TechCorp Ltd", valor: "$45,000", vencimento: "Nov 15, 2024", status: "due_soon", dias: 2 },
+    { cliente: "Innovation Hub", valor: "$28,900", vencimento: "Nov 20, 2024", status: "on_time", dias: 7 },
+    { cliente: "Digital Solutions", valor: "$67,500", vencimento: "Nov 25, 2024", status: "on_time", dias: 12 },
+    { cliente: "StartupXYZ", valor: "$15,670", vencimento: "Nov 10, 2024", status: "overdue", dias: -3 }
   ]);
 
   const [contasPagar, setContasPagar] = useState([
-    { fornecedor: "Energia Elétrica", valor: "R$ 3.450", vencimento: "18/11/2024", status: "vencendo", categoria: "Utilities" },
-    { fornecedor: "Telefonia/Internet", valor: "R$ 1.890", vencimento: "22/11/2024", status: "normal", categoria: "Telecomunicações" },
-    { fornecedor: "Aluguel Escritório", valor: "R$ 12.000", vencimento: "30/11/2024", status: "normal", categoria: "Imóveis" },
-    { fornecedor: "Fornecedor ABC", valor: "R$ 8.750", vencimento: "12/11/2024", status: "vencido", categoria: "Suprimentos" }
+    { fornecedor: "Electric Power", valor: "$3,450", vencimento: "Nov 18, 2024", status: "due_soon", categoria: "Utilities" },
+    { fornecedor: "Phone/Internet", valor: "$1,890", vencimento: "Nov 22, 2024", status: "on_time", categoria: "Telecommunications" },
+    { fornecedor: "Office Rent", valor: "$12,000", vencimento: "Nov 30, 2024", status: "on_time", categoria: "Real Estate" },
+    { fornecedor: "Supplier ABC", valor: "$8,750", vencimento: "Nov 12, 2024", status: "overdue", categoria: "Supplies" }
   ]);
 
   const [movimentacoes, setMovimentacoes] = useState([
-    { tipo: "entrada", descricao: "Pagamento - TechCorp Ltda", valor: "R$ 45.000", data: "13/11", categoria: "Vendas" },
-    { tipo: "saida", descricao: "Pagamento Salários", valor: "R$ 28.500", data: "10/11", categoria: "Folha de Pagamento" },
-    { tipo: "entrada", descricao: "Transferência Bancária", valor: "R$ 12.300", data: "08/11", categoria: "Transferências" },
-    { tipo: "saida", descricao: "Fornecedor Material", valor: "R$ 5.670", data: "07/11", categoria: "Compras" }
+    { tipo: "income", descricao: "Payment - TechCorp Ltd", valor: "$45,000", data: "Nov 13", categoria: "Sales" },
+    { tipo: "expense", descricao: "Salary Payment", valor: "$28,500", data: "Nov 10", categoria: "Payroll" },
+    { tipo: "income", descricao: "Bank Transfer", valor: "$12,300", data: "Nov 08", categoria: "Transfers" },
+    { tipo: "expense", descricao: "Material Supplier", valor: "$5,670", data: "Nov 07", categoria: "Purchases" }
   ]);
 
   // Open account detail modal
@@ -89,49 +89,49 @@ export default function DemoFinancial() {
 
   // Chart data that reacts to selectedPeriod
   const getCashFlowData = () => {
-    if (selectedPeriod === 'ano') {
+    if (selectedPeriod === 'year') {
       return [
         { mes: 'Jan', entradas: 320000, saidas: 220000, saldo: 100000 },
-        { mes: 'Fev', entradas: 340000, saidas: 240000, saldo: 100000 },
+        { mes: 'Feb', entradas: 340000, saidas: 240000, saldo: 100000 },
         { mes: 'Mar', entradas: 380000, saidas: 260000, saldo: 120000 },
-        { mes: 'Abr', entradas: 400000, saidas: 270000, saldo: 130000 },
-        { mes: 'Mai', entradas: 430000, saidas: 290000, saldo: 140000 },
+        { mes: 'Apr', entradas: 400000, saidas: 270000, saldo: 130000 },
+        { mes: 'May', entradas: 430000, saidas: 290000, saldo: 140000 },
         { mes: 'Jun', entradas: 420000, saidas: 280000, saldo: 140000 },
         { mes: 'Jul', entradas: 450000, saidas: 310000, saldo: 140000 },
-        { mes: 'Ago', entradas: 380000, saidas: 320000, saldo: 60000 },
-        { mes: 'Set', entradas: 450000, saidas: 290000, saldo: 160000 },
-        { mes: 'Out', entradas: 510000, saidas: 340000, saldo: 170000 },
+        { mes: 'Aug', entradas: 380000, saidas: 320000, saldo: 60000 },
+        { mes: 'Sep', entradas: 450000, saidas: 290000, saldo: 160000 },
+        { mes: 'Oct', entradas: 510000, saidas: 340000, saldo: 170000 },
         { mes: 'Nov', entradas: 456780, saidas: 234560, saldo: 222220 }
       ];
-    } else if (selectedPeriod === 'trimestre') {
+    } else if (selectedPeriod === 'quarter') {
       return [
-        { mes: 'Set', entradas: 450000, saidas: 290000, saldo: 160000 },
-        { mes: 'Out', entradas: 510000, saidas: 340000, saldo: 170000 },
+        { mes: 'Sep', entradas: 450000, saidas: 290000, saldo: 160000 },
+        { mes: 'Oct', entradas: 510000, saidas: 340000, saldo: 170000 },
         { mes: 'Nov', entradas: 456780, saidas: 234560, saldo: 222220 }
       ];
     }
     return [
-      { mes: 'Sem 1', entradas: 114195, saidas: 58640, saldo: 55555 },
-      { mes: 'Sem 2', entradas: 114195, saidas: 58640, saldo: 55555 },
-      { mes: 'Sem 3', entradas: 114195, saidas: 58640, saldo: 55555 },
-      { mes: 'Sem 4', entradas: 114195, saidas: 58640, saldo: 55555 }
+      { mes: 'Week 1', entradas: 114195, saidas: 58640, saldo: 55555 },
+      { mes: 'Week 2', entradas: 114195, saidas: 58640, saldo: 55555 },
+      { mes: 'Week 3', entradas: 114195, saidas: 58640, saldo: 55555 },
+      { mes: 'Week 4', entradas: 114195, saidas: 58640, saldo: 55555 }
     ];
   };
   
   const cashFlowData = getCashFlowData();
 
   const expenseCategories = [
-    { name: 'Folha de Pagamento', value: 120000, color: '#3B82F6' },
-    { name: 'Fornecedores', value: 80000, color: '#10B981' },
-    { name: 'Impostos', value: 45000, color: '#F59E0B' },
-    { name: 'Operacional', value: 35000, color: '#EF4444' },
+    { name: 'Payroll', value: 120000, color: '#3B82F6' },
+    { name: 'Suppliers', value: 80000, color: '#10B981' },
+    { name: 'Taxes', value: 45000, color: '#F59E0B' },
+    { name: 'Operations', value: 35000, color: '#EF4444' },
     { name: 'Marketing', value: 25000, color: '#8B5CF6' }
   ];
 
   const monthlyComparison = [
-    { categoria: 'Receitas', atual: 456780, anterior: 420000, meta: 500000 },
-    { categoria: 'Despesas', atual: 234560, anterior: 280000, meta: 200000 },
-    { categoria: 'Lucro', atual: 222220, anterior: 140000, meta: 300000 }
+    { categoria: 'Revenue', atual: 456780, anterior: 420000, meta: 500000 },
+    { categoria: 'Expenses', atual: 234560, anterior: 280000, meta: 200000 },
+    { categoria: 'Profit', atual: 222220, anterior: 140000, meta: 300000 }
   ];
 
   // Utility to calculate status and days
@@ -140,28 +140,28 @@ export default function DemoFinancial() {
     const diffTime = vencimentoDate.getTime() - hoje.getTime();
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     
-    const status = diffDays < 0 ? 'vencido' : diffDays <= 5 ? 'vencendo' : 'normal';
+    const status = diffDays < 0 ? 'overdue' : diffDays <= 5 ? 'due_soon' : 'on_time';
     return { status, dias: diffDays };
   };
 
-  // Utility to extract numeric value from BRL string
+  // Utility to extract numeric value from currency string
   const extractValue = (valorStr: string) => {
-    return parseFloat(valorStr.replace('R$ ', '').replace(/\./g, '').replace(',', '.'));
+    return parseFloat(valorStr.replace('$', '').replace(/,/g, ''));
   };
 
-  // Utility to format BRL
-  const formatBRL = (value: number) => {
-    return `R$ ${value.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+  // Utility to format USD
+  const formatUSD = (value: number) => {
+    return `$${value.toLocaleString('en-US', { minimumFractionDigits: 0 })}`;
   };
 
   // Calculate dynamic financial data
   const calculateFinancialData = () => {
     const totalReceitas = movimentacoes
-      .filter(mov => mov.tipo === 'entrada')
+      .filter(mov => mov.tipo === 'income')
       .reduce((sum, mov) => sum + extractValue(mov.valor), 0);
     
     const totalDespesas = movimentacoes
-      .filter(mov => mov.tipo === 'saida')
+      .filter(mov => mov.tipo === 'expense')
       .reduce((sum, mov) => sum + extractValue(mov.valor), 0);
     
     const totalReceber = contasReceber
@@ -174,12 +174,12 @@ export default function DemoFinancial() {
     const lucroLiquido = totalReceitas - totalDespesas;
     
     return {
-      saldoTotal: formatBRL(saldoTotal),
-      receitasMes: formatBRL(totalReceitas),
-      despesasMes: formatBRL(totalDespesas),
-      lucroLiquido: formatBRL(lucroLiquido),
-      contasReceber: formatBRL(totalReceber),
-      contasPagar: formatBRL(totalPagar),
+      saldoTotal: formatUSD(saldoTotal),
+      receitasMes: formatUSD(totalReceitas),
+      despesasMes: formatUSD(totalDespesas),
+      lucroLiquido: formatUSD(lucroLiquido),
+      contasReceber: formatUSD(totalReceber),
+      contasPagar: formatUSD(totalPagar),
       fluxoCaixa: lucroLiquido > 0 ? `+${((lucroLiquido/totalDespesas)*100).toFixed(1)}%` : `${((lucroLiquido/totalDespesas)*100).toFixed(1)}%`
     };
   };
@@ -191,8 +191,8 @@ export default function DemoFinancial() {
   const addTransaction = (transaction: any) => {
     setMovimentacoes([transaction, ...movimentacoes]);
     toast({
-      title: "Transação Adicionada",
-      description: `Nova transação de ${transaction.tipo} no valor de ${transaction.valor} foi registrada.`
+      title: "Transaction Added",
+      description: `New ${transaction.tipo} transaction of ${transaction.valor} has been recorded.`
     });
   };
 
@@ -200,8 +200,8 @@ export default function DemoFinancial() {
   const addReceivable = (receivable: any) => {
     setContasReceber([receivable, ...contasReceber]);
     toast({
-      title: "Conta a Receber Adicionada",
-      description: `Nova conta a receber de ${receivable.cliente} no valor de ${receivable.valor} foi registrada.`
+      title: "Account Receivable Added",
+      description: `New receivable from ${receivable.cliente} in the amount of ${receivable.valor} has been recorded.`
     });
   };
 
@@ -209,16 +209,16 @@ export default function DemoFinancial() {
   const addPayable = (payable: any) => {
     setContasPagar([payable, ...contasPagar]);
     toast({
-      title: "Conta a Pagar Adicionada",
-      description: `Nova conta a pagar para ${payable.fornecedor} no valor de ${payable.valor} foi registrada.`
+      title: "Account Payable Added",
+      description: `New payable to ${payable.fornecedor} in the amount of ${payable.valor} has been recorded.`
     });
   };
 
   // Export comprehensive PDF function
   const exportPDF = () => {
     toast({
-      title: "Gerando Relatório...",
-      description: "Compilando todas as informações gráficas e dados financeiros."
+      title: "Generating Report...",
+      description: "Compiling all graphic information and financial data."
     });
     
     // Generate comprehensive report content
@@ -226,70 +226,70 @@ export default function DemoFinancial() {
       const currentDate = new Date().toLocaleDateString('pt-BR');
       const currentTime = new Date().toLocaleTimeString('pt-BR');
       
-      let content = `RELATÓRIO FINANCEIRO TECHSOLUTIONS\n`;
-      content += `Data: ${currentDate} - ${currentTime}\n`;
-      content += `Período: ${selectedPeriod === 'mes' ? 'Mensal' : selectedPeriod === 'trimestre' ? 'Trimestral' : 'Anual'}\n\n`;
+      let content = `FINANCIAL REPORT TECHSOLUTIONS\n`;
+      content += `Date: ${currentDate} - ${currentTime}\n`;
+      content += `Period: ${selectedPeriod === 'month' ? 'Monthly' : selectedPeriod === 'quarter' ? 'Quarterly' : 'Annual'}\n\n`;
       
       // Financial Summary
-      content += `=== RESUMO FINANCEIRO ===\n`;
-      content += `Saldo Total: ${financialData.saldoTotal}\n`;
-      content += `Receitas do Mês: ${financialData.receitasMes}\n`;
-      content += `Despesas do Mês: ${financialData.despesasMes}\n`;
-      content += `Lucro Líquido: ${financialData.lucroLiquido}\n`;
-      content += `Total a Receber: ${financialData.contasReceber}\n`;
-      content += `Total a Pagar: ${financialData.contasPagar}\n`;
-      content += `Variação Fluxo de Caixa: ${financialData.fluxoCaixa}\n\n`;
+      content += `=== FINANCIAL SUMMARY ===\n`;
+      content += `Total Balance: ${financialData.saldoTotal}\n`;
+      content += `Monthly Revenue: ${financialData.receitasMes}\n`;
+      content += `Monthly Expenses: ${financialData.despesasMes}\n`;
+      content += `Net Profit: ${financialData.lucroLiquido}\n`;
+      content += `Total Receivable: ${financialData.contasReceber}\n`;
+      content += `Total Payable: ${financialData.contasPagar}\n`;
+      content += `Cash Flow Variation: ${financialData.fluxoCaixa}\n\n`;
       
       // Cash Flow Data
-      content += `=== FLUXO DE CAIXA (${selectedPeriod.toUpperCase()}) ===\n`;
+      content += `=== CASH FLOW (${selectedPeriod.toUpperCase()}) ===\n`;
       cashFlowData.forEach((item, index) => {
-        content += `${item.mes}: Entradas R$ ${item.entradas.toLocaleString('pt-BR')}, Saídas R$ ${item.saidas.toLocaleString('pt-BR')}, Saldo R$ ${item.saldo.toLocaleString('pt-BR')}\n`;
+        content += `${item.mes}: Income $${item.entradas.toLocaleString('en-US')}, Expenses $${item.saidas.toLocaleString('en-US')}, Balance $${item.saldo.toLocaleString('en-US')}\n`;
       });
       content += `\n`;
       
       // Financial Indicators
-      content += `=== INDICADORES FINANCEIROS ===\n`;
+      content += `=== FINANCIAL INDICATORS ===\n`;
       indicators.forEach(indicator => {
         content += `${indicator.nome}: ${indicator.valor} (${indicator.variacao})\n`;
       });
       content += `\n`;
       
       // Expense Categories
-      content += `=== CATEGORIAS DE DESPESAS ===\n`;
+      content += `=== EXPENSE CATEGORIES ===\n`;
       expenseCategories.forEach(category => {
-        content += `${category.name}: R$ ${category.value.toLocaleString('pt-BR')}\n`;
+        content += `${category.name}: $${category.value.toLocaleString('en-US')}\n`;
       });
       content += `\n`;
       
       // Monthly Comparison
-      content += `=== COMPARAÇÃO MENSAL ===\n`;
+      content += `=== MONTHLY COMPARISON ===\n`;
       monthlyComparison.forEach(item => {
-        content += `${item.categoria}: Atual R$ ${item.atual.toLocaleString('pt-BR')}, Anterior R$ ${item.anterior.toLocaleString('pt-BR')}, Meta R$ ${item.meta.toLocaleString('pt-BR')}\n`;
+        content += `${item.categoria}: Current $${item.atual.toLocaleString('en-US')}, Previous $${item.anterior.toLocaleString('en-US')}, Target $${item.meta.toLocaleString('en-US')}\n`;
       });
       content += `\n`;
       
       // Accounts Receivable
-      content += `=== CONTAS A RECEBER ===\n`;
+      content += `=== ACCOUNTS RECEIVABLE ===\n`;
       contasReceber.forEach((conta, index) => {
-        content += `${index + 1}. ${conta.cliente} - ${conta.valor} - Venc: ${conta.vencimento} - Status: ${conta.status === 'vencido' ? 'Vencida' : conta.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}\n`;
+        content += `${index + 1}. ${conta.cliente} - ${conta.valor} - Due: ${conta.vencimento} - Status: ${conta.status === 'overdue' ? 'Overdue' : conta.status === 'due_soon' ? 'Due Soon' : 'On Time'}\n`;
       });
       content += `\n`;
       
       // Accounts Payable
-      content += `=== CONTAS A PAGAR ===\n`;
+      content += `=== ACCOUNTS PAYABLE ===\n`;
       contasPagar.forEach((conta, index) => {
-        content += `${index + 1}. ${conta.fornecedor} - ${conta.valor} - Venc: ${conta.vencimento} - Cat: ${conta.categoria} - Status: ${conta.status === 'vencido' ? 'Vencida' : conta.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}\n`;
+        content += `${index + 1}. ${conta.fornecedor} - ${conta.valor} - Due: ${conta.vencimento} - Cat: ${conta.categoria} - Status: ${conta.status === 'overdue' ? 'Overdue' : conta.status === 'due_soon' ? 'Due Soon' : 'On Time'}\n`;
       });
       content += `\n`;
       
       // Recent Movements
-      content += `=== MOVIMENTAÇÕES RECENTES ===\n`;
+      content += `=== RECENT TRANSACTIONS ===\n`;
       movimentacoes.forEach((mov, index) => {
         content += `${index + 1}. ${mov.tipo.toUpperCase()} - ${mov.descricao} - ${mov.valor} - ${mov.data} - Cat: ${mov.categoria}\n`;
       });
       content += `\n`;
       
-      content += `\n--- Relatório gerado automaticamente pelo FinanceMax TechSolutions ---`;
+      content += `\n--- Report generated automatically by FinanceMax TechSolutions ---`;
       
       return content;
     };
@@ -316,7 +316,7 @@ export default function DemoFinancial() {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório Financeiro TechSolutions</title>
+    <title>Financial Report TechSolutions</title>
     <style>
         body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; }
         .header { text-align: center; border-bottom: 2px solid #3B82F6; padding-bottom: 20px; margin-bottom: 30px; }
@@ -328,73 +328,73 @@ export default function DemoFinancial() {
         th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background: #f5f5f5; font-weight: bold; }
         .entrada { color: #10b981; } .saida { color: #ef4444; }
-        .status-vencido { color: #ef4444; font-weight: bold; }
-        .status-vencendo { color: #f59e0b; font-weight: bold; }
-        .status-normal { color: #10b981; font-weight: bold; }
+        .status-overdue { color: #ef4444; font-weight: bold; }
+        .status-due_soon { color: #f59e0b; font-weight: bold; }
+        .status-on_time { color: #10b981; font-weight: bold; }
         @media print { body { margin: 20px; } }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1>RELATÓRIO FINANCEIRO</h1>
+        <h1>FINANCIAL REPORT</h1>
         <h2>TechSolutions</h2>
-        <p><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')} | <strong>Período:</strong> ${selectedPeriod === 'mes' ? 'Mensal' : selectedPeriod === 'trimestre' ? 'Trimestral' : 'Anual'}</p>
+        <p><strong>Date:</strong> ${new Date().toLocaleDateString('en-US')} | <strong>Period:</strong> ${selectedPeriod === 'month' ? 'Monthly' : selectedPeriod === 'quarter' ? 'Quarterly' : 'Annual'}</p>
     </div>
 
     <div class="section">
-        <h2>RESUMO FINANCEIRO</h2>
+        <h2>FINANCIAL SUMMARY</h2>
         <div class="summary">
-            <div class="summary-item"><strong>Saldo Total:</strong> ${financialData.saldoTotal}</div>
-            <div class="summary-item"><strong>Receitas:</strong> ${financialData.receitasMes}</div>
-            <div class="summary-item"><strong>Despesas:</strong> ${financialData.despesasMes}</div>
-            <div class="summary-item"><strong>Lucro Líquido:</strong> ${financialData.lucroLiquido}</div>
-            <div class="summary-item"><strong>A Receber:</strong> ${financialData.contasReceber}</div>
-            <div class="summary-item"><strong>A Pagar:</strong> ${financialData.contasPagar}</div>
+            <div class="summary-item"><strong>Total Balance:</strong> ${financialData.saldoTotal}</div>
+            <div class="summary-item"><strong>Revenue:</strong> ${financialData.receitasMes}</div>
+            <div class="summary-item"><strong>Expenses:</strong> ${financialData.despesasMes}</div>
+            <div class="summary-item"><strong>Net Profit:</strong> ${financialData.lucroLiquido}</div>
+            <div class="summary-item"><strong>Receivable:</strong> ${financialData.contasReceber}</div>
+            <div class="summary-item"><strong>Payable:</strong> ${financialData.contasPagar}</div>
         </div>
     </div>
 
     <div class="section">
-        <h2>FLUXO DE CAIXA</h2>
+        <h2>CASH FLOW</h2>
         <table>
-            <tr><th>Período</th><th>Entradas</th><th>Saídas</th><th>Saldo</th></tr>
-            ${cashFlowData.map(item => `<tr><td>${item.mes}</td><td class="entrada">R$ ${item.entradas.toLocaleString('pt-BR')}</td><td class="saida">R$ ${item.saidas.toLocaleString('pt-BR')}</td><td><strong>R$ ${item.saldo.toLocaleString('pt-BR')}</strong></td></tr>`).join('')}
+            <tr><th>Period</th><th>Income</th><th>Expenses</th><th>Balance</th></tr>
+            ${cashFlowData.map(item => `<tr><td>${item.mes}</td><td class="entrada">$${item.entradas.toLocaleString('en-US')}</td><td class="saida">$${item.saidas.toLocaleString('en-US')}</td><td><strong>$${item.saldo.toLocaleString('en-US')}</strong></td></tr>`).join('')}
         </table>
     </div>
 
     <div class="section">
-        <h2>INDICADORES FINANCEIROS</h2>
+        <h2>FINANCIAL INDICATORS</h2>
         <div class="summary">
             ${indicators.map(ind => `<div class="summary-item"><strong>${ind.nome}:</strong> ${ind.valor} (${ind.variacao})</div>`).join('')}
         </div>
     </div>
 
     <div class="section">
-        <h2>CONTAS A RECEBER</h2>
+        <h2>ACCOUNTS RECEIVABLE</h2>
         <table>
-            <tr><th>Cliente</th><th>Valor</th><th>Vencimento</th><th>Status</th></tr>
-            ${contasReceber.map(c => `<tr><td>${c.cliente}</td><td><strong>${c.valor}</strong></td><td>${c.vencimento}</td><td class="status-${c.status}">${c.status === 'vencido' ? 'Vencida' : c.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}</td></tr>`).join('')}
+            <tr><th>Client</th><th>Amount</th><th>Due Date</th><th>Status</th></tr>
+            ${contasReceber.map(c => `<tr><td>${c.cliente}</td><td><strong>${c.valor}</strong></td><td>${c.vencimento}</td><td class="status-${c.status}">${c.status === 'overdue' ? 'Overdue' : c.status === 'due_soon' ? 'Due Soon' : 'On Time'}</td></tr>`).join('')}
         </table>
     </div>
 
     <div class="section">
-        <h2>CONTAS A PAGAR</h2>
+        <h2>ACCOUNTS PAYABLE</h2>
         <table>
-            <tr><th>Fornecedor</th><th>Valor</th><th>Vencimento</th><th>Categoria</th><th>Status</th></tr>
-            ${contasPagar.map(c => `<tr><td>${c.fornecedor}</td><td><strong>${c.valor}</strong></td><td>${c.vencimento}</td><td>${c.categoria}</td><td class="status-${c.status}">${c.status === 'vencido' ? 'Vencida' : c.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}</td></tr>`).join('')}
+            <tr><th>Supplier</th><th>Amount</th><th>Due Date</th><th>Category</th><th>Status</th></tr>
+            ${contasPagar.map(c => `<tr><td>${c.fornecedor}</td><td><strong>${c.valor}</strong></td><td>${c.vencimento}</td><td>${c.categoria}</td><td class="status-${c.status}">${c.status === 'overdue' ? 'Overdue' : c.status === 'due_soon' ? 'Due Soon' : 'On Time'}</td></tr>`).join('')}
         </table>
     </div>
 
     <div class="section">
-        <h2>MOVIMENTAÇÕES RECENTES</h2>
+        <h2>RECENT TRANSACTIONS</h2>
         <table>
-            <tr><th>Tipo</th><th>Descrição</th><th>Valor</th><th>Data</th><th>Categoria</th></tr>
+            <tr><th>Type</th><th>Description</th><th>Amount</th><th>Date</th><th>Category</th></tr>
             ${movimentacoes.map(m => `<tr><td class="${m.tipo}">${m.tipo.toUpperCase()}</td><td>${m.descricao}</td><td><strong>${m.valor}</strong></td><td>${m.data}</td><td>${m.categoria}</td></tr>`).join('')}
         </table>
     </div>
 
     <div style="text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; color: #666;">
-        <p><strong>Relatório gerado automaticamente pelo FinanceMax TechSolutions</strong></p>
-        <p><em>Para salvar como PDF: Pressione Ctrl+P e selecione "Salvar como PDF"</em></p>
+        <p><strong>Report generated automatically by FinanceMax TechSolutions</strong></p>
+        <p><em>To save as PDF: Press Ctrl+P and select "Save as PDF"</em></p>
     </div>
 </body>
 </html>`;
@@ -404,7 +404,7 @@ export default function DemoFinancial() {
         
         const link = document.createElement('a');
         link.href = url;
-        link.download = `relatorio-financeiro-completo-${new Date().toISOString().slice(0, 10)}.html`;
+        link.download = `financial-report-complete-${new Date().toISOString().slice(0, 10)}.html`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
@@ -414,17 +414,17 @@ export default function DemoFinancial() {
       createDetailedPDF();
       
       toast({
-        title: "Relatório HTML Gerado",
-        description: `Relatório completo baixado! Abra o arquivo .html no navegador e pressione Ctrl+P para salvar como PDF.`
+        title: "HTML Report Generated",
+        description: `Complete report downloaded! Open the .html file in your browser and press Ctrl+P to save as PDF.`
       });
     }, 1500);
   };
 
   const indicators = [
     { nome: "ROI", valor: "23.5%", variacao: "+2.1%", status: "up" },
-    { nome: "Margem Líquida", valor: "18.7%", variacao: "+1.3%", status: "up" },
-    { nome: "Liquidez Corrente", valor: "2.4", variacao: "-0.2", status: "down" },
-    { nome: "Giro do Ativo", valor: "1.8", variacao: "+0.1", status: "up" }
+    { nome: "Net Margin", valor: "18.7%", variacao: "+1.3%", status: "up" },
+    { nome: "Current Ratio", valor: "2.4", variacao: "-0.2", status: "down" },
+    { nome: "Asset Turnover", valor: "1.8", variacao: "+0.1", status: "up" }
   ];
 
   return (
@@ -434,9 +434,9 @@ export default function DemoFinancial() {
       systemIcon="fas fa-chart-bar"
       systemColor="from-purple-600 to-purple-500"
       backHref="/sistema/financial"
-      statusBadge="Sistema Financeiro"
+      statusBadge="Financial System"
       navItems={navItems}
-      currentUser="Período Fiscal: Nov 2024"
+      currentUser="Fiscal Period: Nov 2024"
     >
       {/* Custom Systems Message */}
       <div className="mb-6">
@@ -446,8 +446,8 @@ export default function DemoFinancial() {
               <div>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Dashboard Financeiro</h2>
-                    <p className="text-blue-200">Visão geral da situação financeira da empresa</p>
+                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Financial Dashboard</h2>
+                    <p className="text-blue-200">Complete overview of the company's financial situation</p>
                   </div>
                   <div className="flex items-center space-x-4">
                     <select 
@@ -456,21 +456,21 @@ export default function DemoFinancial() {
                       className="bg-blue-700/50 text-white border border-blue-600 rounded-lg px-3 py-2 text-sm"
                       data-testid="select-period"
                     >
-                      <option value="mes">Este Mês</option>
-                      <option value="trimestre">Trimestre</option>
-                      <option value="ano">Este Ano</option>
+                      <option value="month">This Month</option>
+                      <option value="quarter">Quarter</option>
+                      <option value="year">This Year</option>
                     </select>
                     <button 
                       onClick={() => {
                         // Simulate data refresh by toggling a state
                         setSelectedPeriod(selectedPeriod);
-                        alert('Dados atualizados com sucesso!');
+                        alert('Data updated successfully!');
                       }} 
                       className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm transition-colors"
                       data-testid="button-refresh"
                     >
                       <i className="fas fa-sync-alt mr-2"></i>
-                      Atualizar
+                      Refresh
                     </button>
                   </div>
                 </div>
@@ -489,10 +489,10 @@ export default function DemoFinancial() {
                       <span className="text-green-400 text-sm font-medium">{financialData.fluxoCaixa}</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1">{financialData.saldoTotal}</h3>
-                    <p className="text-blue-200 text-sm">Saldo Total</p>
+                    <p className="text-blue-200 text-sm">Total Balance</p>
                     <div className="mt-2 text-xs text-blue-300">
                       <i className="fas fa-mouse-pointer mr-1"></i>
-                      Clique para ver fluxo de caixa
+                      Click to view cash flow
                     </div>
                   </div>
 
@@ -508,20 +508,20 @@ export default function DemoFinancial() {
                       <span className="text-blue-400 text-sm font-medium">+12.3%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1">{financialData.receitasMes}</h3>
-                    <p className="text-blue-200 text-sm">Receitas do Mês</p>
+                    <p className="text-blue-200 text-sm">Monthly Revenue</p>
                     <p className="text-blue-300 text-xs mt-2">
                       <i className="fas fa-plus mr-1"></i>
-                      Entradas confirmadas
+                      Confirmed income
                     </p>
                     <div className="mt-1 text-xs text-blue-300">
                       <i className="fas fa-mouse-pointer mr-1"></i>
-                      Ver contas a receber
+                      View accounts receivable
                     </div>
                   </div>
 
                   <div 
                     className="bg-blue-800/30 backdrop-blur-sm p-6 rounded-xl border border-blue-600/20 shadow-lg hover:bg-blue-800/40 transition-all cursor-pointer"
-                    onClick={() => setSelectedModule('contas')}
+                    onClick={() => setSelectedModule('despesas')}
                     data-testid="card-despesas"
                   >
                     <div className="flex items-center justify-between mb-4">
@@ -531,14 +531,14 @@ export default function DemoFinancial() {
                       <span className="text-red-400 text-sm font-medium">-8.1%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1">{financialData.despesasMes}</h3>
-                    <p className="text-blue-200 text-sm">Despesas do Mês</p>
+                    <p className="text-blue-200 text-sm">Monthly Expenses</p>
                     <p className="text-red-400 text-xs mt-2">
                       <i className="fas fa-minus mr-1"></i>
-                      Saídas confirmadas
+                      Confirmed expenses
                     </p>
                     <div className="mt-1 text-xs text-blue-300">
                       <i className="fas fa-mouse-pointer mr-1"></i>
-                      Ver contas a pagar
+                      View accounts payable
                     </div>
                   </div>
 
@@ -554,10 +554,10 @@ export default function DemoFinancial() {
                       <span className="text-emerald-400 text-sm font-medium">+23.5%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1">{financialData.lucroLiquido}</h3>
-                    <p className="text-blue-200 text-sm">Lucro Líquido</p>
+                    <p className="text-blue-200 text-sm">Net Profit</p>
                     <div className="mt-2 text-xs text-blue-300">
                       <i className="fas fa-mouse-pointer mr-1"></i>
-                      Ver relatórios detalhados
+                      View detailed reports
                     </div>
                   </div>
                 </div>
@@ -567,7 +567,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-chart-area mr-2 text-blue-400"></i>
-                      Fluxo de Caixa (5 meses)
+                      Cash Flow (5 months)
                     </h3>
                     <ResponsiveContainer width="100%" height={250}>
                       <AreaChart data={cashFlowData}>
@@ -581,7 +581,7 @@ export default function DemoFinancial() {
                             borderRadius: '8px',
                             color: 'white'
                           }}
-                          formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
+                          formatter={(value: number) => [`$${value.toLocaleString('en-US')}`, '']}
                         />
                         <Area type="monotone" dataKey="entradas" stackId="1" stroke="#10b981" fill="#10b981" fillOpacity={0.6} />
                         <Area type="monotone" dataKey="saidas" stackId="2" stroke="#ef4444" fill="#ef4444" fillOpacity={0.6} />
@@ -593,7 +593,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-chart-pie mr-2 text-blue-400"></i>
-                      Distribuição de Despesas
+                      Expense Distribution
                     </h3>
                     <ResponsiveContainer width="100%" height={250}>
                       <PieChart>
@@ -617,7 +617,7 @@ export default function DemoFinancial() {
                             borderRadius: '8px',
                             color: 'white'
                           }}
-                          formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
+                          formatter={(value: number) => [`$${value.toLocaleString('en-US')}`, '']}
                         />
                       </PieChart>
                     </ResponsiveContainer>
@@ -653,7 +653,7 @@ export default function DemoFinancial() {
                           borderRadius: '8px',
                           color: 'white'
                         }}
-                        formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
+                        formatter={(value: number) => [`$${value.toLocaleString('en-US')}`, '']}
                       />
                       <Bar dataKey="atual" fill="#3b82f6" radius={[4, 4, 0, 0]} />
                       <Bar dataKey="anterior" fill="#6b7280" radius={[4, 4, 0, 0]} />
@@ -667,7 +667,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-arrow-up mr-2 text-green-400"></i>
-                      Contas a Receber
+                      Accounts Receivable
                     </h3>
                     <div className="space-y-4">
                       {contasReceber.map((conta, index) => (
@@ -684,13 +684,13 @@ export default function DemoFinancial() {
                           <div className="text-right">
                             <p className="font-semibold text-white">{conta.valor}</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
-                              conta.status === 'vencido' ? 'bg-red-500/20 text-red-300' :
-                              conta.status === 'vencendo' ? 'bg-yellow-500/20 text-yellow-300' :
+                              conta.status === 'overdue' ? 'bg-red-500/20 text-red-300' :
+                              conta.status === 'due_soon' ? 'bg-yellow-500/20 text-yellow-300' :
                               'bg-green-500/20 text-green-300'
                             }`}>
-                              {conta.status === 'vencido' ? `${Math.abs(conta.dias)}d atraso` :
-                               conta.status === 'vencendo' ? `${conta.dias}d restantes` :
-                               `${conta.dias}d restantes`}
+                              {conta.status === 'overdue' ? `${Math.abs(conta.dias)}d overdue` :
+                               conta.status === 'due_soon' ? `${conta.dias}d remaining` :
+                               `${conta.dias}d remaining`}
                             </span>
                           </div>
                         </div>
@@ -698,16 +698,16 @@ export default function DemoFinancial() {
                     </div>
                     <div className="mt-4 pt-4 border-t border-blue-600/30">
                       <div className="flex justify-between">
-                        <span className="font-medium text-white">Total a Receber:</span>
+                        <span className="font-medium text-white">Total Receivable:</span>
                         <span className="font-bold text-emerald-400">{financialData.contasReceber}</span>
                       </div>
                       <button 
-                        onClick={() => setSelectedModule('contas')} 
+                        onClick={() => setSelectedModule('receitas')} 
                         className="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg text-sm transition-colors"
                         data-testid="button-view-receivables"
                       >
                         <i className="fas fa-eye mr-2"></i>
-                        Ver Detalhes
+                        View Details
                       </button>
                     </div>
                   </div>
@@ -715,7 +715,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-arrow-down mr-2 text-red-400"></i>
-                      Contas a Pagar
+                      Accounts Payable
                     </h3>
                     <div className="space-y-4">
                       {contasPagar.map((conta, index) => (
@@ -734,11 +734,11 @@ export default function DemoFinancial() {
                           <div className="text-right">
                             <p className="font-semibold text-white">{conta.valor}</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
-                              conta.status === 'vencido' ? 'bg-red-500/20 text-red-300' :
-                              conta.status === 'vencendo' ? 'bg-yellow-500/20 text-yellow-300' :
+                              conta.status === 'overdue' ? 'bg-red-500/20 text-red-300' :
+                              conta.status === 'due_soon' ? 'bg-yellow-500/20 text-yellow-300' :
                               'bg-blue-500/20 text-blue-300'
                             }`}>
-                              {conta.status === 'vencido' ? 'Vencida' : conta.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}
+                              {conta.status === 'overdue' ? 'Overdue' : conta.status === 'due_soon' ? 'Due Soon' : 'On Time'}
                             </span>
                           </div>
                         </div>
@@ -746,16 +746,16 @@ export default function DemoFinancial() {
                     </div>
                     <div className="mt-4 pt-4 border-t border-blue-600/30">
                       <div className="flex justify-between">
-                        <span className="font-medium text-white">Total a Pagar:</span>
+                        <span className="font-medium text-white">Total Payable:</span>
                         <span className="font-bold text-red-400">{financialData.contasPagar}</span>
                       </div>
                       <button 
-                        onClick={() => setSelectedModule('contas')} 
+                        onClick={() => setSelectedModule('despesas')} 
                         className="mt-3 w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg text-sm transition-colors"
                         data-testid="button-view-payables"
                       >
                         <i className="fas fa-eye mr-2"></i>
-                        Ver Detalhes
+                        View Details
                       </button>
                     </div>
                   </div>
@@ -814,7 +814,7 @@ export default function DemoFinancial() {
               <div>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Receitas</h2>
+                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Revenue</h2>
                     <p className="text-blue-200">Controle de receitas e contas a receber</p>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -831,7 +831,7 @@ export default function DemoFinancial() {
 
                 {/* Cash Flow Chart */}
                 <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6 mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-4 raleway">Evolução do Fluxo de Caixa</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4 raleway">Cash Flow Evolution</h3>
                   <ResponsiveContainer width="100%" height={300}>
                     <LineChart data={cashFlowData}>
                       <CartesianGrid strokeDasharray="3 3" stroke="#1e40af" />
@@ -844,7 +844,7 @@ export default function DemoFinancial() {
                           borderRadius: '8px',
                           color: 'white'
                         }}
-                        formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
+                        formatter={(value: number) => [`$${value.toLocaleString('en-US')}`, '']}
                       />
                       <Line type="monotone" dataKey="entradas" stroke="#10b981" strokeWidth={3} dot={{ fill: '#10b981', strokeWidth: 2, r: 4 }} />
                       <Line type="monotone" dataKey="saidas" stroke="#ef4444" strokeWidth={3} dot={{ fill: '#ef4444', strokeWidth: 2, r: 4 }} />
@@ -894,7 +894,7 @@ export default function DemoFinancial() {
               <div>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Despesas</h2>
+                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Expenses</h2>
                     <p className="text-blue-200">Controle de despesas e contas a pagar</p>
                   </div>
                   <div className="flex items-center space-x-3">
@@ -904,7 +904,7 @@ export default function DemoFinancial() {
                       data-testid="button-add-receivable"
                     >
                       <i className="fas fa-plus mr-2"></i>
-                      Nova Conta a Receber
+                      New Account Receivable
                     </button>
                     <button 
                       onClick={() => setShowPayableModal(true)}
@@ -912,7 +912,7 @@ export default function DemoFinancial() {
                       data-testid="button-add-payable"
                     >
                       <i className="fas fa-plus mr-2"></i>
-                      Nova Conta a Pagar
+                      New Account Payable
                     </button>
                   </div>
                 </div>
@@ -926,7 +926,7 @@ export default function DemoFinancial() {
                       </div>
                       <div>
                         <p className="text-green-400 font-bold text-2xl">{financialData.contasReceber}</p>
-                        <p className="text-blue-200 text-sm">Total a Receber</p>
+                        <p className="text-blue-200 text-sm">Total Receivable</p>
                       </div>
                     </div>
                   </div>
@@ -937,7 +937,7 @@ export default function DemoFinancial() {
                       </div>
                       <div>
                         <p className="text-red-400 font-bold text-2xl">{financialData.contasPagar}</p>
-                        <p className="text-blue-200 text-sm">Total a Pagar</p>
+                        <p className="text-blue-200 text-sm">Total Payable</p>
                       </div>
                     </div>
                   </div>
@@ -960,7 +960,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-arrow-up mr-2 text-green-400"></i>
-                      Contas a Receber
+                      Accounts Receivable
                     </h3>
                     <div className="space-y-3">
                       {contasReceber.map((conta, index) => (
@@ -977,11 +977,11 @@ export default function DemoFinancial() {
                           <div className="text-right">
                             <p className="font-semibold text-white">{conta.valor}</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
-                              conta.status === 'vencido' ? 'bg-red-500/20 text-red-300' :
-                              conta.status === 'vencendo' ? 'bg-yellow-500/20 text-yellow-300' :
+                              conta.status === 'overdue' ? 'bg-red-500/20 text-red-300' :
+                              conta.status === 'due_soon' ? 'bg-yellow-500/20 text-yellow-300' :
                               'bg-green-500/20 text-green-300'
                             }`}>
-                              {conta.status === 'vencido' ? 'Vencida' : conta.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}
+                              {conta.status === 'overdue' ? 'Overdue' : conta.status === 'due_soon' ? 'Due Soon' : 'On Time'}
                             </span>
                           </div>
                         </div>
@@ -993,7 +993,7 @@ export default function DemoFinancial() {
                   <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-white mb-4 raleway flex items-center">
                       <i className="fas fa-arrow-down mr-2 text-red-400"></i>
-                      Contas a Pagar
+                      Accounts Payable
                     </h3>
                     <div className="space-y-3">
                       {contasPagar.map((conta, index) => (
@@ -1010,11 +1010,11 @@ export default function DemoFinancial() {
                           <div className="text-right">
                             <p className="font-semibold text-white">{conta.valor}</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
-                              conta.status === 'vencido' ? 'bg-red-500/20 text-red-300' :
-                              conta.status === 'vencendo' ? 'bg-yellow-500/20 text-yellow-300' :
+                              conta.status === 'overdue' ? 'bg-red-500/20 text-red-300' :
+                              conta.status === 'due_soon' ? 'bg-yellow-500/20 text-yellow-300' :
                               'bg-blue-500/20 text-blue-300'
                             }`}>
-                              {conta.status === 'vencido' ? 'Vencida' : conta.status === 'vencendo' ? 'Vencendo' : 'No Prazo'}
+                              {conta.status === 'overdue' ? 'Overdue' : conta.status === 'due_soon' ? 'Due Soon' : 'On Time'}
                             </span>
                           </div>
                         </div>
@@ -1029,17 +1029,17 @@ export default function DemoFinancial() {
               <div>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Investimentos</h2>
-                    <p className="text-blue-200">Controle e acompanhamento de investimentos</p>
+                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Investments</h2>
+                    <p className="text-blue-200">Investment control and tracking</p>
                   </div>
                   <div className="flex items-center space-x-3">
                     <button 
-                      onClick={() => toast({title: "Em Desenvolvimento", description: "Módulo de investimentos em breve!"})}
+                      onClick={() => toast({title: "Under Development", description: "Investment module coming soon!"})}
                       className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-sm transition-colors" 
                       data-testid="button-add-investment"
                     >
                       <i className="fas fa-plus mr-2"></i>
-                      Novo Investimento
+                      New Investment
                     </button>
                   </div>
                 </div>
@@ -1053,8 +1053,8 @@ export default function DemoFinancial() {
                       </div>
                       <span className="text-purple-400 text-sm font-medium">+8.5%</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-1">R$ 125.450</h3>
-                    <p className="text-blue-200 text-sm">Portfolio Total</p>
+                    <h3 className="text-2xl font-bold text-white mb-1">$125,450</h3>
+                    <p className="text-blue-200 text-sm">Total Portfolio</p>
                   </div>
                   
                   <div className="bg-blue-800/30 backdrop-blur-sm p-6 rounded-xl border border-blue-600/20 shadow-lg">
@@ -1064,8 +1064,8 @@ export default function DemoFinancial() {
                       </div>
                       <span className="text-green-400 text-sm font-medium">+15.2%</span>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-1">R$ 18.750</h3>
-                    <p className="text-blue-200 text-sm">Rendimento Mês</p>
+                    <h3 className="text-2xl font-bold text-white mb-1">$18,750</h3>
+                    <p className="text-blue-200 text-sm">Monthly Return</p>
                   </div>
                   
                   <div className="bg-blue-800/30 backdrop-blur-sm p-6 rounded-xl border border-blue-600/20 shadow-lg">
@@ -1076,20 +1076,20 @@ export default function DemoFinancial() {
                       <span className="text-blue-400 text-sm font-medium">7 ativos</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1">67%</h3>
-                    <p className="text-blue-200 text-sm">Diversificação</p>
+                    <p className="text-blue-200 text-sm">Diversification</p>
                   </div>
                 </div>
 
                 {/* Investment Breakdown */}
                 <div className="bg-blue-800/30 backdrop-blur-sm rounded-xl border border-blue-600/20 shadow-lg p-6 mb-6">
-                  <h3 className="text-lg font-semibold text-white mb-4 raleway">Distribuição de Investimentos</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4 raleway">Investment Distribution</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="space-y-4">
                       {[
-                        { tipo: "Renda Fixa", valor: "R$ 45.200", percent: "36%", color: "bg-blue-500" },
-                        { tipo: "Ações", valor: "R$ 38.900", percent: "31%", color: "bg-green-500" },
-                        { tipo: "Fundos", valor: "R$ 28.750", percent: "23%", color: "bg-purple-500" },
-                        { tipo: "Cripto", valor: "R$ 12.600", percent: "10%", color: "bg-yellow-500" }
+                        { tipo: "Fixed Income", valor: "$45,200", percent: "36%", color: "bg-blue-500" },
+                        { tipo: "Stocks", valor: "$38,900", percent: "31%", color: "bg-green-500" },
+                        { tipo: "Funds", valor: "$28,750", percent: "23%", color: "bg-purple-500" },
+                        { tipo: "Crypto", valor: "$12,600", percent: "10%", color: "bg-yellow-500" }
                       ].map((item, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-blue-700/20 rounded-lg">
                           <div className="flex items-center space-x-3">
@@ -1106,8 +1106,8 @@ export default function DemoFinancial() {
                     <div className="flex items-center justify-center">
                       <div className="text-center text-blue-200">
                         <i className="fas fa-chart-pie text-6xl mb-4 text-purple-400"></i>
-                        <p className="text-lg font-medium">Portfolio bem diversificado</p>
-                        <p className="text-sm">Baixo risco, bom potencial de retorno</p>
+                        <p className="text-lg font-medium">Well-diversified portfolio</p>
+                        <p className="text-sm">Low risk, good return potential</p>
                       </div>
                     </div>
                   </div>
@@ -1119,8 +1119,8 @@ export default function DemoFinancial() {
               <div>
                 <div className="mb-6 flex items-center justify-between">
                   <div>
-                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Relatórios Financeiros</h2>
-                    <p className="text-blue-200">Análises e relatórios detalhados</p>
+                    <h2 className="text-2xl font-bold text-white mb-2 raleway">Financial Reports</h2>
+                    <p className="text-blue-200">Detailed analysis and reports</p>
                   </div>
                   <div className="flex items-center space-x-3">
                     <button 
@@ -1129,7 +1129,7 @@ export default function DemoFinancial() {
                       data-testid="button-generate-report"
                     >
                       <i className="fas fa-download mr-2"></i>
-                      Exportar PDF
+                      Export PDF
                     </button>
                   </div>
                 </div>
@@ -1165,7 +1165,7 @@ export default function DemoFinancial() {
                           borderRadius: '8px',
                           color: 'white'
                         }}
-                        formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`, '']}
+                        formatter={(value: number) => [`$${value.toLocaleString('en-US')}`, '']}
                       />
                       <Bar dataKey="atual" fill="#3b82f6" radius={[4, 4, 0, 0]} name="Atual" />
                       <Bar dataKey="anterior" fill="#6b7280" radius={[4, 4, 0, 0]} name="Anterior" />
@@ -1239,7 +1239,7 @@ export default function DemoFinancial() {
                 <div className="bg-blue-800/90 backdrop-blur-sm rounded-xl border border-blue-600/20 max-w-lg w-full p-6">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl font-bold text-white raleway">
-                      {selectedAccount.cliente ? 'Detalhes da Conta a Receber' : 'Detalhes da Conta a Pagar'}
+                      {selectedAccount.cliente ? 'Account Receivable Details' : 'Account Payable Details'}
                     </h3>
                     <button 
                       onClick={closeAccountModal}
@@ -1253,7 +1253,7 @@ export default function DemoFinancial() {
                   <div className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="text-blue-200 text-sm mb-1">{selectedAccount.cliente ? 'Cliente' : 'Fornecedor'}</p>
+                        <p className="text-blue-200 text-sm mb-1">{selectedAccount.cliente ? 'Client' : 'Supplier'}</p>
                         <p className="text-white font-semibold">{selectedAccount.cliente || selectedAccount.fornecedor}</p>
                       </div>
                       <div>
@@ -1261,24 +1261,24 @@ export default function DemoFinancial() {
                         <p className="text-white font-bold text-lg">{selectedAccount.valor}</p>
                       </div>
                       <div>
-                        <p className="text-blue-200 text-sm mb-1">Vencimento</p>
+                        <p className="text-blue-200 text-sm mb-1">Due Date</p>
                         <p className="text-white">{selectedAccount.vencimento}</p>
                       </div>
                       <div>
                         <p className="text-blue-200 text-sm mb-1">Status</p>
                         <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                          selectedAccount.status === 'vencido' ? 'bg-red-500/20 text-red-300' :
-                          selectedAccount.status === 'vencendo' ? 'bg-yellow-500/20 text-yellow-300' :
+                          selectedAccount.status === 'overdue' ? 'bg-red-500/20 text-red-300' :
+                          selectedAccount.status === 'due_soon' ? 'bg-yellow-500/20 text-yellow-300' :
                           'bg-green-500/20 text-green-300'
                         }`}>
-                          {selectedAccount.status === 'vencido' ? 'Vencida' :
-                           selectedAccount.status === 'vencendo' ? 'Vencendo' :
-                           'No Prazo'}
+                          {selectedAccount.status === 'overdue' ? 'Overdue' :
+                           selectedAccount.status === 'due_soon' ? 'Due Soon' :
+                           'On Time'}
                         </span>
                       </div>
                       {selectedAccount.categoria && (
                         <div className="col-span-2">
-                          <p className="text-blue-200 text-sm mb-1">Categoria</p>
+                          <p className="text-blue-200 text-sm mb-1">Category</p>
                           <p className="text-white">{selectedAccount.categoria}</p>
                         </div>
                       )}
@@ -1286,9 +1286,9 @@ export default function DemoFinancial() {
                         <div className="col-span-2">
                           <p className="text-blue-200 text-sm mb-1">Situação</p>
                           <p className="text-white">
-                            {selectedAccount.status === 'vencido' ? 
-                              `${Math.abs(selectedAccount.dias)} dias em atraso` :
-                              `${selectedAccount.dias} dias restantes`}
+                            {selectedAccount.status === 'overdue' ? 
+                              `${Math.abs(selectedAccount.dias)} days overdue` :
+                              `${selectedAccount.dias} days remaining`}
                           </p>
                         </div>
                       )}
@@ -1301,14 +1301,14 @@ export default function DemoFinancial() {
                         data-testid="button-action"
                       >
                         <i className={`fas ${selectedAccount.cliente ? 'fa-phone' : 'fa-credit-card'} mr-2`}></i>
-                        {selectedAccount.cliente ? 'Entrar em Contato' : 'Pagar Conta'}
+                        {selectedAccount.cliente ? 'Contact Client' : 'Pay Bill'}
                       </button>
                       <button 
                         onClick={closeAccountModal}
                         className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm transition-colors"
                         data-testid="button-close"
                       >
-                        Fechar
+                        Close
                       </button>
                     </div>
                   </div>
@@ -1321,7 +1321,7 @@ export default function DemoFinancial() {
               <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" data-testid="transaction-modal">
                 <div className="bg-blue-800/90 backdrop-blur-sm rounded-xl border border-blue-600/20 max-w-lg w-full p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white raleway">Nova Transação</h3>
+                    <h3 className="text-xl font-bold text-white raleway">New Transaction</h3>
                     <button 
                       onClick={() => setShowTransactionModal(false)}
                       className="text-blue-200 hover:text-white transition-colors"
@@ -1346,14 +1346,14 @@ export default function DemoFinancial() {
                   }} className="space-y-4">
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Tipo</label>
+                        <label className="block text-blue-200 text-sm mb-2">Type</label>
                         <select name="tipo" required className="w-full bg-blue-700/30 border border-blue-600/30 rounded-lg px-3 py-2 text-white">
-                          <option value="entrada">Entrada</option>
-                          <option value="saida">Saída</option>
+                          <option value="income">Income</option>
+                          <option value="expense">Expense</option>
                         </select>
                       </div>
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Valor</label>
+                        <label className="block text-blue-200 text-sm mb-2">Amount</label>
                         <input 
                           name="valor" 
                           type="number" 
@@ -1365,12 +1365,12 @@ export default function DemoFinancial() {
                       </div>
                     </div>
                     <div>
-                      <label className="block text-blue-200 text-sm mb-2">Descrição</label>
+                      <label className="block text-blue-200 text-sm mb-2">Description</label>
                       <input 
                         name="descricao" 
                         type="text" 
                         required 
-                        placeholder="Ex: Pagamento de cliente" 
+                        placeholder="e.g., Client payment" 
                         className="w-full bg-blue-700/30 border border-blue-600/30 rounded-lg px-3 py-2 text-white placeholder-blue-300"
                       />
                     </div>
@@ -1380,7 +1380,7 @@ export default function DemoFinancial() {
                         name="categoria" 
                         type="text" 
                         required 
-                        placeholder="Ex: Vendas, Compras, etc." 
+                        placeholder="e.g., Sales, Purchases, etc." 
                         className="w-full bg-blue-700/30 border border-blue-600/30 rounded-lg px-3 py-2 text-white placeholder-blue-300"
                       />
                     </div>
@@ -1391,7 +1391,7 @@ export default function DemoFinancial() {
                         data-testid="button-save-transaction"
                       >
                         <i className="fas fa-plus mr-2"></i>
-                        Adicionar Transação
+                        Add Transaction
                       </button>
                       <button 
                         type="button"
@@ -1399,7 +1399,7 @@ export default function DemoFinancial() {
                         className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
                         data-testid="button-cancel-transaction"
                       >
-                        Cancelar
+                        Cancel
                       </button>
                     </div>
                   </form>
@@ -1412,7 +1412,7 @@ export default function DemoFinancial() {
               <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" data-testid="receivable-modal">
                 <div className="bg-blue-800/90 backdrop-blur-sm rounded-xl border border-blue-600/20 max-w-lg w-full p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white raleway">Nova Conta a Receber</h3>
+                    <h3 className="text-xl font-bold text-white raleway">New Account Receivable</h3>
                     <button 
                       onClick={() => setShowReceivableModal(false)}
                       className="text-blue-200 hover:text-white transition-colors"
@@ -1439,7 +1439,7 @@ export default function DemoFinancial() {
                     setShowReceivableModal(false);
                   }} className="space-y-4">
                     <div>
-                      <label className="block text-blue-200 text-sm mb-2">Cliente</label>
+                      <label className="block text-blue-200 text-sm mb-2">Client</label>
                       <input 
                         name="cliente" 
                         type="text" 
@@ -1450,7 +1450,7 @@ export default function DemoFinancial() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Valor</label>
+                        <label className="block text-blue-200 text-sm mb-2">Amount</label>
                         <input 
                           name="valor" 
                           type="number" 
@@ -1461,7 +1461,7 @@ export default function DemoFinancial() {
                         />
                       </div>
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Vencimento</label>
+                        <label className="block text-blue-200 text-sm mb-2">Due Date</label>
                         <input 
                           name="vencimento" 
                           type="date" 
@@ -1477,7 +1477,7 @@ export default function DemoFinancial() {
                         data-testid="button-save-receivable"
                       >
                         <i className="fas fa-plus mr-2"></i>
-                        Adicionar Conta a Receber
+                        Add Account Receivable
                       </button>
                       <button 
                         type="button"
@@ -1485,7 +1485,7 @@ export default function DemoFinancial() {
                         className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
                         data-testid="button-cancel-receivable"
                       >
-                        Cancelar
+                        Cancel
                       </button>
                     </div>
                   </form>
@@ -1498,7 +1498,7 @@ export default function DemoFinancial() {
               <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" data-testid="payable-modal">
                 <div className="bg-blue-800/90 backdrop-blur-sm rounded-xl border border-blue-600/20 max-w-lg w-full p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl font-bold text-white raleway">Nova Conta a Pagar</h3>
+                    <h3 className="text-xl font-bold text-white raleway">New Account Payable</h3>
                     <button 
                       onClick={() => setShowPayableModal(false)}
                       className="text-blue-200 hover:text-white transition-colors"
@@ -1525,7 +1525,7 @@ export default function DemoFinancial() {
                     setShowPayableModal(false);
                   }} className="space-y-4">
                     <div>
-                      <label className="block text-blue-200 text-sm mb-2">Fornecedor</label>
+                      <label className="block text-blue-200 text-sm mb-2">Supplier</label>
                       <input 
                         name="fornecedor" 
                         type="text" 
@@ -1536,7 +1536,7 @@ export default function DemoFinancial() {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Valor</label>
+                        <label className="block text-blue-200 text-sm mb-2">Amount</label>
                         <input 
                           name="valor" 
                           type="number" 
@@ -1547,7 +1547,7 @@ export default function DemoFinancial() {
                         />
                       </div>
                       <div>
-                        <label className="block text-blue-200 text-sm mb-2">Vencimento</label>
+                        <label className="block text-blue-200 text-sm mb-2">Due Date</label>
                         <input 
                           name="vencimento" 
                           type="date" 
@@ -1573,7 +1573,7 @@ export default function DemoFinancial() {
                         data-testid="button-save-payable"
                       >
                         <i className="fas fa-plus mr-2"></i>
-                        Adicionar Conta a Pagar
+                        Add Account Payable
                       </button>
                       <button 
                         type="button"
@@ -1581,7 +1581,7 @@ export default function DemoFinancial() {
                         className="px-6 py-2 bg-gray-600 hover:bg-gray-700 text-white rounded-lg text-sm transition-colors"
                         data-testid="button-cancel-payable"
                       >
-                        Cancelar
+                        Cancel
                       </button>
                     </div>
                   </form>
