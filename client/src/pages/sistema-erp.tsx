@@ -10,99 +10,99 @@ export default function SistemaERP() {
   }, []);
   const systemData = {
     id: 'erp',
-    title: 'ERP - Enterprise Management System',
-    subtitle: 'Complete and integrated management for your company',
+    title: 'ERP – Sistema de Gestão Empresarial',
+    subtitle: 'Gestão completa e integrada para sua empresa',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-chart-line',
-    description: 'TechSolutions ERP system is a complete solution that integrates all departments of your company into a single platform. Financial control, inventory, sales, purchasing and human resources in one place.',
+    description: 'O sistema ERP da TechSolutions é uma solução completa que integra todos os departamentos da sua empresa em uma única plataforma. Controle financeiro, estoque, vendas, compras e recursos humanos em um só lugar.',
     mainBenefits: [
       {
         icon: 'fas fa-integrate',
-        title: 'Total Integration',
-        description: 'All company sectors connected in a single platform'
+        title: 'Integração Total',
+        description: 'Todos os setores da empresa conectados em uma única plataforma'
       },
       {
         icon: 'fas fa-chart-bar',
-        title: 'Real-Time Reports',
-        description: 'Visualize company performance with interactive dashboards'
+        title: 'Relatórios em Tempo Real',
+        description: 'Visualize o desempenho da empresa com dashboards interativos'
       },
       {
         icon: 'fas fa-shield-alt',
-        title: 'Data Security',
-        description: 'User access control and automatic backup'
+        title: 'Segurança de Dados',
+        description: 'Controle de acesso de usuários e backup automático'
       },
       {
         icon: 'fas fa-mobile-alt',
-        title: 'Mobile Access',
-        description: 'Manage your company from anywhere through the mobile app'
+        title: 'Acesso Móvel',
+        description: 'Gerencie sua empresa de qualquer lugar através do aplicativo móvel'
       }
     ],
     detailedFeatures: {
       financeiro: {
-        title: 'Financial Management',
+        title: 'Gestão Financeira',
         features: [
-          'Accounts payable and receivable control',
-          'Real-time cash flow',
-          'Automatic bank reconciliation',
-          'Tax and accounting reports',
-          'Cost center control',
-          'Profitability analysis'
+          'Controle de contas a pagar e receber',
+          'Fluxo de caixa em tempo real',
+          'Conciliação bancária automática',
+          'Relatórios fiscais e contábeis',
+          'Controle de centro de custos',
+          'Análise de rentabilidade'
         ]
       },
       vendas: {
-        title: 'Sales Management',
+        title: 'Gestão de Vendas',
         features: [
-          'Complete customer registration',
-          'Order and quote management',
-          'Commission control',
-          'Sales team analysis',
-          'Negotiation history',
-          'E-commerce integration'
+          'Cadastro completo de clientes',
+          'Gestão de pedidos e orçamentos',
+          'Controle de comissões',
+          'Análise da equipe de vendas',
+          'Histórico de negociações',
+          'Integração com e-commerce'
         ]
       },
       estoque: {
-        title: 'Inventory Control',
+        title: 'Controle de Estoque',
         features: [
-          'Real-time inventory',
-          'Input and output control',
-          'Supplier management',
-          'Minimum stock alerts',
-          'Product traceability',
-          'Expiry date control'
+          'Estoque em tempo real',
+          'Controle de entrada e saída',
+          'Gestão de fornecedores',
+          'Alertas de estoque mínimo',
+          'Rastreabilidade de produtos',
+          'Controle de data de validade'
         ]
       },
       rh: {
-        title: 'Human Resources',
+        title: 'Recursos Humanos',
         features: [
-          'Employee registration',
-          'Time tracking',
-          'Payroll',
-          'Benefits management',
-          'Performance evaluation',
-          'Labor reports'
+          'Cadastro de funcionários',
+          'Controle de ponto',
+          'Folha de pagamento',
+          'Gestão de benefícios',
+          'Avaliação de desempenho',
+          'Relatórios trabalhistas'
         ]
       }
     },
     advantages: [
       {
-        title: '70% Reduction in Process Time',
-        description: 'Automation eliminates repetitive manual tasks'
+        title: 'Redução de 70% no Tempo de Processos',
+        description: 'Automação elimina tarefas manuais repetitivas'
       },
       {
-        title: '45% Increase in Productivity',
-        description: 'Centralized information accelerates decision making'
+        title: 'Aumento de 45% na Produtividade',
+        description: 'Informações centralizadas aceleram tomada de decisões'
       },
       {
-        title: '30% Savings in Operational Costs',
-        description: 'Resource optimization and waste reduction'
+        title: 'Economia de 30% nos Custos Operacionais',
+        description: 'Otimização de recursos e redução de desperdícios'
       },
       {
-        title: '250% ROI in the First Year',
-        description: 'Return on investment proven by our customers'
+        title: 'ROI de 250% no Primeiro Ano',
+        description: 'Retorno sobre investimento comprovado pelos nossos clientes'
       }
     ],
     testimonial: {
-      quote: 'TechSolutions ERP completely transformed our operation. We managed to reduce costs by 40% and significantly increase our productivity.',
+      quote: 'O ERP da TechSolutions transformou completamente nossa operação. Conseguimos reduzir custos em 40% e aumentar significativamente nossa produtividade.',
       name: 'Carlos Silva',
       position: 'CEO, IndustTech',
       image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150'
@@ -132,7 +132,7 @@ export default function SistemaERP() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Back to Catalog
+                Voltar ao Catálogo
               </Link>
             </div>
             
@@ -162,7 +162,7 @@ export default function SistemaERP() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Test Demo
+                  Testar Demo
                 </Link>
               </div>
               
@@ -181,7 +181,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Main Benefits
+              Principais Benefícios
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +202,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              System Interface
+              Interface do Sistema
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -210,15 +210,15 @@ export default function SistemaERP() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Main ERP Dashboard"
+                    alt="Painel Principal do ERP"
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Main Dashboard</span>
+                    <span className="text-white font-semibold">Painel Principal</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Executive Dashboard</h3>
-                <p className="text-sm text-muted-foreground">Overview of sales, inventory and finance</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">Painel Executivo</h3>
+                <p className="text-sm text-muted-foreground">Visão geral de vendas, estoque e finanças</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
