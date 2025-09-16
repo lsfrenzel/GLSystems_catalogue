@@ -1,89 +1,92 @@
 import { Link } from "wouter";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SystemsShowcase() {
+  const { t } = useLanguage();
+  
   const systems = [
     {
       id: 'erp',
-      title: 'ERP',
-      description: 'Sistema de gestão empresarial completo que integra todos os departamentos da sua empresa em uma única plataforma.',
+      title: t('systems.erp.title'),
+      description: t('systems.erp.description'),
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-chart-line',
-      features: [
-        'Gestão financeira integrada',
-        'Controle de estoque em tempo real',
-        'Relatórios gerenciais avançados'
+      featureKeys: [
+        'systems.erp.feature1',
+        'systems.erp.feature2',
+        'systems.erp.feature3'
       ]
     },
     {
       id: 'crm',
-      title: 'CRM',
-      description: 'Gestão completa do relacionamento com clientes, desde o primeiro contato até a fidelização.',
+      title: t('systems.crm.title'),
+      description: t('systems.crm.description'),
       image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-users',
-      features: [
-        'Histórico completo do cliente',
-        'Automação de vendas',
-        'Pipeline de oportunidades'
+      featureKeys: [
+        'systems.crm.feature1',
+        'systems.crm.feature2',
+        'systems.crm.feature3'
       ]
     },
     {
       id: 'restaurant',
-      title: 'Sistema de Comandas',
-      description: 'Otimize o atendimento em restaurantes com controle completo de pedidos e gestão de mesas.',
+      title: t('systems.restaurant.title'),
+      description: t('systems.restaurant.description'),
       image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-utensils',
-      features: [
-        'Pedidos digitais integrados',
-        'Gestão de mesas em tempo real',
-        'Relatórios de vendas'
+      featureKeys: [
+        'systems.restaurant.feature1',
+        'systems.restaurant.feature2',
+        'systems.restaurant.feature3'
       ]
     },
     {
       id: 'financial',
-      title: 'Sistema Financeiro',
-      description: 'Controle total das finanças da sua empresa com gestão de fluxo de caixa e análises preditivas.',
+      title: t('systems.financial.title'),
+      description: t('systems.financial.description'),
       image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-calculator',
-      features: [
-        'Fluxo de caixa em tempo real',
-        'Conciliação bancária automática',
-        'Análises preditivas'
+      featureKeys: [
+        'systems.financial.feature1',
+        'systems.financial.feature2',
+        'systems.financial.feature3'
       ]
     },
     {
       id: 'inventory',
-      title: 'Estoque e Logística',
-      description: 'Sistema completo para gestão de estoque, compras e logística com rastreamento em tempo real.',
+      title: t('systems.inventory.title'),
+      description: t('systems.inventory.description'),
       image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-boxes',
-      features: [
-        'Controle de estoque inteligente',
-        'Gestão de fornecedores',
-        'Rastreamento de produtos'
+      featureKeys: [
+        'systems.inventory.feature1',
+        'systems.inventory.feature2',
+        'systems.inventory.feature3'
       ]
     },
     {
       id: 'ecommerce',
-      title: 'E-commerce para Lojas Físicas',
-      description: 'Transforme sua loja física em digital com sincronização de estoque e gestão unificada de vendas.',
+      title: t('systems.ecommerce.title'),
+      description: t('systems.ecommerce.description'),
       image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-shopping-cart',
-      features: [
-        'Sincronização de estoque unificado',
-        'Design responsivo otimizado',
-        'Gestão integrada de entregas'
+      featureKeys: [
+        'systems.ecommerce.feature1',
+        'systems.ecommerce.feature2',
+        'systems.ecommerce.feature3'
       ]
     },
     {
       id: 'education',
-      title: 'Plataforma EAD',
-      description: 'Plataforma completa de ensino a distância com gestão de cursos, alunos e certificações.',
+      title: t('systems.education.title'),
+      description: t('systems.education.description'),
       image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400',
       icon: 'fas fa-graduation-cap',
-      features: [
-        'Gestão completa de cursos',
-        'Sistema de avaliações',
-        'Certificação automática'
+      featureKeys: [
+        'systems.education.feature1',
+        'systems.education.feature2',
+        'systems.education.feature3'
       ]
     }
   ];
@@ -94,14 +97,14 @@ export default function SystemsShowcase() {
         <div className="text-center mb-16 fade-in">
           <div className="mb-4">
             <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              CATÁLOGO DE SOLUÇÕES DIGITAIS
+              {t('systems.badge')}
             </span>
           </div>
           <h2 className="raleway text-4xl md:text-5xl font-bold mb-6" data-testid="systems-title">
-            Sistemas Empresariais G&L
+            {t('systems.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="systems-subtitle">
-            Soluções tecnológicas completas e personalizadas desenvolvidas pela G&L Systems para revolucionar seu negócio
+            {t('systems.subtitle')}
           </p>
         </div>
 
@@ -115,7 +118,7 @@ export default function SystemsShowcase() {
             >
               <img 
                 src={system.image}
-                alt={`${system.title} interface and functionality`}
+                alt={`${system.title} ${t('systems.imageAltSuffix')}`}
                 className="w-full h-48 object-cover rounded-lg mb-6 group-hover:scale-105 transition-transform"
               />
               <div className="flex items-center mb-4">
@@ -130,15 +133,15 @@ export default function SystemsShowcase() {
                 {system.description}
               </p>
               <ul className="space-y-2 text-sm text-muted-foreground mb-4">
-                {system.features.map((feature, index) => (
+                {system.featureKeys.map((featureKey, index) => (
                   <li key={index} className="flex items-center">
                     <i className="fas fa-check text-primary mr-2"></i>
-                    {feature}
+                    {t(featureKey)}
                   </li>
                 ))}
               </ul>
               <div className="flex items-center text-primary font-semibold mt-auto">
-                <span>Ver detalhes</span>
+                <span>{t('systems.seeDetails')}</span>
                 <i className="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
               </div>
             </Link>

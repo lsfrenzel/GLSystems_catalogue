@@ -7,6 +7,7 @@ import VideoSection from "@/components/VideoSection";
 import Comparison from "@/components/Comparison";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import FloatingButtons from "@/components/FloatingButtons";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 
 export default function Home() {
@@ -62,6 +63,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <FloatingButtons />
     </>
   );
 }

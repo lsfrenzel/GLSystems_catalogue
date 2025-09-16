@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useState } from "react";
 import { Globe, Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import glSystemsLogo from "@assets/Gemini_Generated_Image_h0faeuh0faeuh0fa-removebg-preview_1758033345801.png";
 
 interface Language {
@@ -15,15 +16,15 @@ const languages: Language[] = [
 ];
 
 export default function Header() {
-  const [currentLang, setCurrentLang] = useState('pt');
+  const { language, setLanguage, t } = useLanguage();
   const [isLangMenuOpen, setIsLangMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const menuItems = [
-    { href: '#sistemas', label: currentLang === 'pt' ? 'Sistemas' : 'Systems' },
-    { href: '#beneficios', label: currentLang === 'pt' ? 'Benefícios' : 'Benefits' },
-    { href: '#comparativo', label: currentLang === 'pt' ? 'Comparativo' : 'Comparison' },
-    { href: '#contato', label: currentLang === 'pt' ? 'Contato' : 'Contact' }
+    { href: '#sistemas', label: t('nav.systems') },
+    { href: '#beneficios', label: t('nav.benefits') },
+    { href: '#comparativo', label: t('nav.comparison') },
+    { href: '#contato', label: t('nav.contact') }
   ];
 
   const scrollToSection = (sectionId: string) => {
@@ -35,9 +36,8 @@ export default function Header() {
   };
 
   const switchLanguage = (langCode: string) => {
-    setCurrentLang(langCode);
+    setLanguage(langCode as 'pt' | 'en');
     setIsLangMenuOpen(false);
-    // Here you would implement actual language switching logic
   };
 
   return (
@@ -55,14 +55,6 @@ export default function Header() {
                   data-testid="company-logo"
                 />
                 <div className="absolute -inset-2 bg-primary/20 rounded-full blur opacity-0 group-hover:opacity-100 transition-opacity -z-10"></div>
-              </div>
-              <div className="text-left">
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-blue-600 to-purple-600 bg-clip-text text-transparent raleway" data-testid="company-name">
-                  G&L Systems
-                </h1>
-                <p className="text-sm text-muted-foreground open-sans">
-                  {currentLang === 'pt' ? 'Líder em soluções tecnológicas empresariais' : 'Leader in enterprise technology solutions'}
-                </p>
               </div>
             </div>
           </Link>
@@ -92,8 +84,8 @@ export default function Header() {
                 data-testid="language-switcher"
               >
                 <Globe className="w-4 h-4" />
-                <span className="text-sm font-medium">{languages.find(l => l.code === currentLang)?.flag}</span>
-                <span className="hidden sm:inline text-sm">{languages.find(l => l.code === currentLang)?.name}</span>
+                <span className="text-sm font-medium">{languages.find(l => l.code === language)?.flag}</span>
+                <span className="hidden sm:inline text-sm">{languages.find(l => l.code === language)?.name}</span>
               </button>
               
               {isLangMenuOpen && (

@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/contexts/LanguageContext";
 import Home from "@/pages/home";
 import SistemaERP from "@/pages/sistema-erp";
 import SistemaCRM from "@/pages/sistema-crm";
@@ -53,12 +54,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <div className="dark">
-          <Toaster />
-          <Router />
-        </div>
-      </TooltipProvider>
+      <LanguageProvider>
+        <TooltipProvider>
+          <div className="dark">
+            <Toaster />
+            <Router />
+          </div>
+        </TooltipProvider>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }

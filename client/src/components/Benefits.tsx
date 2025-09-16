@@ -1,40 +1,44 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function Benefits() {
+  const { t } = useLanguage();
+  
   const benefits = [
     {
       id: 'productivity',
       icon: 'fas fa-rocket',
-      title: 'Aumento de Produtividade',
-      description: 'Automação de processos que reduz o tempo gasto em tarefas manuais em até 70%'
+      titleKey: 'benefits.productivity',
+      descriptionKey: 'benefits.productivityDesc'
     },
     {
       id: 'error-reduction',
       icon: 'fas fa-shield-alt',
-      title: 'Redução de Erros',
-      description: 'Sistemas inteligentes que minimizam erros humanos e garantem consistência operacional'
+      titleKey: 'benefits.errorReduction',
+      descriptionKey: 'benefits.errorReductionDesc'
     },
     {
       id: 'profit-growth',
       icon: 'fas fa-chart-line',
-      title: 'Aumento de Lucros',
-      description: 'Otimização de recursos e processos que resultam em aumento médio de 35% na margem de lucro'
+      titleKey: 'benefits.profitGrowth',
+      descriptionKey: 'benefits.profitGrowthDesc'
     },
     {
       id: 'data-decisions',
       icon: 'fas fa-brain',
-      title: 'Decisões Baseadas em Dados',
-      description: 'Relatórios em tempo real e análises preditivas para tomadas de decisão mais assertivas'
+      titleKey: 'benefits.dataDecisions',
+      descriptionKey: 'benefits.dataDecisionsDesc'
     },
     {
       id: 'scalability',
       icon: 'fas fa-expand-arrows-alt',
-      title: 'Escalabilidade',
-      description: 'Sistemas que crescem junto com sua empresa, suportando expansão sem perda de performance'
+      titleKey: 'benefits.scalability',
+      descriptionKey: 'benefits.scalabilityDesc'
     },
     {
       id: 'customer-satisfaction',
       icon: 'fas fa-heart',
-      title: 'Satisfação do Cliente',
-      description: 'Atendimento mais eficiente e personalizado que aumenta a satisfação em até 60%'
+      titleKey: 'benefits.customerSatisfaction',
+      descriptionKey: 'benefits.customerSatisfactionDesc'
     }
   ];
 
@@ -43,10 +47,10 @@ export default function Benefits() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 fade-in">
           <h2 className="raleway text-4xl md:text-5xl font-bold mb-6" data-testid="benefits-title">
-            Benefícios dos Nossos Sistemas
+            {t('benefits.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="benefits-subtitle">
-            Transforme sua empresa com soluções que geram resultados mensuráveis e sustentáveis
+            {t('benefits.subtitle')}
           </p>
         </div>
 
@@ -61,10 +65,10 @@ export default function Benefits() {
                 <i className={`${benefit.icon} text-primary text-2xl`}></i>
               </div>
               <h3 className="text-2xl font-bold mb-4 raleway" data-testid={`benefit-title-${benefit.id}`}>
-                {benefit.title}
+                {t(benefit.titleKey)}
               </h3>
               <p className="text-muted-foreground" data-testid={`benefit-description-${benefit.id}`}>
-                {benefit.description}
+                {t(benefit.descriptionKey)}
               </p>
             </div>
           ))}

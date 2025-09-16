@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
 import { insertContactSchema } from "@shared/schema";
@@ -14,6 +15,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -36,16 +38,16 @@ export default function Contact() {
     },
     onSuccess: () => {
       toast({
-        title: "Sucesso!",
-        description: "Solicitação enviada com sucesso! Entraremos em contato em breve.",
+        title: t('contact.successTitle'),
+        description: t('contact.successMessage'),
       });
       form.reset();
       setIsSubmitted(true);
     },
     onError: (error: any) => {
       toast({
-        title: "Erro",
-        description: error.message || "Erro ao enviar solicitação. Tente novamente.",
+        title: t('contact.errorTitle'),
+        description: error.message || t('contact.errorMessage'),
         variant: "destructive",
       });
     },
@@ -56,13 +58,13 @@ export default function Contact() {
   };
 
   const systemOptions = [
-    { value: "erp", label: "ERP - Gestão Empresarial" },
-    { value: "crm", label: "CRM - Relacionamento com Clientes" },
-    { value: "restaurant", label: "Sistema de Comandas" },
-    { value: "financial", label: "Sistema Financeiro" },
-    { value: "inventory", label: "Estoque e Logística" },
-    { value: "education", label: "Plataforma EAD" },
-    { value: "all", label: "Todos os Sistemas" },
+    { value: "erp", labelKey: "contact.systems.erp" },
+    { value: "crm", labelKey: "contact.systems.crm" },
+    { value: "restaurant", labelKey: "contact.systems.restaurant" },
+    { value: "financial", labelKey: "contact.systems.financial" },
+    { value: "inventory", labelKey: "contact.systems.inventory" },
+    { value: "education", labelKey: "contact.systems.education" },
+    { value: "all", labelKey: "contact.systems.all" },
   ];
 
   if (isSubmitted) {
@@ -75,17 +77,17 @@ export default function Contact() {
                 <i className="fas fa-check text-primary text-2xl"></i>
               </div>
               <h2 className="raleway text-3xl font-bold mb-4" data-testid="success-title">
-                Solicitação Enviada com Sucesso!
+                {t('contact.successPageTitle')}
               </h2>
               <p className="text-muted-foreground mb-6" data-testid="success-message">
-                Recebemos sua solicitação e entraremos em contato em breve para agendar sua demonstração gratuita.
+                {t('contact.successPageMessage')}
               </p>
               <Button 
                 onClick={() => setIsSubmitted(false)}
                 variant="outline"
                 data-testid="send-another-button"
               >
-                Enviar Nova Solicitação
+                {t('contact.sendAnother')}
               </Button>
             </div>
           </div>
@@ -99,10 +101,10 @@ export default function Contact() {
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-16 fade-in">
           <h2 className="raleway text-4xl md:text-5xl font-bold mb-6" data-testid="contact-title">
-            Entre em Contato
+            {t('contact.title')}
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto" data-testid="contact-subtitle">
-            Solicite uma demonstração gratuita e descubra como podemos transformar seu negócio
+            {t('contact.subtitle')}
           </p>
         </div>
 
@@ -115,11 +117,11 @@ export default function Contact() {
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-foreground">Nome Completo</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">{t('contact.nameLabel')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
-                          placeholder="Seu nome completo"
+                          placeholder={t('contact.namePlaceholder')}
                           className="bg-input border-border"
                           data-testid="input-name"
                         />
@@ -134,12 +136,12 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-foreground">E-mail Profissional</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">{t('contact.emailLabel')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
                           type="email"
-                          placeholder="seu@empresa.com.br"
+                          placeholder={t('contact.emailPlaceholder')}
                           className="bg-input border-border"
                           data-testid="input-email"
                         />
@@ -156,11 +158,11 @@ export default function Contact() {
                   name="company"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-foreground">Empresa</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">{t('contact.companyLabel')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
-                          placeholder="Nome da sua empresa"
+                          placeholder={t('contact.companyPlaceholder')}
                           className="bg-input border-border"
                           data-testid="input-company"
                         />
@@ -175,12 +177,12 @@ export default function Contact() {
                   name="phone"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-sm font-semibold text-foreground">Telefone</FormLabel>
+                      <FormLabel className="text-sm font-semibold text-foreground">{t('contact.phoneLabel')}</FormLabel>
                       <FormControl>
                         <Input 
                           {...field} 
                           type="tel"
-                          placeholder="(11) 99999-9999"
+                          placeholder={t('contact.phonePlaceholder')}
                           className="bg-input border-border"
                           data-testid="input-phone"
                         />
@@ -196,17 +198,17 @@ export default function Contact() {
                 name="systemOfInterest"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-foreground">Sistema de Interesse</FormLabel>
+                    <FormLabel className="text-sm font-semibold text-foreground">{t('contact.systemLabel')}</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger className="bg-input border-border" data-testid="select-system">
-                          <SelectValue placeholder="Selecione um sistema" />
+                          <SelectValue placeholder={t('contact.systemPlaceholder')} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         {systemOptions.map((option) => (
                           <SelectItem key={option.value} value={option.value}>
-                            {option.label}
+                            {t(option.labelKey)}
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -221,12 +223,12 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm font-semibold text-foreground">Mensagem</FormLabel>
+                    <FormLabel className="text-sm font-semibold text-foreground">{t('contact.messageLabel')}</FormLabel>
                     <FormControl>
                       <Textarea 
                         {...field} 
                         rows={4}
-                        placeholder="Conte-nos mais sobre suas necessidades e objetivos..."
+                        placeholder={t('contact.messagePlaceholder')}
                         className="bg-input border-border resize-none"
                         data-testid="textarea-message"
                       />
@@ -250,7 +252,7 @@ export default function Contact() {
                     </FormControl>
                     <div className="space-y-1 leading-none">
                       <FormLabel className="text-sm text-muted-foreground">
-                        Aceito receber comunicações sobre soluções e demonstrações
+                        {t('contact.marketingAccept')}
                       </FormLabel>
                     </div>
                   </FormItem>
@@ -263,14 +265,14 @@ export default function Contact() {
                 disabled={contactMutation.isPending}
                 data-testid="submit-button"
               >
-                {contactMutation.isPending ? "Enviando..." : "Solicitar Demonstração Gratuita"}
+                {contactMutation.isPending ? t('contact.sending') : t('contact.submitButton')}
               </Button>
             </form>
           </Form>
 
           <div className="mt-8 pt-8 border-t border-border text-center">
             <p className="text-muted-foreground mb-4" data-testid="contact-alternative">
-              Ou entre em contato diretamente:
+              {t('contact.directContact')}
             </p>
             <div className="flex flex-wrap justify-center gap-6 text-sm">
               <a 

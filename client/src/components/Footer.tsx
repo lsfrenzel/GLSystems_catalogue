@@ -1,4 +1,7 @@
+import { useLanguage } from "@/contexts/LanguageContext";
+
 export default function Footer() {
+  const { t } = useLanguage();
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -10,12 +13,12 @@ export default function Footer() {
   };
 
   const systemLinks = [
-    { name: 'ERP Empresarial', section: 'sistemas' },
-    { name: 'CRM', section: 'sistemas' },
-    { name: 'Sistema de Comandas', section: 'sistemas' },
-    { name: 'Controle Financeiro', section: 'sistemas' },
-    { name: 'Estoque e Logística', section: 'sistemas' },
-    { name: 'Plataforma EAD', section: 'sistemas' }
+    { nameKey: 'footer.systems.erp', section: 'sistemas' },
+    { nameKey: 'footer.systems.crm', section: 'sistemas' },
+    { nameKey: 'footer.systems.restaurant', section: 'sistemas' },
+    { nameKey: 'footer.systems.financial', section: 'sistemas' },
+    { nameKey: 'footer.systems.inventory', section: 'sistemas' },
+    { nameKey: 'footer.systems.education', section: 'sistemas' }
   ];
 
 
@@ -27,21 +30,21 @@ export default function Footer() {
             <div className="mb-4">
               <div>
                 <h3 className="text-2xl font-bold text-foreground" data-testid="footer-company-name">
-                  G&L Systems
+                  {t('footer.companyName')}
                 </h3>
                 <p className="text-sm text-muted-foreground lato">
-                  Líder em tecnologia empresarial
+                  {t('footer.companyTagline')}
                 </p>
               </div>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md" data-testid="footer-description">
-              Especialistas em sistemas, sites, apps, tráfego pago e marketing digital. Transformamos negócios com tecnologia de ponta e soluções personalizadas há mais de 15 anos.
+              {t('footer.description')}
             </p>
           </div>
 
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-4" data-testid="footer-systems-title">
-              Sistemas
+              {t('footer.systemsTitle')}
             </h4>
             <ul className="space-y-2">
               {systemLinks.map((link, index) => (
@@ -51,7 +54,7 @@ export default function Footer() {
                     className="text-muted-foreground hover:text-primary transition-colors text-left"
                     data-testid={`footer-system-${index}`}
                   >
-                    {link.name}
+                    {t(link.nameKey)}
                   </button>
                 </li>
               ))}
@@ -60,7 +63,7 @@ export default function Footer() {
 
           <div>
             <h4 className="text-lg font-semibold text-foreground mb-4" data-testid="footer-contact-title">
-              Contato
+              {t('footer.contactTitle')}
             </h4>
             <div className="flex items-center">
               <i className="fas fa-phone text-primary mr-3"></i>
@@ -69,7 +72,7 @@ export default function Footer() {
                 className="text-muted-foreground hover:text-primary transition-colors"
                 data-testid="footer-phone"
               >
-                (11) 97536-3887
+                {t('footer.phoneNumber')}
               </a>
             </div>
           </div>
@@ -77,7 +80,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0" data-testid="footer-copyright">
-            © 2025 G&L Systems. Todos os direitos reservados.
+            {t('footer.copyright')}
           </p>
           <div className="flex space-x-6 text-sm">
             <a 
@@ -85,21 +88,21 @@ export default function Footer() {
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="footer-terms"
             >
-              Termos de Uso
+              {t('footer.terms')}
             </a>
             <a 
               href="#" 
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="footer-privacy"
             >
-              Política de Privacidade
+              {t('footer.privacy')}
             </a>
             <a 
               href="#" 
               className="text-muted-foreground hover:text-primary transition-colors"
               data-testid="footer-cookies"
             >
-              Cookies
+              {t('footer.cookies')}
             </a>
           </div>
         </div>
