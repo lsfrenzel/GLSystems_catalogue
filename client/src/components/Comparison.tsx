@@ -1,84 +1,87 @@
 import { CircleCheck, XCircle, TrendingUp, TrendingDown, Clock, Hourglass, Expand, Lock, Smile, Frown } from "lucide-react";
 import CustomSystemsMessage from "./CustomSystemsMessage";
+import { useLanguage } from "../contexts/LanguageContext";
 
 export default function Comparison() {
+  const { t } = useLanguage();
+  
   const comparisonData = [
     {
-      criteria: 'Produtividade',
+      criteria: t('comparison.productivity'),
       modern: { 
         icon: TrendingUp, 
-        text: 'Até 70% mais eficiente',
-        description: 'Automação completa de processos'
+        text: t('comparison.productivityModern'),
+        description: t('comparison.productivityModernDesc')
       },
       outdated: { 
         icon: TrendingDown, 
-        text: 'Processos manuais lentos',
-        description: 'Tarefas repetitivas e demoradas'
+        text: t('comparison.productivityOld'),
+        description: t('comparison.productivityOldDesc')
       }
     },
     {
-      criteria: 'Margem de Lucro',
+      criteria: t('comparison.profitMargin'),
       modern: { 
         icon: TrendingUp, 
-        text: '+35% em média',
-        description: 'Controle total de custos e receitas'
+        text: t('comparison.profitMarginModern'),
+        description: t('comparison.profitMarginModernDesc')
       },
       outdated: { 
         icon: XCircle, 
-        text: 'Sem visibilidade de custos',
-        description: 'Oportunidades perdidas de economia'
+        text: t('comparison.profitMarginOld'),
+        description: t('comparison.profitMarginOldDesc')
       }
     },
     {
-      criteria: 'Taxa de Erros',
+      criteria: t('comparison.errorRate'),
       modern: { 
         icon: CircleCheck, 
-        text: '80% de redução',
-        description: 'Validação automática e controles rígidos'
+        text: t('comparison.errorRateModern'),
+        description: t('comparison.errorRateModernDesc')
       },
       outdated: { 
         icon: XCircle, 
-        text: 'Erros frequentes',
-        description: 'Erros humanos e retrabalho'
+        text: t('comparison.errorRateOld'),
+        description: t('comparison.errorRateOldDesc')
       }
     },
     {
-      criteria: 'Tempo de Resposta',
+      criteria: t('comparison.responseTime'),
       modern: { 
         icon: Clock, 
-        text: 'Tempo real',
-        description: 'Informações atualizadas instantaneamente'
+        text: t('comparison.responseTimeModern'),
+        description: t('comparison.responseTimeModernDesc')
       },
       outdated: { 
         icon: Hourglass, 
-        text: 'Dias ou semanas',
-        description: 'Atraso na consolidação de dados'
+        text: t('comparison.responseTimeOld'),
+        description: t('comparison.responseTimeOldDesc')
       }
     },
     {
-      criteria: 'Escalabilidade',
+      criteria: t('comparison.scalability'),
       modern: { 
         icon: Expand, 
-        text: 'Crescimento ilimitado',
-        description: 'Adapta-se ao tamanho do seu negócio'
+        text: t('comparison.scalabilityModern'),
+        description: t('comparison.scalabilityModernDesc')
       },
       outdated: { 
         icon: Lock, 
-        text: 'Limitações constantes',
-        description: 'Gargalos de crescimento'
+        text: t('comparison.scalabilityOld'),
+        description: t('comparison.scalabilityOldDesc')
       }
     },
     {
-      criteria: 'Satisfação do Cliente',
+      criteria: t('comparison.customerSatisfaction'),
       modern: { 
         icon: Smile, 
-        text: '+60% de satisfação',
-        description: 'Atendimento ágil e personalizado'
+        text: t('comparison.customerSatisfactionModern'),
+        description: t('comparison.customerSatisfactionModernDesc')
       },
       outdated: { 
         icon: Frown, 
-        text: 'Reclamações frequentes',
-        description: 'Atrasos e falta de informações'
+        text: t('comparison.customerSatisfactionOld'),
+        description: t('comparison.customerSatisfactionOldDesc')
       }
     }
   ];
@@ -88,10 +91,10 @@ export default function Comparison() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16 fade-in">
           <h2 className="raleway text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent" data-testid="comparison-title">
-            Por que Escolher Sistemas Modernos?
+            {t('comparison.title')}
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4" data-testid="comparison-subtitle">
-            Veja a diferença entre empresas que investem em tecnologia e aquelas que ficam para trás
+            {t('comparison.subtitle')}
           </p>
           <div className="max-w-2xl mx-auto">
             <CustomSystemsMessage variant="default" />
@@ -102,12 +105,12 @@ export default function Comparison() {
           {/* Mobile Headers */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 md:mb-8 lg:hidden">
             <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-lg md:rounded-xl p-3 sm:p-4 text-center shadow-xl">
-              <h3 className="text-base sm:text-lg font-bold mb-1">Sistemas Modernos</h3>
-              <p className="opacity-90 text-xs sm:text-sm">Tecnologia que impulsiona</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1">{t('comparison.modernSystems')}</h3>
+              <p className="opacity-90 text-xs sm:text-sm">{t('comparison.modernSystemsDesc').split(' growth')[0]}</p>
             </div>
             <div className="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-lg md:rounded-xl p-3 sm:p-4 text-center shadow-xl">
-              <h3 className="text-base sm:text-lg font-bold mb-1">Sistemas Legados</h3>
-              <p className="opacity-90 text-xs sm:text-sm">Limitações e problemas</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1">{t('comparison.oldSystems')}</h3>
+              <p className="opacity-90 text-xs sm:text-sm">{t('comparison.oldSystemsDesc').split(' that')[0]}</p>
             </div>
           </div>
 
@@ -115,12 +118,12 @@ export default function Comparison() {
           <div className="hidden lg:grid grid-cols-3 gap-8 mb-8">
             <div></div>
             <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-xl p-6 text-center shadow-xl">
-              <h3 className="text-2xl font-bold mb-2">Sistemas Modernos</h3>
-              <p className="opacity-90">Tecnologia que impulsiona o crescimento</p>
+              <h3 className="text-2xl font-bold mb-2">{t('comparison.modernSystems')}</h3>
+              <p className="opacity-90">{t('comparison.modernSystemsDesc')}</p>
             </div>
             <div className="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-xl p-6 text-center shadow-xl">
-              <h3 className="text-2xl font-bold mb-2">Sistemas Legados/Sem Sistema</h3>
-              <p className="opacity-90">Limitações que impedem o progresso</p>
+              <h3 className="text-2xl font-bold mb-2">{t('comparison.oldSystems')}</h3>
+              <p className="opacity-90">{t('comparison.oldSystemsDesc')}</p>
             </div>
           </div>
 

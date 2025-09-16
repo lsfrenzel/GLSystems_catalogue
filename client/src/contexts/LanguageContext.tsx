@@ -126,6 +126,37 @@ const translations = {
     'comparison.scalability': 'Escalabilidade',
     'comparison.customerSatisfaction': 'Satisfação do Cliente',
     
+    // Comparison details
+    'comparison.productivityModern': 'Até 70% mais eficiente',
+    'comparison.productivityModernDesc': 'Automação completa de processos',
+    'comparison.productivityOld': 'Processos manuais lentos', 
+    'comparison.productivityOldDesc': 'Tarefas repetitivas e demoradas',
+    
+    'comparison.profitMarginModern': '+35% em média',
+    'comparison.profitMarginModernDesc': 'Controle total de custos e receitas',
+    'comparison.profitMarginOld': 'Sem visibilidade de custos',
+    'comparison.profitMarginOldDesc': 'Oportunidades perdidas de economia',
+    
+    'comparison.errorRateModern': '80% de redução',
+    'comparison.errorRateModernDesc': 'Validação automática e controles rígidos',
+    'comparison.errorRateOld': 'Erros frequentes',
+    'comparison.errorRateOldDesc': 'Erros humanos e retrabalho',
+    
+    'comparison.responseTimeModern': 'Tempo real',
+    'comparison.responseTimeModernDesc': 'Informações atualizadas instantaneamente',
+    'comparison.responseTimeOld': 'Dias ou semanas',
+    'comparison.responseTimeOldDesc': 'Atraso na consolidação de dados',
+    
+    'comparison.scalabilityModern': 'Crescimento ilimitado',
+    'comparison.scalabilityModernDesc': 'Adapta-se ao tamanho do seu negócio',
+    'comparison.scalabilityOld': 'Limitações constantes',
+    'comparison.scalabilityOldDesc': 'Gargalos de crescimento',
+    
+    'comparison.customerSatisfactionModern': '+60% de satisfação',
+    'comparison.customerSatisfactionModernDesc': 'Atendimento ágil e personalizado',
+    'comparison.customerSatisfactionOld': 'Reclamações frequentes',
+    'comparison.customerSatisfactionOldDesc': 'Atrasos e falta de informações',
+    
     // Contact
     'contact.title': 'Entre em Contato',
     'contact.subtitle': 'Solicite uma demonstração gratuita e descubra como podemos transformar seu negócio',
@@ -303,6 +334,37 @@ const translations = {
     'comparison.responseTime': 'Response Time',
     'comparison.scalability': 'Scalability',
     'comparison.customerSatisfaction': 'Customer Satisfaction',
+    
+    // Comparison details
+    'comparison.productivityModern': 'Up to 70% more efficient',
+    'comparison.productivityModernDesc': 'Complete process automation',
+    'comparison.productivityOld': 'Slow manual processes', 
+    'comparison.productivityOldDesc': 'Repetitive and time-consuming tasks',
+    
+    'comparison.profitMarginModern': '+35% on average',
+    'comparison.profitMarginModernDesc': 'Total cost and revenue control',
+    'comparison.profitMarginOld': 'No cost visibility',
+    'comparison.profitMarginOldDesc': 'Lost opportunities for savings',
+    
+    'comparison.errorRateModern': '80% reduction',
+    'comparison.errorRateModernDesc': 'Automatic validation and strict controls',
+    'comparison.errorRateOld': 'Frequent errors',
+    'comparison.errorRateOldDesc': 'Human errors and rework',
+    
+    'comparison.responseTimeModern': 'Real time',
+    'comparison.responseTimeModernDesc': 'Information updated instantly',
+    'comparison.responseTimeOld': 'Days or weeks',
+    'comparison.responseTimeOldDesc': 'Delay in data consolidation',
+    
+    'comparison.scalabilityModern': 'Unlimited growth',
+    'comparison.scalabilityModernDesc': 'Adapts to your business size',
+    'comparison.scalabilityOld': 'Constant limitations',
+    'comparison.scalabilityOldDesc': 'Growth bottlenecks',
+    
+    'comparison.customerSatisfactionModern': '+60% satisfaction',
+    'comparison.customerSatisfactionModernDesc': 'Agile and personalized service',
+    'comparison.customerSatisfactionOld': 'Frequent complaints',
+    'comparison.customerSatisfactionOldDesc': 'Delays and lack of information',
     
     // Contact
     'contact.title': 'Get in Touch',
