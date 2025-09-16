@@ -27,15 +27,15 @@ export default function Footer() {
             <div className="mb-4">
               <div>
                 <h3 className="text-2xl font-bold text-foreground" data-testid="footer-company-name">
-                  Catálogo de Soluções Digitais
+                  G&L Systems
                 </h3>
                 <p className="text-sm text-muted-foreground lato">
-                  Soluções digitais que transformam seu negócio
+                  Líder em tecnologia empresarial
                 </p>
               </div>
             </div>
             <p className="text-muted-foreground mb-4 max-w-md" data-testid="footer-description">
-              Desenvolvemos sistemas inteligentes que ajudam empresas a crescer, otimizar processos e aumentar sua competitividade no mercado digital.
+              Especialistas em sistemas, sites, apps, tráfego pago e marketing digital. Transformamos negócios com tecnologia de ponta e soluções personalizadas há mais de 15 anos.
             </p>
           </div>
 
@@ -77,7 +77,7 @@ export default function Footer() {
 
         <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-muted-foreground mb-4 md:mb-0" data-testid="footer-copyright">
-            © 2025 Catálogo de Soluções Digitais. Todos os direitos reservados.
+            © 2025 G&L Systems. Todos os direitos reservados.
           </p>
           <div className="flex space-x-6 text-sm">
             <a 

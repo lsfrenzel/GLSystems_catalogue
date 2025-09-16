@@ -92,11 +92,16 @@ export default function SystemsShowcase() {
     <section id="sistemas" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16 fade-in">
+          <div className="mb-4">
+            <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              CATÁLOGO DE SOLUÇÕES DIGITAIS
+            </span>
+          </div>
           <h2 className="raleway text-4xl md:text-5xl font-bold mb-6" data-testid="systems-title">
-            Nossos Sistemas
+            Sistemas Empresariais G&L
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto" data-testid="systems-subtitle">
-            Soluções completas e integradas para otimizar cada aspecto do seu negócio
+            Soluções tecnológicas completas e personalizadas desenvolvidas pela G&L Systems para revolucionar seu negócio
           </p>
         </div>
 
