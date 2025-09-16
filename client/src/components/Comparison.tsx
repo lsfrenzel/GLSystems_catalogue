@@ -4,81 +4,81 @@ import CustomSystemsMessage from "./CustomSystemsMessage";
 export default function Comparison() {
   const comparisonData = [
     {
-      criteria: 'Produtividade',
+      criteria: 'Productivity',
       modern: { 
         icon: TrendingUp, 
-        text: 'Até 70% mais eficiente',
-        description: 'Automação completa dos processos'
+        text: 'Up to 70% more efficient',
+        description: 'Complete process automation'
       },
       outdated: { 
         icon: TrendingDown, 
-        text: 'Processos manuais lentos',
-        description: 'Tarefas repetitivas e demoradas'
+        text: 'Slow manual processes',
+        description: 'Repetitive and time-consuming tasks'
       }
     },
     {
-      criteria: 'Margem de Lucro',
+      criteria: 'Profit Margin',
       modern: { 
         icon: TrendingUp, 
-        text: '+35% em média',
-        description: 'Controle total de custos e receitas'
+        text: '+35% on average',
+        description: 'Total cost and revenue control'
       },
       outdated: { 
         icon: XCircle, 
-        text: 'Sem visibilidade de custos',
-        description: 'Perda de oportunidades de economia'
+        text: 'No cost visibility',
+        description: 'Lost opportunities for savings'
       }
     },
     {
-      criteria: 'Taxa de Erros',
+      criteria: 'Error Rate',
       modern: { 
         icon: CircleCheck, 
-        text: 'Redução de 80%',
-        description: 'Validação automática e controles rígidos'
+        text: '80% reduction',
+        description: 'Automatic validation and strict controls'
       },
       outdated: { 
         icon: XCircle, 
-        text: 'Erros frequentes',
-        description: 'Falhas humanas e retrabalho'
+        text: 'Frequent errors',
+        description: 'Human errors and rework'
       }
     },
     {
-      criteria: 'Tempo de Resposta',
+      criteria: 'Response Time',
       modern: { 
         icon: Clock, 
-        text: 'Tempo real',
-        description: 'Informações atualizadas instantaneamente'
+        text: 'Real time',
+        description: 'Information updated instantly'
       },
       outdated: { 
         icon: Hourglass, 
-        text: 'Dias ou semanas',
-        description: 'Demora na consolidação de dados'
+        text: 'Days or weeks',
+        description: 'Delay in data consolidation'
       }
     },
     {
-      criteria: 'Escalabilidade',
+      criteria: 'Scalability',
       modern: { 
         icon: Expand, 
-        text: 'Crescimento ilimitado',
-        description: 'Adapta-se ao tamanho do seu negócio'
+        text: 'Unlimited growth',
+        description: 'Adapts to your business size'
       },
       outdated: { 
         icon: Lock, 
-        text: 'Limitações constantes',
-        description: 'Travamento do crescimento'
+        text: 'Constant limitations',
+        description: 'Growth bottlenecks'
       }
     },
     {
-      criteria: 'Satisfação do Cliente',
+      criteria: 'Customer Satisfaction',
       modern: { 
         icon: Smile, 
-        text: '+60% de satisfação',
-        description: 'Atendimento ágil e personalizado'
+        text: '+60% satisfaction',
+        description: 'Agile and personalized service'
       },
       outdated: { 
         icon: Frown, 
-        text: 'Reclamações frequentes',
-        description: 'Demora e falta de informações'
+        text: 'Frequent complaints',
+        description: 'Delays and lack of information'
       }
     }
   ];
@@ -102,12 +102,12 @@ export default function Comparison() {
           {/* Mobile Headers */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 mb-6 md:mb-8 lg:hidden">
             <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-lg md:rounded-xl p-3 sm:p-4 text-center shadow-xl">
-              <h3 className="text-base sm:text-lg font-bold mb-1">Sistemas Modernos</h3>
-              <p className="opacity-90 text-xs sm:text-sm">Tecnologia que impulsiona</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1">Modern Systems</h3>
+              <p className="opacity-90 text-xs sm:text-sm">Technology that drives</p>
             </div>
             <div className="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-lg md:rounded-xl p-3 sm:p-4 text-center shadow-xl">
-              <h3 className="text-base sm:text-lg font-bold mb-1">Sistemas Antigos</h3>
-              <p className="opacity-90 text-xs sm:text-sm">Limitações e problemas</p>
+              <h3 className="text-base sm:text-lg font-bold mb-1">Legacy Systems</h3>
+              <p className="opacity-90 text-xs sm:text-sm">Limitations and problems</p>
             </div>
           </div>
 
@@ -115,12 +115,12 @@ export default function Comparison() {
           <div className="hidden lg:grid grid-cols-3 gap-8 mb-8">
             <div></div>
             <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-xl p-6 text-center shadow-xl">
-              <h3 className="text-2xl font-bold mb-2">Sistemas Modernos</h3>
-              <p className="opacity-90">Tecnologia que impulsiona o crescimento</p>
+              <h3 className="text-2xl font-bold mb-2">Modern Systems</h3>
+              <p className="opacity-90">Technology that drives growth</p>
             </div>
             <div className="bg-gradient-to-br from-gray-500 to-gray-600 text-white rounded-xl p-6 text-center shadow-xl">
-              <h3 className="text-2xl font-bold mb-2">Sistemas Antigos/Sem Sistema</h3>
-              <p className="opacity-90">Limitações que impedem o progresso</p>
+              <h3 className="text-2xl font-bold mb-2">Legacy Systems/No System</h3>
+              <p className="opacity-90">Limitations that prevent progress</p>
             </div>
           </div>
 

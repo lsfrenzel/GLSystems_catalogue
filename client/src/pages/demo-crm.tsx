@@ -60,14 +60,14 @@ export default function DemoCRM() {
     },
     {
       id: 'clientes',
-      label: 'Clientes',
+      label: 'Customers',
       icon: 'fas fa-heart',
       onClick: () => setSelectedModule('clientes'),
       isActive: selectedModule === 'clientes'
     },
     {
       id: 'vendas',
-      label: 'Vendas',
+      label: 'Sales',
       icon: 'fas fa-user-plus',
       onClick: () => setSelectedModule('leads'),
       isActive: selectedModule === 'leads'
@@ -81,7 +81,7 @@ export default function DemoCRM() {
     },
     {
       id: 'relatorios',
-      label: 'Relatórios',
+      label: 'Reports',
       icon: 'fas fa-file-chart-line',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'

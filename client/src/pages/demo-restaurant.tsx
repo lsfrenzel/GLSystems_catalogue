@@ -18,28 +18,28 @@ export default function DemoRestaurant() {
     },
     {
       id: 'pedidos',
-      label: 'Pedidos',
+      label: 'Orders',
       icon: 'fas fa-receipt',
       onClick: () => setSelectedModule('pedidos'),
       isActive: selectedModule === 'pedidos'
     },
     {
       id: 'cardapio',
-      label: 'Cardápio',
+      label: 'Menu',
       icon: 'fas fa-book-open',
       onClick: () => setSelectedModule('cardapio'),
       isActive: selectedModule === 'cardapio'
     },
     {
       id: 'mesas',
-      label: 'Mesas',
+      label: 'Tables',
       icon: 'fas fa-chair',
       onClick: () => setSelectedModule('mesas'),
       isActive: selectedModule === 'mesas'
     },
     {
       id: 'relatorios',
-      label: 'Relatórios',
+      label: 'Reports',
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'

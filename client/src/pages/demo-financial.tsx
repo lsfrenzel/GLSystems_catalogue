@@ -18,28 +18,28 @@ export default function DemoFinancial() {
     },
     {
       id: 'receitas',
-      label: 'Receitas',
+      label: 'Revenue',
       icon: 'fas fa-arrow-up',
       onClick: () => setSelectedModule('receitas'),
       isActive: selectedModule === 'receitas'
     },
     {
       id: 'despesas',
-      label: 'Despesas',
+      label: 'Expenses',
       icon: 'fas fa-arrow-down',
       onClick: () => setSelectedModule('despesas'),
       isActive: selectedModule === 'despesas'
     },
     {
       id: 'investimentos',
-      label: 'Investimentos',
+      label: 'Investments',
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('investimentos'),
       isActive: selectedModule === 'investimentos'
     },
     {
       id: 'relatorios',
-      label: 'Relatórios',
+      label: 'Reports',
       icon: 'fas fa-file-chart-column',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'
