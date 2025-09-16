@@ -10,31 +10,31 @@ export default function SistemaCRM() {
   }, []);
   const systemData = {
     id: 'crm',
-    title: 'CRM - Customer Relationship Management',
-    subtitle: 'Transform leads into loyal customers',
+    title: 'CRM – Gestão de Relacionamento com o Cliente',
+    subtitle: 'Transforme leads em clientes fiéis',
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-users',
-    description: 'TechSolutions CRM system offers complete customer relationship management, from first contact to loyalty. Automate sales, organize data and increase your conversion rate.',
+    description: 'O sistema CRM da TechSolutions oferece gestão completa de relacionamento com clientes, do primeiro contato à fidelização. Automatize vendas, organize dados e aumente sua taxa de conversão.',
     mainBenefits: [
       {
         icon: 'fas fa-user-plus',
-        title: 'Lead Generation',
-        description: 'Capture and organize all prospects in a sales funnel'
+        title: 'Geração de Leads',
+        description: 'Capture e organize todos os leads em um funil de vendas'
       },
       {
         icon: 'fas fa-chart-trending-up',
-        title: 'Sales Increase',
-        description: 'Increase your sales by up to 60% with intelligent automation'
+        title: 'Aumento de Vendas',
+        description: 'Aumente suas vendas em até 60% com automação inteligente'
       },
       {
         icon: 'fas fa-heart',
-        title: 'Customer Loyalty',
-        description: 'Keep customers engaged with personalized communication'
+        title: 'Fidelização de Clientes',
+        description: 'Mantenha clientes engajados com comunicação personalizada'
       },
       {
         icon: 'fas fa-analytics',
-        title: 'Performance Analysis',
-        description: 'Detailed reports on team and sales results'
+        title: 'Análise de Desempenho',
+        description: 'Relatórios detalhados sobre equipe e resultados de vendas'
       }
     ],
     detailedFeatures: {
