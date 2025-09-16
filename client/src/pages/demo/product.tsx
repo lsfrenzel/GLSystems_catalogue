@@ -85,7 +85,7 @@ export default function ProductDetail() {
           <nav className="mb-8" data-testid="breadcrumb">
             <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
               <Link href="/demo/ecommerce" className="hover:text-blue-600">
-                Loja
+                Store
               </Link>
               <i className="fas fa-chevron-right text-xs"></i>
               <span className="capitalize">{product.category}</span>
@@ -140,7 +140,7 @@ export default function ProductDetail() {
                   {renderStars(product.rating)}
                 </div>
                 <span className="text-gray-600 dark:text-gray-300 text-sm">
-                  ({product.rating}) • 127 avaliações
+                  ({product.rating}) • 127 reviews
                 </span>
               </div>
 
@@ -177,7 +177,7 @@ export default function ProductDetail() {
                 </p>
               </div>
 
-              {/* Quantidade e Adicionar ao Carrinho */}
+              {/* Quantity and Add to Cart */}
               <div className="mb-8">
                 <div className="flex items-center gap-4 mb-4">
                   <label className="text-gray-700 dark:text-gray-300 font-medium">
@@ -211,7 +211,7 @@ export default function ProductDetail() {
                     data-testid="add-to-cart-button"
                   >
                     <i className="fas fa-shopping-cart mr-2"></i>
-                    Adicionar ao Carrinho
+                    Add to Cart
                   </button>
                   <Link
                     href="/demo/cart"
@@ -266,7 +266,7 @@ export default function ProductDetail() {
           {relatedProducts.length > 0 && (
             <div>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                Produtos Relacionados
+                Related Products
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-testid="related-products">
                 {relatedProducts.map((relatedProduct) => (
