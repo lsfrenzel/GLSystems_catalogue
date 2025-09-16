@@ -227,7 +227,7 @@ export default function DemoCRM() {
         fonte: newLead.fonte,
         status: 'Novo',
         score: Math.floor(Math.random() * 40) + 60,
-        data: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' })
+        data: new Date().toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' })
       };
       setLeads([lead, ...leads]);
       setNewLead({ nome: '', empresa: '', email: '', telefone: '', fonte: 'Website' });
@@ -260,7 +260,7 @@ export default function DemoCRM() {
         email: newCustomer.email,
         telefone: newCustomer.telefone,
         valorTotal: Math.floor(Math.random() * 50000) + 10000,
-        ultimaCompra: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }),
+        ultimaCompra: new Date().toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' }),
         status: 'Ativo',
         vendedor: newCustomer.vendedor
       };
@@ -296,8 +296,8 @@ export default function DemoCRM() {
             {selectedModule === 'dashboard' && (
               <div>
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-white mb-2 raleway">Dashboard de Vendas</h2>
-                  <p className="text-zinc-400">Acompanhe o desempenho da sua equipe comercial em tempo real</p>
+                  <h2 className="text-2xl font-bold text-white mb-2 raleway">Sales Dashboard</h2>
+                  <p className="text-zinc-400">Track your sales team's performance in real time</p>
                 </div>
 
                 {/* KPI Cards */}
@@ -310,9 +310,9 @@ export default function DemoCRM() {
                       <span className="text-green-400 text-sm font-medium">+23.5%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-1" data-testid="text-receita-total">
-                      R$ {totalRevenue.toLocaleString('pt-BR')}
+                      $ {totalRevenue.toLocaleString('en-US')}
                     </h3>
-                    <p className="text-zinc-400 text-sm">Receita Total</p>
+                    <p className="text-zinc-400 text-sm">Total Revenue</p>
                     <div className="mt-3 bg-zinc-800 rounded-full h-2">
                       <div className="bg-gradient-to-r from-green-400 to-emerald-500 h-2 rounded-full" style={{width: '78%'}}></div>
                     </div>
@@ -329,10 +329,10 @@ export default function DemoCRM() {
                     <h3 className="text-2xl font-bold text-white mb-1" data-testid="text-leads-total">
                       {leads.length}
                     </h3>
-                    <p className="text-zinc-400 text-sm">Novos Leads</p>
+                    <p className="text-zinc-400 text-sm">New Leads</p>
                     <p className="text-blue-400 text-xs mt-2">
                       <i className="fas fa-percentage mr-1"></i>
-                      {conversionRate}% conversão
+                      {conversionRate}% conversion
                     </p>
                   </div>
 
@@ -345,10 +345,10 @@ export default function DemoCRM() {
                     <h3 className="text-2xl font-bold text-white mb-1" data-testid="text-clientes-ativos">
                       {activeCustomers}
                     </h3>
-                    <p className="text-zinc-400 text-sm">Clientes Ativos</p>
+                    <p className="text-zinc-400 text-sm">Active Customers</p>
                     <p className="text-purple-400 text-xs mt-2">
                       <i className="fas fa-ticket-alt mr-1"></i>
-                      R$ {avgTicket.toLocaleString('pt-BR')} médio
+                      $ {avgTicket.toLocaleString('en-US')} average
                     </p>
                   </div>
 
@@ -362,8 +362,8 @@ export default function DemoCRM() {
                     <h3 className="text-2xl font-bold text-white mb-1" data-testid="text-oportunidades-total">
                       {opportunities.length}
                     </h3>
-                    <p className="text-zinc-400 text-sm">Oportunidades</p>
-                    <p className="text-orange-400 text-xs mt-2">R$ {(totalOpportunityValue / 1000).toFixed(0)}k em potencial</p>
+                    <p className="text-zinc-400 text-sm">Opportunities</p>
+                    <p className="text-orange-400 text-xs mt-2">$ {(totalOpportunityValue / 1000).toFixed(0)}k potential</p>
                   </div>
                 </div>
 
@@ -395,7 +395,7 @@ export default function DemoCRM() {
                         <XAxis type="number" stroke="#9CA3AF" />
                         <YAxis dataKey="stage" type="category" stroke="#9CA3AF" width={80} />
                         <Tooltip 
-                          formatter={(value: number) => [`R$ ${value.toLocaleString('pt-BR')}`]} 
+                          formatter={(value: number) => [`$ ${value.toLocaleString('en-US')}`]} 
                           contentStyle={{ backgroundColor: '#18181B', border: '1px solid #374151', borderRadius: '8px' }}
                           labelStyle={{ color: '#F3F4F6' }}
                         />
@@ -424,7 +424,7 @@ export default function DemoCRM() {
 
                 {/* Team Performance Section */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold text-white mb-6 raleway">Performance da Equipe Comercial</h3>
+                  <h3 className="text-xl font-bold text-white mb-6 raleway">Sales Team Performance</h3>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
                     {teamPerformance.map((member, index) => (
                       <div key={member.name} className="bg-zinc-900 rounded-xl border border-zinc-700 p-6" data-testid={`card-team-member-${index}`}>
@@ -446,27 +446,27 @@ export default function DemoCRM() {
                         <div className="grid grid-cols-2 gap-4 mb-4">
                           <div className="text-center">
                             <p className="text-2xl font-bold text-green-400" data-testid={`text-member-revenue-${index}`}>
-                              R$ {(member.revenue / 1000).toFixed(0)}k
+                              $ {(member.revenue / 1000).toFixed(0)}k
                             </p>
-                            <p className="text-xs text-zinc-400">Receita</p>
+                            <p className="text-xs text-zinc-400">Revenue</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-blue-400" data-testid={`text-member-opportunities-${index}`}>
                               {member.opportunities}
                             </p>
-                            <p className="text-xs text-zinc-400">Oportunidades</p>
+                            <p className="text-xs text-zinc-400">Opportunities</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-purple-400" data-testid={`text-member-customers-${index}`}>
                               {member.customers}
                             </p>
-                            <p className="text-xs text-zinc-400">Clientes</p>
+                            <p className="text-xs text-zinc-400">Customers</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-orange-400" data-testid={`text-member-conversion-${index}`}>
                               {member.conversionRate}%
                             </p>
-                            <p className="text-xs text-zinc-400">Conversão</p>
+                            <p className="text-xs text-zinc-400">Conversion</p>
                           </div>
                         </div>
 
@@ -539,13 +539,13 @@ export default function DemoCRM() {
                 {/* Performance and Sources */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-6">
-                    <h3 className="text-lg font-semibold text-white mb-4 raleway">Oportunidades Recentes</h3>
+                    <h3 className="text-lg font-semibold text-white mb-4 raleway">Recent Opportunities</h3>
                     <div className="space-y-4">
                       {opportunities.slice(0, 4).map((opp) => (
                         <div key={opp.id} className="p-4 bg-zinc-800 rounded-lg border-l-4 border-green-500" data-testid={`row-opportunity-${opp.id}`}>
                           <div className="flex items-center justify-between mb-2">
                             <h4 className="font-medium text-white">{opp.cliente}</h4>
-                            <span className="text-sm font-semibold text-green-400">R$ {opp.valor.toLocaleString('pt-BR')}</span>
+                            <span className="text-sm font-semibold text-green-400">$ {opp.valor.toLocaleString('en-US')}</span>
                           </div>
                           <div className="grid grid-cols-2 gap-2 text-xs text-zinc-400">
                             <div>
@@ -687,13 +687,13 @@ export default function DemoCRM() {
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-zinc-700">
-                          <th className="text-left py-3 text-white">Nome</th>
-                          <th className="text-left py-3 text-white">Empresa</th>
-                          <th className="text-left py-3 text-white">E-mail</th>
+                          <th className="text-left py-3 text-white">Name</th>
+                          <th className="text-left py-3 text-white">Company</th>
+                          <th className="text-left py-3 text-white">Email</th>
                           <th className="text-left py-3 text-white">Fonte</th>
                           <th className="text-left py-3 text-white">Score</th>
                           <th className="text-left py-3 text-white">Status</th>
-                          <th className="text-left py-3 text-white">Ações</th>
+                          <th className="text-left py-3 text-white">Actions</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -754,7 +754,7 @@ export default function DemoCRM() {
                     />
                     <input
                       type="number"
-                      placeholder="Valor (R$)"
+                      placeholder="Valor ($)"
                       value={newOpportunity.valor}
                       onChange={(e) => setNewOpportunity({...newOpportunity, valor: e.target.value})}
                       className="px-3 py-2 border border-zinc-600 rounded-lg bg-zinc-800 text-white placeholder-zinc-400"
@@ -808,7 +808,7 @@ export default function DemoCRM() {
                         {opportunities.filter(opp => opp.etapa === stage).map((opp) => (
                           <div key={opp.id} className="bg-zinc-800 p-3 rounded-lg border border-zinc-600" data-testid={`card-opportunity-${opp.id}`}>
                             <h5 className="font-medium text-white text-sm mb-1">{opp.cliente}</h5>
-                            <p className="text-green-400 font-semibold text-sm">R$ {opp.valor.toLocaleString('pt-BR')}</p>
+                            <p className="text-green-400 font-semibold text-sm">$ {opp.valor.toLocaleString('en-US')}</p>
                             <p className="text-zinc-400 text-xs">{opp.probabilidade}% • {opp.vendedor}</p>
                             <select
                               value={opp.etapa}
@@ -830,7 +830,7 @@ export default function DemoCRM() {
                           {opportunities.filter(opp => opp.etapa === stage).length} oportunidades
                         </p>
                         <p className="text-xs text-zinc-500">
-                          R$ {opportunities.filter(opp => opp.etapa === stage).reduce((sum, opp) => sum + opp.valor, 0).toLocaleString('pt-BR')}
+                          $ {opportunities.filter(opp => opp.etapa === stage).reduce((sum, opp) => sum + opp.valor, 0).toLocaleString('en-US')}
                         </p>
                       </div>
                     </div>
@@ -841,7 +841,7 @@ export default function DemoCRM() {
 
             {selectedModule === 'clientes' && (
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6 raleway">Gestão de Clientes</h2>
+                <h2 className="text-2xl font-bold text-white mb-6 raleway">Customer Management</h2>
                 
                 {/* Add New Customer Form */}
                 <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-6 mb-6">
@@ -898,7 +898,7 @@ export default function DemoCRM() {
                         <i className="fas fa-users text-white"></i>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">Total de Clientes</h3>
+                        <h3 className="text-lg font-semibold text-white">Total Customers</h3>
                         <p className="text-2xl font-bold text-green-400" data-testid="text-total-customers">
                           {customers.length}
                         </p>
@@ -912,7 +912,7 @@ export default function DemoCRM() {
                         <i className="fas fa-star text-white"></i>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">Clientes VIP</h3>
+                        <h3 className="text-lg font-semibold text-white">VIP Customers</h3>
                         <p className="text-2xl font-bold text-purple-400" data-testid="text-vip-customers">
                           {customers.filter(c => c.status === 'VIP').length}
                         </p>
@@ -926,9 +926,9 @@ export default function DemoCRM() {
                         <i className="fas fa-money-bill text-white"></i>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">Receita Total</h3>
+                        <h3 className="text-lg font-semibold text-white">Total Revenue</h3>
                         <p className="text-2xl font-bold text-blue-400" data-testid="text-total-customer-revenue">
-                          R$ {totalRevenue.toLocaleString('pt-BR')}
+                          $ {totalRevenue.toLocaleString('en-US')}
                         </p>
                       </div>
                     </div>
@@ -937,15 +937,15 @@ export default function DemoCRM() {
 
                 {/* Customers List */}
                 <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-6">
-                  <h3 className="text-lg font-semibold text-white mb-4">Lista de Clientes</h3>
+                  <h3 className="text-lg font-semibold text-white mb-4">Customer List</h3>
                   <div className="overflow-x-auto">
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-zinc-700">
-                          <th className="text-left py-3 text-white">Nome</th>
-                          <th className="text-left py-3 text-white">Empresa</th>
-                          <th className="text-left py-3 text-white">E-mail</th>
-                          <th className="text-left py-3 text-white">Vendedor</th>
+                          <th className="text-left py-3 text-white">Name</th>
+                          <th className="text-left py-3 text-white">Company</th>
+                          <th className="text-left py-3 text-white">Email</th>
+                          <th className="text-left py-3 text-white">Salesperson</th>
                           <th className="text-left py-3 text-white">Valor Total</th>
                           <th className="text-left py-3 text-white">Última Compra</th>
                           <th className="text-left py-3 text-white">Status</th>
@@ -958,7 +958,7 @@ export default function DemoCRM() {
                             <td className="py-3 text-zinc-400">{customer.empresa}</td>
                             <td className="py-3 text-zinc-400">{customer.email}</td>
                             <td className="py-3 text-zinc-400">{customer.vendedor}</td>
-                            <td className="py-3 text-white font-semibold">R$ {customer.valorTotal.toLocaleString('pt-BR')}</td>
+                            <td className="py-3 text-white font-semibold">$ {customer.valorTotal.toLocaleString('en-US')}</td>
                             <td className="py-3 text-zinc-400">{customer.ultimaCompra}</td>
                             <td className="py-3">
                               <span className={`px-2 py-1 rounded-full text-xs ${
@@ -994,7 +994,7 @@ export default function DemoCRM() {
                       </div>
                     </div>
                     <h3 className="text-lg sm:text-2xl font-bold text-white mb-1" data-testid="text-total-vendas">
-                      R$ {totalRevenue.toLocaleString('pt-BR')}
+                      $ {totalRevenue.toLocaleString('en-US')}
                     </h3>
                     <p className="text-zinc-400 text-xs sm:text-sm">Vendas Este Mês</p>
                   </div>
@@ -1008,7 +1008,7 @@ export default function DemoCRM() {
                     <h3 className="text-lg sm:text-2xl font-bold text-white mb-1" data-testid="text-conversao-rate">
                       {conversionRate}%
                     </h3>
-                    <p className="text-zinc-400 text-xs sm:text-sm">Taxa de Conversão</p>
+                    <p className="text-zinc-400 text-xs sm:text-sm">Conversion Rate</p>
                   </div>
 
                   <div className="bg-zinc-900 p-4 sm:p-6 rounded-xl border border-zinc-700 shadow-lg">
@@ -1030,7 +1030,7 @@ export default function DemoCRM() {
                       </div>
                     </div>
                     <h3 className="text-lg sm:text-2xl font-bold text-white mb-1" data-testid="text-ticket-medio">
-                      R$ {avgTicket.toLocaleString('pt-BR')}
+                      $ {avgTicket.toLocaleString('en-US')}
                     </h3>
                     <p className="text-zinc-400 text-xs sm:text-sm">Ticket Médio</p>
                   </div>
@@ -1038,7 +1038,7 @@ export default function DemoCRM() {
 
                 {/* Team Performance Report */}
                 <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-4 sm:p-6">
-                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6 raleway">Performance da Equipe</h3>
+                  <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6 raleway">Team Performance</h3>
                   <div className="overflow-x-auto">
                     <table className="w-full min-w-[600px]">
                       <thead>
@@ -1055,7 +1055,7 @@ export default function DemoCRM() {
                         {teamPerformance.map((member, index) => (
                           <tr key={member.name} className="border-b border-zinc-800" data-testid={`row-performance-${index}`}>
                             <td className="py-3 text-white font-medium text-sm sm:text-base">{member.name}</td>
-                            <td className="py-3 text-white font-semibold text-sm sm:text-base">R$ {member.revenue.toLocaleString('pt-BR')}</td>
+                            <td className="py-3 text-white font-semibold text-sm sm:text-base">$ {member.revenue.toLocaleString('en-US')}</td>
                             <td className="py-3 text-zinc-400 text-sm sm:text-base">{member.leads}</td>
                             <td className="py-3 text-zinc-400 text-sm sm:text-base">{member.opportunities}</td>
                             <td className="py-3 text-green-400 text-sm sm:text-base">{member.conversionRate}%</td>
