@@ -284,12 +284,12 @@ export default function Contact() {
                 (11) 99999-9999
               </a>
               <a 
-                href="mailto:contato@glsystems.com.br" 
+                href="mailto:contato@gl-systems.site" 
                 className="flex items-center text-primary hover:text-primary/80 transition-colors"
                 data-testid="contact-email"
               >
                 <i className="fas fa-envelope mr-2"></i>
-                contato@glsystems.com.br
+                contato@gl-systems.site
               </a>
             </div>
           </div>

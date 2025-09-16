@@ -18,7 +18,7 @@ const defaultConfig: EmailConfig = {
   smtp_user: process.env.SMTP_USER || '',
   smtp_pass: process.env.SMTP_PASS || '',
   from_email: process.env.FROM_EMAIL || 'noreply@techsolutions.com.br',
-  to_email: process.env.TO_EMAIL || 'contato@techsolutions.com.br'
+  to_email: process.env.TO_EMAIL || 'contato@gl-systems.site'
 };
 
 class EmailService {
@@ -284,7 +284,7 @@ class EmailService {
       '',
       'Se tiver alguma dúvida urgente, entre em contato conosco:',
       '📞 (11) 99999-9999',
-      '📧 contato@techsolutions.com.br',
+      '📧 contato@gl-systems.site',
       '',
       '-------------------------------------',
       'Catálogo de Soluções Digitais - Soluções digitais que transformam seu negócio',
@@ -341,7 +341,7 @@ class EmailService {
                 <p>Se tiver alguma dúvida urgente, entre em contato conosco:</p>
                 <ul>
                     <li>📞 (11) 99999-9999</li>
-                    <li>📧 contato@techsolutions.com.br</li>
+                    <li>📧 contato@gl-systems.site</li>
                 </ul>
             </div>
             <div class="footer">
