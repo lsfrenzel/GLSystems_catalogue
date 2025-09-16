@@ -25,17 +25,17 @@ export default function ProductDetail() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <i className="fas fa-exclamation-triangle text-6xl text-yellow-500 mb-6"></i>
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-              Product not found
+              Produto não encontrado
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              The product you are looking for does not exist or has been removed.
+              O produto que você está procurando não existe ou foi removido.
             </p>
             <Link 
               href="/demo/ecommerce" 
               className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Back to Store
+              Voltar à Loja
             </Link>
           </div>
         </div>
@@ -85,7 +85,7 @@ export default function ProductDetail() {
           <nav className="mb-8" data-testid="breadcrumb">
             <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
               <Link href="/demo/ecommerce" className="hover:text-blue-600">
-                Store
+                Loja
               </Link>
               <i className="fas fa-chevron-right text-xs"></i>
               <span className="capitalize">{product.category}</span>
@@ -140,7 +140,7 @@ export default function ProductDetail() {
                   {renderStars(product.rating)}
                 </div>
                 <span className="text-gray-600 dark:text-gray-300 text-sm">
-                  ({product.rating}) • 127 reviews
+                  ({product.rating}) • 127 avaliações
                 </span>
               </div>
 
@@ -211,7 +211,7 @@ export default function ProductDetail() {
                     data-testid="add-to-cart-button"
                   >
                     <i className="fas fa-shopping-cart mr-2"></i>
-                    Add to Cart
+                    Adicionar ao Carrinho
                   </button>
                   <Link
                     href="/demo/cart"
@@ -266,13 +266,13 @@ export default function ProductDetail() {
           {relatedProducts.length > 0 && (
             <div>
               <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
-                Related Products
+                Produtos Relacionados
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" data-testid="related-products">
                 {relatedProducts.map((relatedProduct) => (
                   <Link 
                     key={relatedProduct.id}
-                    href={`/demo/produto/${relatedProduct.id}`}
+                    href={`/demo/product/${relatedProduct.id}`}
                     className="bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:shadow-lg transition-shadow"
                     data-testid={`related-product-${relatedProduct.id}`}
                   >

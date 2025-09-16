@@ -26,10 +26,10 @@ export default function Cart() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <i className="fas fa-shopping-cart text-6xl text-gray-300 mb-6"></i>
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4" data-testid="empty-cart-title">
-              Your cart is empty
+              Seu carrinho está vazio
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8" data-testid="empty-cart-message">
-              Add products to your cart to start shopping
+              Adicione produtos ao seu carrinho para começar a comprar
             </p>
             <Link 
               href="/demo/ecommerce" 
@@ -37,7 +37,7 @@ export default function Cart() {
               data-testid="continue-shopping-button"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continue Shopping
+              Continuar Comprando
             </Link>
           </div>
         </div>
@@ -55,10 +55,10 @@ export default function Cart() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2" data-testid="cart-title">
-                My Cart
+                Meu Carrinho
               </h1>
               <p className="text-gray-600 dark:text-gray-300" data-testid="cart-items-count">
-                {items.length} {items.length === 1 ? 'item' : 'items'} in cart
+                {items.length} {items.length === 1 ? 'item' : 'itens'} no carrinho
               </p>
             </div>
             <Link 
@@ -67,7 +67,7 @@ export default function Cart() {
               data-testid="continue-shopping-link"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continue Shopping
+              Continuar Comprando
             </Link>
           </div>
 
@@ -196,11 +196,11 @@ export default function Cart() {
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-shield-alt text-green-600 mr-2"></i>
-                    100% secure purchase
+                    Compra 100% segura
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-undo text-green-600 mr-2"></i>
-                    30 days to exchange or return
+                    30 dias para trocar ou devolver
                   </div>
                 </div>
               </div>
