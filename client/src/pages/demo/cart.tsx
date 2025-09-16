@@ -26,10 +26,10 @@ export default function Cart() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <i className="fas fa-shopping-cart text-6xl text-gray-300 mb-6"></i>
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4" data-testid="empty-cart-title">
-              Seu carrinho está vazio
+              Your cart is empty
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8" data-testid="empty-cart-message">
-              Adicione produtos ao seu carrinho para começar suas compras
+              Add products to your cart to start shopping
             </p>
             <Link 
               href="/demo/ecommerce" 
@@ -37,7 +37,7 @@ export default function Cart() {
               data-testid="continue-shopping-button"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continuar Comprando
+              Continue Shopping
             </Link>
           </div>
         </div>
@@ -55,10 +55,10 @@ export default function Cart() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2" data-testid="cart-title">
-                Meu Carrinho
+                My Cart
               </h1>
               <p className="text-gray-600 dark:text-gray-300" data-testid="cart-items-count">
-                {items.length} {items.length === 1 ? 'item' : 'itens'} no carrinho
+                {items.length} {items.length === 1 ? 'item' : 'items'} in cart
               </p>
             </div>
             <Link 
@@ -67,7 +67,7 @@ export default function Cart() {
               data-testid="continue-shopping-link"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continuar Comprando
+              Continue Shopping
             </Link>
           </div>
 
@@ -89,7 +89,7 @@ export default function Cart() {
                     />
                     <div className="flex-1">
                       <Link 
-                        href={`/demo/produto/${item.id}`}
+                        href={`/demo/product/${item.id}`}
                         className="text-lg font-semibold text-gray-800 dark:text-white hover:text-blue-600 transition-colors"
                         data-testid={`item-name-${item.id}`}
                       >
@@ -196,11 +196,11 @@ export default function Cart() {
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-shield-alt text-green-600 mr-2"></i>
-                    Compra 100% segura
+                    100% secure purchase
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-undo text-green-600 mr-2"></i>
-                    30 dias para trocar ou devolver
+                    30 days to exchange or return
                   </div>
                 </div>
               </div>

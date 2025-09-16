@@ -10,16 +10,16 @@ export default function SistemaRestaurant() {
   }, []);
   const systemData = {
     id: 'restaurant',
-    title: 'Sistema de Comandas para Restaurantes',
-    subtitle: 'Otimize o atendimento e aumente a eficiência',
+    title: 'Restaurant Order Management System',
+    subtitle: 'Optimize service and increase efficiency',
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-utensils',
-    description: 'O sistema de comandas da TechSolutions revoluciona a gestão de restaurantes com controle completo de pedidos, mesas e entregas. Aumente a eficiência operacional e melhore a experiência do cliente.',
+    description: 'TechSolutions order management system revolutionizes restaurant management with complete control of orders, tables and deliveries. Increase operational efficiency and improve customer experience.',
     mainBenefits: [
       {
         icon: 'fas fa-mobile-alt',
-        title: 'Pedidos Digitais',
-        description: 'Cardápio digital e pedidos direto do smartphone do cliente'
+        title: 'Digital Orders',
+        description: 'Digital menu and orders directly from customer smartphone'
       },
       {
         icon: 'fas fa-table',

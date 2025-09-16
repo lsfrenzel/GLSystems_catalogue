@@ -25,17 +25,17 @@ export default function ProductDetail() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <i className="fas fa-exclamation-triangle text-6xl text-yellow-500 mb-6"></i>
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4">
-              Produto não encontrado
+              Product not found
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              O produto que você está procurando não existe ou foi removido.
+              The product you are looking for does not exist or has been removed.
             </p>
             <Link 
               href="/demo/ecommerce" 
               className="inline-flex items-center bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Voltar para a Loja
+              Back to Store
             </Link>
           </div>
         </div>
