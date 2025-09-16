@@ -87,10 +87,10 @@ export default function DemoERP() {
   }, [] as { name: string; value: number }[]);
 
   const revenueData = [
-    { mes: 'Jul', receitas: totalRevenue * 0.8 / 1000, despesas: totalExpenses * 0.7 / 1000 },
-    { mes: 'Aug', receitas: totalRevenue * 0.9 / 1000, despesas: totalExpenses * 0.8 / 1000 },
-    { mes: 'Sep', receitas: totalRevenue * 0.95 / 1000, despesas: totalExpenses * 0.9 / 1000 },
-    { mes: 'Oct', receitas: totalRevenue / 1000, despesas: totalExpenses / 1000 }
+    { month: 'Jul', revenue: totalRevenue * 0.8 / 1000, expenses: totalExpenses * 0.7 / 1000 },
+    { month: 'Aug', revenue: totalRevenue * 0.9 / 1000, expenses: totalExpenses * 0.8 / 1000 },
+    { month: 'Sep', revenue: totalRevenue * 0.95 / 1000, expenses: totalExpenses * 0.9 / 1000 },
+    { month: 'Oct', revenue: totalRevenue / 1000, expenses: totalExpenses / 1000 }
   ];
 
   const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6'];
@@ -102,7 +102,7 @@ export default function DemoERP() {
         cliente: newSale.cliente,
         valor: parseFloat(newSale.valor),
         status: 'Paid',
-        data: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }),
+        data: new Date().toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' }),
         produto: newSale.produto
       };
       setSales([sale, ...sales]);
@@ -133,7 +133,7 @@ export default function DemoERP() {
         tipo: newTransaction.tipo,
         descricao: newTransaction.descricao,
         valor: parseFloat(newTransaction.valor),
-        data: new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: '2-digit' }),
+        data: new Date().toLocaleDateString('en-US', { day: '2-digit', month: '2-digit' }),
         categoria: newTransaction.categoria
       };
       setTransactions([transaction, ...transactions]);
@@ -208,7 +208,7 @@ export default function DemoERP() {
                       <span className="text-green-600 dark:text-green-400 text-sm font-medium">+15.3%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1" data-testid="text-vendas-total">
-                      R$ {totalSales.toLocaleString('pt-BR')}
+                      $ {totalSales.toLocaleString('en-US')}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">Monthly Sales</p>
                     <div className="mt-3 bg-slate-100 dark:bg-slate-700 rounded-full h-2">
@@ -239,10 +239,10 @@ export default function DemoERP() {
                       <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-lg flex items-center justify-center">
                         <i className="fas fa-boxes text-purple-600 dark:text-purple-400"></i>
                       </div>
-                      <span className="text-red-600 dark:text-red-400 text-sm font-medium">{stockAlerts.length} alertas</span>
+                      <span className="text-red-600 dark:text-red-400 text-sm font-medium">{stockAlerts.length} alerts</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1" data-testid="text-estoque-valor">
-                      R$ {stockValue.toLocaleString('pt-BR')}
+                      $ {stockValue.toLocaleString('en-US')}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">Inventory Value</p>
                     <p className="text-slate-500 dark:text-slate-400 text-xs mt-2">{products.length} products</p>
@@ -255,12 +255,12 @@ export default function DemoERP() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1" data-testid="text-saldo-caixa">
-                      R$ {cashFlow.toLocaleString('pt-BR')}
+                      $ {cashFlow.toLocaleString('en-US')}
                     </h3>
                     <p className="text-slate-600 dark:text-slate-400 text-sm">Cash Balance</p>
                     <div className="flex justify-between text-xs mt-2">
-                      <span className="text-green-600 dark:text-green-400">+R$ {totalRevenue.toLocaleString('pt-BR')}</span>
-                      <span className="text-red-600 dark:text-red-400">-R$ {totalExpenses.toLocaleString('pt-BR')}</span>
+                      <span className="text-green-600 dark:text-green-400">+$ {totalRevenue.toLocaleString('en-US')}</span>
+                      <span className="text-red-600 dark:text-red-400">-$ {totalExpenses.toLocaleString('en-US')}</span>
                     </div>
                   </div>
                 </div>
@@ -285,11 +285,11 @@ export default function DemoERP() {
                     <ResponsiveContainer width="100%" height={300}>
                       <BarChart data={revenueData}>
                         <CartesianGrid strokeDasharray="3 3" />
-                        <XAxis dataKey="mes" />
+                        <XAxis dataKey="month" />
                         <YAxis />
                         <Tooltip formatter={(value: number) => [`$${value}k`]} />
-                        <Bar dataKey="receitas" fill="#10B981" name="Revenue" />
-                        <Bar dataKey="despesas" fill="#EF4444" name="Expenses" />
+                        <Bar dataKey="revenue" fill="#10B981" name="Revenue" />
+                        <Bar dataKey="expenses" fill="#EF4444" name="Expenses" />
                       </BarChart>
                     </ResponsiveContainer>
                   </div>
@@ -307,7 +307,7 @@ export default function DemoERP() {
                             <p className="text-sm text-slate-500 dark:text-slate-400">{sale.id} • {sale.data}</p>
                           </div>
                           <div className="text-right">
-                            <p className="font-semibold text-slate-900 dark:text-slate-100">R$ {sale.valor.toLocaleString('pt-BR')}</p>
+                            <p className="font-semibold text-slate-900 dark:text-slate-100">$ {sale.valor.toLocaleString('en-US')}</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
                               sale.status === 'Paid' ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400' :
                               sale.status === 'Pending' ? 'bg-yellow-100 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400' :
@@ -432,7 +432,7 @@ export default function DemoERP() {
                             <td className="py-3 text-slate-900 dark:text-slate-100">{sale.id}</td>
                             <td className="py-3 text-slate-900 dark:text-slate-100">{sale.cliente}</td>
                             <td className="py-3 text-slate-600 dark:text-slate-400">{sale.produto}</td>
-                            <td className="py-3 text-slate-900 dark:text-slate-100 font-semibold">R$ {sale.valor.toLocaleString('pt-BR')}</td>
+                            <td className="py-3 text-slate-900 dark:text-slate-100 font-semibold">$ {sale.valor.toLocaleString('en-US')}</td>
                             <td className="py-3">
                               <span className={`px-2 py-1 rounded-full text-xs ${
                                 sale.status === 'Paid' ? 'bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-400' :
@@ -462,7 +462,7 @@ export default function DemoERP() {
                   <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-4">
                     <input
                       type="text"
-                      placeholder="Nome do Produto"
+                      placeholder="Product Name"
                       value={newProduct.nome}
                       onChange={(e) => setNewProduct({...newProduct, nome: e.target.value})}
                       className="px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
@@ -470,7 +470,7 @@ export default function DemoERP() {
                     />
                     <input
                       type="text"
-                      placeholder="Categoria"
+                      placeholder="Category"
                       value={newProduct.categoria}
                       onChange={(e) => setNewProduct({...newProduct, categoria: e.target.value})}
                       className="px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
@@ -478,7 +478,7 @@ export default function DemoERP() {
                     />
                     <input
                       type="number"
-                      placeholder="Estoque"
+                      placeholder="Stock"
                       value={newProduct.estoque}
                       onChange={(e) => setNewProduct({...newProduct, estoque: e.target.value})}
                       className="px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
@@ -486,7 +486,7 @@ export default function DemoERP() {
                     />
                     <input
                       type="number"
-                      placeholder="Mínimo"
+                      placeholder="Minimum"
                       value={newProduct.minimo}
                       onChange={(e) => setNewProduct({...newProduct, minimo: e.target.value})}
                       className="px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
@@ -494,7 +494,7 @@ export default function DemoERP() {
                     />
                     <input
                       type="number"
-                      placeholder="Preço (R$)"
+                      placeholder="Price ($)"
                       value={newProduct.preco}
                       onChange={(e) => setNewProduct({...newProduct, preco: e.target.value})}
                       className="px-3 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100"
@@ -534,7 +534,7 @@ export default function DemoERP() {
                             <td className="py-3 text-slate-600 dark:text-slate-400">{product.categoria}</td>
                             <td className="py-3 text-slate-900 dark:text-slate-100 font-semibold">{product.estoque}</td>
                             <td className="py-3 text-slate-600 dark:text-slate-400">{product.minimo}</td>
-                            <td className="py-3 text-slate-900 dark:text-slate-100">R$ {product.preco.toLocaleString('pt-BR')}</td>
+                            <td className="py-3 text-slate-900 dark:text-slate-100">$ {product.preco.toLocaleString('en-US')}</td>
                             <td className="py-3">
                               <span className={`px-2 py-1 rounded-full text-xs ${
                                 product.estoque <= product.minimo / 2 ? 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400' :
@@ -633,7 +633,7 @@ export default function DemoERP() {
                       <div>
                         <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Total Revenue</h3>
                         <p className="text-2xl font-bold text-green-600 dark:text-green-400" data-testid="text-total-receitas">
-                          R$ {totalRevenue.toLocaleString('pt-BR')}
+                          $ {totalRevenue.toLocaleString('en-US')}
                         </p>
                       </div>
                     </div>
@@ -647,7 +647,7 @@ export default function DemoERP() {
                       <div>
                         <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Total Expenses</h3>
                         <p className="text-2xl font-bold text-red-600 dark:text-red-400" data-testid="text-total-despesas">
-                          R$ {totalExpenses.toLocaleString('pt-BR')}
+                          $ {totalExpenses.toLocaleString('en-US')}
                         </p>
                       </div>
                     </div>
@@ -661,7 +661,7 @@ export default function DemoERP() {
                       <div>
                         <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Net Balance</h3>
                         <p className={`text-2xl font-bold ${cashFlow >= 0 ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`} data-testid="text-saldo-liquido">
-                          R$ {cashFlow.toLocaleString('pt-BR')}
+                          $ {cashFlow.toLocaleString('en-US')}
                         </p>
                       </div>
                     </div>
@@ -701,7 +701,7 @@ export default function DemoERP() {
                                 ? 'text-green-600 dark:text-green-400' 
                                 : 'text-red-600 dark:text-red-400'
                             }`}>
-                              {transaction.tipo === 'revenue' ? '+' : '-'}R$ {transaction.valor.toLocaleString('pt-BR')}
+                              {transaction.tipo === 'revenue' ? '+' : '-'}$ {transaction.valor.toLocaleString('en-US')}
                             </td>
                             <td className="py-3 text-slate-600 dark:text-slate-400">{transaction.data}</td>
                           </tr>
