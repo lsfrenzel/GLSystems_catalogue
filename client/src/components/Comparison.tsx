@@ -88,10 +88,10 @@ export default function Comparison() {
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-12 md:mb-16 fade-in">
           <h2 className="raleway text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent" data-testid="comparison-title">
-            Por que Escolher Sistemas Modernos?
+            Why Choose Modern Systems?
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-6 md:mb-8 px-4" data-testid="comparison-subtitle">
-            Veja a diferença entre empresas que investem em tecnologia e aquelas que ficam para trás
+            See the difference between companies that invest in technology and those that fall behind
           </p>
           <div className="max-w-2xl mx-auto">
             <CustomSystemsMessage variant="default" />

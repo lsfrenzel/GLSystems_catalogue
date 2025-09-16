@@ -12,7 +12,7 @@ export default function CustomSystemsMessage({ className = "", variant = 'defaul
         <div className="flex items-center gap-2">
           <Target className="w-5 h-5 text-primary flex-shrink-0" aria-hidden="true" />
           <p className="text-primary font-medium text-sm">
-            Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+            We develop custom systems according to your company's specific needs
           </p>
         </div>
       </div>
@@ -28,10 +28,10 @@ export default function CustomSystemsMessage({ className = "", variant = 'defaul
           </div>
           <div>
             <h3 className="text-primary font-bold text-lg mb-1">
-              Soluções Personalizadas
+              Custom Solutions
             </h3>
             <p className="text-primary/80 font-medium">
-              Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+              We develop custom systems according to your company's specific needs
             </p>
           </div>
         </div>
@@ -44,7 +44,7 @@ export default function CustomSystemsMessage({ className = "", variant = 'defaul
       <div className="flex items-center gap-3">
         <Target className="w-6 h-6 text-primary flex-shrink-0" aria-hidden="true" />
         <p className="text-primary font-semibold text-lg">
-          🎯 Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+          🎯 We develop custom systems according to your company's specific needs
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { ArrowUp, MessageCircle } from "lucide-react";
+import { ArrowUp } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function FloatingButtons() {
@@ -55,7 +56,7 @@ export default function FloatingButtons() {
         data-testid="whatsapp-button"
         title={t('whatsapp.tooltip')}
       >
-        <MessageCircle className="w-7 h-7 group-hover:scale-110 transition-transform" fill="white" />
+        <FaWhatsapp className="w-7 h-7 group-hover:scale-110 transition-transform" />
         
         {/* Pulse animation */}
         <div className="absolute inset-0 rounded-full bg-green-500 animate-ping opacity-30"></div>
