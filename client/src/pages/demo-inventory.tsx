@@ -41,9 +41,9 @@ function CategoryForm({ onSubmit }: { onSubmit: (data: z.infer<typeof insertCate
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nome da Categoria</FormLabel>
+              <FormLabel>Category Name</FormLabel>
               <FormControl>
-                <Input placeholder="Ex: Eletrônicos" {...field} data-testid="input-categoria-name" />
+                <Input placeholder="e.g. Electronics" {...field} data-testid="input-category-name" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -54,9 +54,9 @@ function CategoryForm({ onSubmit }: { onSubmit: (data: z.infer<typeof insertCate
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Descrição</FormLabel>
+              <FormLabel>Description</FormLabel>
               <FormControl>
-                <Textarea placeholder="Descrição da categoria" {...field} data-testid="textarea-categoria-description" />
+                <Textarea placeholder="Category description" {...field} data-testid="textarea-category-description" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -65,10 +65,10 @@ function CategoryForm({ onSubmit }: { onSubmit: (data: z.infer<typeof insertCate
         <Button 
           type="submit" 
           className="w-full" 
-          data-testid="button-submit-categoria"
+          data-testid="button-submit-category"
           onClick={() => console.log('CategoryForm: Submit button clicked', form.formState)}
         >
-          Adicionar Categoria
+          Add Category
         </Button>
       </form>
     </Form>
@@ -111,9 +111,9 @@ function ProductForm({
             name="code"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Código</FormLabel>
+                <FormLabel>Code</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex: PRD001" {...field} data-testid="input-produto-code" />
+                  <Input placeholder="e.g. PRD001" {...field} data-testid="input-product-code" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -124,9 +124,9 @@ function ProductForm({
             name="unit"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Unidade</FormLabel>
+                <FormLabel>Unit</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex: un, kg, L" {...field} data-testid="input-produto-unit" />
+                  <Input placeholder="e.g. pcs, kg, L" {...field} data-testid="input-product-unit" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -139,9 +139,9 @@ function ProductForm({
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nome do Produto</FormLabel>
+              <FormLabel>Product Name</FormLabel>
               <FormControl>
-                <Input placeholder="Ex: Notebook Dell XPS 13" {...field} data-testid="input-produto-name" />
+                <Input placeholder="e.g. Dell XPS 13 Laptop" {...field} data-testid="input-product-name" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -153,9 +153,9 @@ function ProductForm({
           name="description"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Descrição</FormLabel>
+              <FormLabel>Description</FormLabel>
               <FormControl>
-                <Textarea placeholder="Descrição do produto" {...field} data-testid="textarea-produto-description" />
+                <Textarea placeholder="Product description" {...field} data-testid="textarea-product-description" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -168,11 +168,11 @@ function ProductForm({
             name="categoryId"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Categoria</FormLabel>
+                <FormLabel>Category</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger data-testid="select-produto-category">
-                      <SelectValue placeholder="Selecione uma categoria" />
+                    <SelectTrigger data-testid="select-product-category">
+                      <SelectValue placeholder="Select a category" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -193,11 +193,11 @@ function ProductForm({
             name="supplierId"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Fornecedor</FormLabel>
+                <FormLabel>Supplier</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
-                    <SelectTrigger data-testid="select-produto-supplier">
-                      <SelectValue placeholder="Selecione um fornecedor" />
+                    <SelectTrigger data-testid="select-product-supplier">
+                      <SelectValue placeholder="Select a supplier" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -220,9 +220,9 @@ function ProductForm({
             name="price"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Preço</FormLabel>
+                <FormLabel>Price</FormLabel>
                 <FormControl>
-                  <Input type="number" step="0.01" placeholder="0.00" {...field} data-testid="input-produto-price" />
+                  <Input type="number" step="0.01" placeholder="0.00" {...field} data-testid="input-product-price" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -234,14 +234,14 @@ function ProductForm({
             name="currentStock"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Estoque Atual</FormLabel>
+                <FormLabel>Current Stock</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     {...field} 
                     onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                    data-testid="input-produto-stock"
+                    data-testid="input-product-stock"
                   />
                 </FormControl>
                 <FormMessage />
@@ -254,14 +254,14 @@ function ProductForm({
             name="minimumStock"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Estoque Mínimo</FormLabel>
+                <FormLabel>Minimum Stock</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
                     placeholder="0" 
                     {...field} 
                     onChange={(e) => field.onChange(parseInt(e.target.value) || 0)}
-                    data-testid="input-produto-minimum-stock"
+                    data-testid="input-product-minimum-stock"
                   />
                 </FormControl>
                 <FormMessage />
@@ -270,8 +270,8 @@ function ProductForm({
           />
         </div>
         
-        <Button type="submit" className="w-full" data-testid="button-submit-produto">
-          Adicionar Produto
+        <Button type="submit" className="w-full" data-testid="button-submit-product">
+          Add Product
         </Button>
       </form>
     </Form>
@@ -306,9 +306,9 @@ function SupplierForm({
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Nome do Fornecedor</FormLabel>
+              <FormLabel>Supplier Name</FormLabel>
               <FormControl>
-                <Input placeholder="Ex: TechSupplies Inc." {...field} data-testid="input-supplier-name" />
+                <Input placeholder="e.g. TechSupplies Inc." {...field} data-testid="input-supplier-name" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -323,7 +323,7 @@ function SupplierForm({
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="contato@fornecedor.com" {...field} data-testid="input-supplier-email" />
+                  <Input type="email" placeholder="contact@supplier.com" {...field} data-testid="input-supplier-email" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -335,9 +335,9 @@ function SupplierForm({
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Telefone</FormLabel>
+                <FormLabel>Phone</FormLabel>
                 <FormControl>
-                  <Input placeholder="(11) 99999-9999" {...field} data-testid="input-supplier-phone" />
+                  <Input placeholder="(555) 123-4567" {...field} data-testid="input-supplier-phone" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -350,9 +350,9 @@ function SupplierForm({
           name="address"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Endereço</FormLabel>
+              <FormLabel>Address</FormLabel>
               <FormControl>
-                <Textarea placeholder="Endereço completo" {...field} data-testid="textarea-supplier-address" />
+                <Textarea placeholder="Complete address" {...field} data-testid="textarea-supplier-address" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -365,7 +365,7 @@ function SupplierForm({
             name="rating"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Avaliação (1-5)</FormLabel>
+                <FormLabel>Rating (1-5)</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
@@ -387,7 +387,7 @@ function SupplierForm({
             name="deliveryDays"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Prazo de Entrega (dias)</FormLabel>
+                <FormLabel>Delivery Time (days)</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
@@ -404,7 +404,7 @@ function SupplierForm({
         </div>
         
         <Button type="submit" className="w-full" data-testid="button-submit-supplier">
-          Adicionar Fornecedor
+          Add Supplier
         </Button>
       </form>
     </Form>
@@ -424,7 +424,7 @@ function MovementForm({
     resolver: zodResolver(insertStockMovementSchema),
     defaultValues: {
       productId: defaultValues?.productId || "",
-      type: defaultValues?.type || "entrada",
+      type: defaultValues?.type || "inbound",
       quantity: defaultValues?.quantity || 1,
       unitPrice: defaultValues?.unitPrice || "0",
       totalValue: defaultValues?.totalValue || "0",
@@ -453,11 +453,11 @@ function MovementForm({
             name="productId"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Produto</FormLabel>
+                <FormLabel>Product</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger data-testid="select-movement-product">
-                      <SelectValue placeholder="Selecione um produto" />
+                      <SelectValue placeholder="Select a product" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -478,16 +478,16 @@ function MovementForm({
             name="type"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Tipo de Movimentação</FormLabel>
+                <FormLabel>Movement Type</FormLabel>
                 <Select onValueChange={field.onChange} defaultValue={field.value}>
                   <FormControl>
                     <SelectTrigger data-testid="select-movement-type">
-                      <SelectValue placeholder="Selecione o tipo" />
+                      <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
-                    <SelectItem value="entrada">Entrada</SelectItem>
-                    <SelectItem value="saida">Saída</SelectItem>
+                    <SelectItem value="inbound">Inbound</SelectItem>
+                    <SelectItem value="outbound">Outbound</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -502,7 +502,7 @@ function MovementForm({
             name="quantity"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Quantidade</FormLabel>
+                <FormLabel>Quantity</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
@@ -523,7 +523,7 @@ function MovementForm({
             name="unitPrice"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Preço Unitário</FormLabel>
+                <FormLabel>Unit Price</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
@@ -543,7 +543,7 @@ function MovementForm({
             name="totalValue"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Valor Total</FormLabel>
+                <FormLabel>Total Value</FormLabel>
                 <FormControl>
                   <Input 
                     type="number" 
@@ -566,9 +566,9 @@ function MovementForm({
             name="reason"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Motivo</FormLabel>
+                <FormLabel>Reason</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ex: Compra, Venda, Ajuste" {...field} data-testid="input-movement-reason" />
+                  <Input placeholder="e.g. Purchase, Sale, Adjustment" {...field} data-testid="input-movement-reason" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -580,9 +580,9 @@ function MovementForm({
             name="responsible"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Responsável</FormLabel>
+                <FormLabel>Responsible</FormLabel>
                 <FormControl>
-                  <Input placeholder="Nome do responsável" {...field} data-testid="input-movement-responsible" />
+                  <Input placeholder="Responsible person's name" {...field} data-testid="input-movement-responsible" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -595,9 +595,9 @@ function MovementForm({
           name="notes"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Observações</FormLabel>
+              <FormLabel>Notes</FormLabel>
               <FormControl>
-                <Textarea placeholder="Observações adicionais" {...field} data-testid="textarea-movement-notes" />
+                <Textarea placeholder="Additional notes" {...field} data-testid="textarea-movement-notes" />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -605,7 +605,7 @@ function MovementForm({
         />
         
         <Button type="submit" className="w-full" data-testid="button-submit-movement">
-          Registrar Movimentação
+          Register Movement
         </Button>
       </form>
     </Form>
@@ -656,7 +656,7 @@ export default function DemoInventory() {
         return sum + (isNaN(price) ? 0 : price) * stock;
       }, 0);
       return {
-        name: category.name || 'Sem categoria',
+        name: category.name || 'No category',
         stock: totalStock,
         value: Math.round(totalValue * 100) / 100, // Round to 2 decimal places
         products: categoryProducts.length
@@ -678,7 +678,7 @@ export default function DemoInventory() {
       sortedMovements.forEach(movement => {
         if (!movement.createdAt) return; // Skip movements without dates
         
-        const date = new Date(movement.createdAt).toLocaleDateString('pt-BR');
+        const date = new Date(movement.createdAt).toLocaleDateString('en-US');
         if (!movementsByDate.has(date)) {
           movementsByDate.set(date, { date, entradas: 0, saidas: 0 });
         }
@@ -743,11 +743,11 @@ export default function DemoInventory() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/products'] });
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
-      toast({ title: "Produto criado com sucesso!" });
+      toast({ title: "Product created successfully!" });
       setIsDialogOpen(null);
     },
     onError: () => {
-      toast({ title: "Erro ao criar produto", variant: "destructive" });
+      toast({ title: "Error creating product", variant: "destructive" });
     },
   });
 
@@ -763,11 +763,11 @@ export default function DemoInventory() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/suppliers'] });
-      toast({ title: "Fornecedor criado com sucesso!" });
+      toast({ title: "Supplier created successfully!" });
       setIsDialogOpen(null);
     },
     onError: () => {
-      toast({ title: "Erro ao criar fornecedor", variant: "destructive" });
+      toast({ title: "Error creating supplier", variant: "destructive" });
     },
   });
 
@@ -788,12 +788,12 @@ export default function DemoInventory() {
     onSuccess: () => {
       console.log('createCategoryMutation: Success callback triggered');
       queryClient.invalidateQueries({ queryKey: ['/api/categories'] });
-      toast({ title: "Categoria criada com sucesso!" });
+      toast({ title: "Category created successfully!" });
       setIsDialogOpen(null);
     },
     onError: (error) => {
       console.error('createCategoryMutation: Error callback triggered:', error);
-      toast({ title: "Erro ao criar categoria", variant: "destructive" });
+      toast({ title: "Error creating category", variant: "destructive" });
     },
   });
 
@@ -811,11 +811,11 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/movements'] });
       queryClient.invalidateQueries({ queryKey: ['/api/products'] });
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
-      toast({ title: "Movimentação registrada com sucesso!" });
+      toast({ title: "Movement registered successfully!" });
       setIsDialogOpen(null);
     },
     onError: () => {
-      toast({ title: "Erro ao registrar movimentação", variant: "destructive" });
+      toast({ title: "Error registering movement", variant: "destructive" });
     },
   });
 
@@ -834,10 +834,10 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/suppliers'] });
       setEditingItem(null);
       setIsDialogOpen(null);
-      toast({ title: "Fornecedor atualizado com sucesso!" });
+      toast({ title: "Supplier updated successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao atualizar fornecedor", variant: "destructive" });
+      toast({ title: "Error updating supplier", variant: "destructive" });
     },
   });
 
@@ -856,10 +856,10 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
       setEditingItem(null);
       setIsDialogOpen(null);
-      toast({ title: "Produto atualizado com sucesso!" });
+      toast({ title: "Product updated successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao atualizar produto", variant: "destructive" });
+      toast({ title: "Error updating product", variant: "destructive" });
     },
   });
 
@@ -879,10 +879,10 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
       setEditingItem(null);
       setIsDialogOpen(null);
-      toast({ title: "Movimentação atualizada com sucesso!" });
+      toast({ title: "Movement updated successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao atualizar movimentação", variant: "destructive" });
+      toast({ title: "Error updating movement", variant: "destructive" });
     },
   });
 
@@ -896,10 +896,10 @@ export default function DemoInventory() {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['/api/suppliers'] });
       setDeleteConfirm(null);
-      toast({ title: "Fornecedor excluído com sucesso!" });
+      toast({ title: "Supplier deleted successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao excluir fornecedor", variant: "destructive" });
+      toast({ title: "Error deleting supplier", variant: "destructive" });
     },
   });
 
@@ -913,10 +913,10 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/products'] });
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
       setDeleteConfirm(null);
-      toast({ title: "Produto excluído com sucesso!" });
+      toast({ title: "Product deleted successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao excluir produto", variant: "destructive" });
+      toast({ title: "Error deleting product", variant: "destructive" });
     },
   });
 
@@ -931,10 +931,10 @@ export default function DemoInventory() {
       queryClient.invalidateQueries({ queryKey: ['/api/products'] });
       queryClient.invalidateQueries({ queryKey: ['/api/products/low-stock'] });
       setDeleteConfirm(null);
-      toast({ title: "Movimentação excluída com sucesso!" });
+      toast({ title: "Movement deleted successfully!" });
     },
     onError: () => {
-      toast({ title: "Erro ao excluir movimentação", variant: "destructive" });
+      toast({ title: "Error deleting movement", variant: "destructive" });
     },
   });
 
@@ -964,21 +964,21 @@ export default function DemoInventory() {
     },
     {
       id: 'estoque',
-      label: 'Estoque',
+      label: 'Stock',
       icon: 'fas fa-warehouse',
       onClick: () => setSelectedModule('estoque'),
       isActive: selectedModule === 'estoque'
     },
     {
       id: 'movimentacoes',
-      label: 'Movimentações',
+      label: 'Movements',
       icon: 'fas fa-exchange-alt',
       onClick: () => setSelectedModule('movimentacoes'),
       isActive: selectedModule === 'movimentacoes'
     },
     {
       id: 'fornecedores',
-      label: 'Fornecedores',
+      label: 'Suppliers',
       icon: 'fas fa-truck',
       onClick: () => setSelectedModule('fornecedores'),
       isActive: selectedModule === 'fornecedores'
@@ -991,8 +991,8 @@ export default function DemoInventory() {
       subtitle="Pro Industrial"
       systemIcon="fas fa-boxes"
       systemColor="from-yellow-600 to-yellow-500"
-      backHref="/sistema/inventory"
-      statusBadge="Sistema Industrial"
+      backHref="/system/inventory"
+      statusBadge="Industrial System"
       navItems={navItems}
     >
       {/* Custom Systems Message */}
@@ -1002,8 +1002,8 @@ export default function DemoInventory() {
             {selectedModule === 'dashboard' && (
               <div>
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 raleway">Dashboard de Estoque</h2>
-                  <p className="text-slate-600 dark:text-slate-400">Controle geral do inventário e movimentações</p>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 raleway">Stock Dashboard</h2>
+                  <p className="text-slate-600 dark:text-slate-400">General control of inventory and movements</p>
                 </div>
 
                 {/* KPI Cards */}
@@ -1016,7 +1016,7 @@ export default function DemoInventory() {
                       <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">+{inventoryData.entradas}</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{inventoryData.totalItens}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Total de Itens</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Total Items</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg">
@@ -1027,7 +1027,7 @@ export default function DemoInventory() {
                       <span className="text-green-600 dark:text-green-400 text-sm font-medium">+12.5%</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{inventoryData.valorEstoque}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Valor do Estoque</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Stock Value</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg">
@@ -1035,10 +1035,10 @@ export default function DemoInventory() {
                       <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-600 rounded-lg flex items-center justify-center">
                         <i className="fas fa-exclamation-triangle text-white"></i>
                       </div>
-                      <span className="text-red-600 dark:text-red-400 text-sm font-medium">Urgente</span>
+                      <span className="text-red-600 dark:text-red-400 text-sm font-medium">Urgent</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{inventoryData.alertasEstoque}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Alertas de Estoque</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Stock Alerts</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg">
@@ -1048,8 +1048,8 @@ export default function DemoInventory() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{inventoryData.rotatividade}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Rotatividade Média</p>
-                    <p className="text-purple-600 dark:text-purple-400 text-xs mt-2">Por ano</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">Average Turnover</p>
+                    <p className="text-purple-600 dark:text-purple-400 text-xs mt-2">Per year</p>
                   </div>
                 </div>
 
@@ -1057,7 +1057,7 @@ export default function DemoInventory() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                   {/* Stock by Category Chart */}
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Estoque por Categoria</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Stock by Category</h3>
                     <div className="h-64">
                       <ResponsiveContainer width="100%" height="100%">
                         <BarChart data={chartData.stockByCategory}>
@@ -1078,7 +1078,7 @@ export default function DemoInventory() {
                               borderRadius: '8px'
                             }}
                             formatter={(value: any, name: string) => [
-                              name === 'stock' ? `${value} unidades` : `${value} produtos`,
+                              name === 'stock' ? `${value} units` : `${value} produtos`,
                               name === 'stock' ? 'Estoque Total' : 'Produtos'
                             ]}
                           />
@@ -1092,7 +1092,7 @@ export default function DemoInventory() {
 
                   {/* Stock Movements Over Time Chart */}
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Movimentações (Últimos 7 dias)</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Movements (Last 7 days)</h3>
                     <div className="h-64">
                       <ResponsiveContainer width="100%" height="100%">
                         <LineChart data={chartData.movementsOverTime}>
@@ -1113,7 +1113,7 @@ export default function DemoInventory() {
                               borderRadius: '8px'
                             }}
                             formatter={(value: any, name: string) => [
-                              `${value} unidades`,
+                              `${value} units`,
                               name === 'entradas' ? 'Entradas' : 'Saídas'
                             ]}
                           />
@@ -1143,7 +1143,7 @@ export default function DemoInventory() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                   {/* Stock Value Distribution Chart */}
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Distribuição do Valor do Estoque</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Stock Value Distribution</h3>
                     <div className="h-64">
                       {chartData.stockValueDistribution.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
@@ -1178,7 +1178,7 @@ export default function DemoInventory() {
                       ) : (
                         <div className="flex items-center justify-center h-full">
                           <p className="text-slate-500 dark:text-slate-400 text-center">
-                            Nenhum dado de estoque disponível
+                            No stock data available
                           </p>
                         </div>
                       )}
@@ -1187,7 +1187,7 @@ export default function DemoInventory() {
 
                   {/* Supplier Performance Chart */}
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Performance dos Fornecedores</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Supplier Performance</h3>
                     <div className="h-64">
                       {chartData.supplierPerformance.length > 0 ? (
                         <ResponsiveContainer width="100%" height="100%">
@@ -1228,7 +1228,7 @@ export default function DemoInventory() {
                       ) : (
                         <div className="flex items-center justify-center h-full">
                           <p className="text-slate-500 dark:text-slate-400 text-center">
-                            Nenhum fornecedor com produtos disponível
+                            No suppliers with products available
                           </p>
                         </div>
                       )}
@@ -1239,7 +1239,7 @@ export default function DemoInventory() {
                 {/* Low Stock and Categories */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-700 shadow-lg p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Estoque Baixo</h3>
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway">Low Stock</h3>
                     <div className="space-y-4">
                       {lowStockProducts.length > 0 ? lowStockProducts.map((item, index) => (
                         <div key={index} className="flex items-center justify-between p-3 bg-gradient-to-r from-orange-50 to-red-50 dark:from-slate-700 dark:to-slate-600 rounded-lg">
@@ -1248,7 +1248,7 @@ export default function DemoInventory() {
                             <p className="text-sm text-slate-500 dark:text-slate-400">{item.code}</p>
                           </div>
                           <div className="text-right">
-                            <p className="font-semibold text-slate-900 dark:text-slate-100">{item.currentStock || 0} unidades</p>
+                            <p className="font-semibold text-slate-900 dark:text-slate-100">{item.currentStock || 0} units</p>
                             <span className={`text-xs px-2 py-1 rounded-full ${
                               (item.currentStock || 0) <= (item.minimumStock || 0) / 2 ? 'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400' :
                               'bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-400'
@@ -1259,7 +1259,7 @@ export default function DemoInventory() {
                           </div>
                         </div>
                       )) : (
-                        <p className="text-center text-slate-500 dark:text-slate-400">Nenhum produto com estoque baixo</p>
+                        <p className="text-center text-slate-500 dark:text-slate-400">No products with low stock</p>
                       )}
                     </div>
                   </div>
@@ -1308,9 +1308,9 @@ export default function DemoInventory() {
                               }`}></i>
                             </div>
                             <div className="flex-1">
-                              <p className="font-medium text-slate-900 dark:text-slate-100">{product?.name || 'Produto'}</p>
+                              <p className="font-medium text-slate-900 dark:text-slate-100">{product?.name || 'Product'}</p>
                               <p className="text-sm text-slate-600 dark:text-slate-400">
-                                {mov.quantity} unidades • {mov.responsible || 'Sistema'} • {new Date(mov.createdAt || '').toLocaleDateString('pt-BR')}
+                                {mov.quantity} units • {mov.responsible || 'System'} • {new Date(mov.createdAt || '').toLocaleDateString('en-US')}
                               </p>
                             </div>
                             <span className={`font-semibold ${
@@ -1365,7 +1365,7 @@ export default function DemoInventory() {
               </div>
             )}
 
-            {selectedModule === 'estoque' && (
+            {selectedModule === 'stock' && (
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 raleway">Controle de Estoque</h2>
@@ -1439,7 +1439,7 @@ export default function DemoInventory() {
                           </div>
                           <div className="flex items-center space-x-4">
                             <div className="text-right">
-                              <p className="font-semibold text-slate-900 dark:text-slate-100">{product.currentStock || 0} unidades</p>
+                              <p className="font-semibold text-slate-900 dark:text-slate-100">{product.currentStock || 0} units</p>
                               <span className={`text-xs px-2 py-1 rounded-full ${
                                 (product.currentStock || 0) <= (product.minimumStock || 0) ? 
                                   'bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-400' :
@@ -1476,7 +1476,7 @@ export default function DemoInventory() {
                       )) : (
                         <div className="text-center py-8">
                           <i className="fas fa-box-open text-4xl text-slate-400 mb-4"></i>
-                          <p className="text-slate-500 dark:text-slate-400">Nenhum produto cadastrado</p>
+                          <p className="text-slate-500 dark:text-slate-400">No product cadastrado</p>
                           <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Adicione produtos para começar</p>
                         </div>
                       )}
@@ -1511,7 +1511,7 @@ export default function DemoInventory() {
               </div>
             )}
 
-            {selectedModule === 'movimentacoes' && (
+            {selectedModule === 'movements' && (
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 raleway">Movimentações</h2>
@@ -1567,7 +1567,7 @@ export default function DemoInventory() {
                           </div>
                           <div className="flex-1 grid grid-cols-1 md:grid-cols-4 gap-4">
                             <div>
-                              <p className="font-medium text-slate-900 dark:text-slate-100">{product?.name || 'Produto'}</p>
+                              <p className="font-medium text-slate-900 dark:text-slate-100">{product?.name || 'Product'}</p>
                               <p className="text-sm text-slate-500 dark:text-slate-400">{product?.code || movement.productId}</p>
                             </div>
                             <div>
@@ -1576,11 +1576,11 @@ export default function DemoInventory() {
                             </div>
                             <div>
                               <p className="text-sm text-slate-600 dark:text-slate-400">Responsável</p>
-                              <p className="font-medium text-slate-900 dark:text-slate-100">{movement.responsible || 'Sistema'}</p>
+                              <p className="font-medium text-slate-900 dark:text-slate-100">{movement.responsible || 'System'}</p>
                             </div>
                             <div className="text-right">
                               <p className="text-sm text-slate-600 dark:text-slate-400">
-                                {new Date(movement.createdAt || '').toLocaleDateString('pt-BR')}
+                                {new Date(movement.createdAt || '').toLocaleDateString('en-US')}
                               </p>
                               <p className={`font-semibold ${
                                 movement.type === 'entrada' ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'
@@ -1626,7 +1626,7 @@ export default function DemoInventory() {
               </div>
             )}
 
-            {selectedModule === 'fornecedores' && (
+            {selectedModule === 'suppliers' && (
               <div>
                 <div className="flex items-center justify-between mb-6">
                   <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 raleway">Gestão de Fornecedores</h2>
@@ -1756,7 +1756,7 @@ export default function DemoInventory() {
                   }) : (
                     <div className="col-span-2 text-center py-8">
                       <i className="fas fa-truck text-4xl text-slate-400 mb-4"></i>
-                      <p className="text-slate-500 dark:text-slate-400">Nenhum fornecedor cadastrado</p>
+                      <p className="text-slate-500 dark:text-slate-400">No supplier cadastrado</p>
                       <p className="text-sm text-slate-400 dark:text-slate-500 mt-1">Adicione fornecedores para gerenciar a cadeia de suprimentos</p>
                     </div>
                   )}
