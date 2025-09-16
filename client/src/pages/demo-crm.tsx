@@ -424,7 +424,7 @@ export default function DemoCRM() {
 
                 {/* Team Performance Section */}
                 <div className="mb-8">
-                  <h3 className="text-xl font-bold text-white mb-6 raleway">Sales Team Performance</h3>
+                  <h3 className="text-xl font-bold text-white mb-6 raleway">Performance da Equipe de Vendas</h3>
                   <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
                     {teamPerformance.map((member, index) => (
                       <div key={member.name} className="bg-zinc-900 rounded-xl border border-zinc-700 p-6" data-testid={`card-team-member-${index}`}>
@@ -448,25 +448,25 @@ export default function DemoCRM() {
                             <p className="text-2xl font-bold text-green-400" data-testid={`text-member-revenue-${index}`}>
                               $ {(member.revenue / 1000).toFixed(0)}k
                             </p>
-                            <p className="text-xs text-zinc-400">Revenue</p>
+                            <p className="text-xs text-zinc-400">Receita</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-blue-400" data-testid={`text-member-opportunities-${index}`}>
                               {member.opportunities}
                             </p>
-                            <p className="text-xs text-zinc-400">Opportunities</p>
+                            <p className="text-xs text-zinc-400">Oportunidades</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-purple-400" data-testid={`text-member-customers-${index}`}>
                               {member.customers}
                             </p>
-                            <p className="text-xs text-zinc-400">Customers</p>
+                            <p className="text-xs text-zinc-400">Clientes</p>
                           </div>
                           <div className="text-center">
                             <p className="text-2xl font-bold text-orange-400" data-testid={`text-member-conversion-${index}`}>
                               {member.conversionRate}%
                             </p>
-                            <p className="text-xs text-zinc-400">Conversion</p>
+                            <p className="text-xs text-zinc-400">Conversão</p>
                           </div>
                         </div>
 
@@ -539,7 +539,7 @@ export default function DemoCRM() {
                 {/* Performance and Sources */}
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-6">
-                    <h3 className="text-lg font-semibold text-white mb-4 raleway">Recent Opportunities</h3>
+                    <h3 className="text-lg font-semibold text-white mb-4 raleway">Oportunidades Recentes</h3>
                     <div className="space-y-4">
                       {opportunities.slice(0, 4).map((opp) => (
                         <div key={opp.id} className="p-4 bg-zinc-800 rounded-lg border-l-4 border-green-500" data-testid={`row-opportunity-${opp.id}`}>
@@ -687,13 +687,13 @@ export default function DemoCRM() {
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-zinc-700">
-                          <th className="text-left py-3 text-white">Name</th>
-                          <th className="text-left py-3 text-white">Company</th>
+                          <th className="text-left py-3 text-white">Nome</th>
+                          <th className="text-left py-3 text-white">Empresa</th>
                           <th className="text-left py-3 text-white">Email</th>
                           <th className="text-left py-3 text-white">Fonte</th>
                           <th className="text-left py-3 text-white">Score</th>
                           <th className="text-left py-3 text-white">Status</th>
-                          <th className="text-left py-3 text-white">Actions</th>
+                          <th className="text-left py-3 text-white">Ações</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -841,7 +841,7 @@ export default function DemoCRM() {
 
             {selectedModule === 'clientes' && (
               <div>
-                <h2 className="text-2xl font-bold text-white mb-6 raleway">Customer Management</h2>
+                <h2 className="text-2xl font-bold text-white mb-6 raleway">Gestão de Clientes</h2>
                 
                 {/* Add New Customer Form */}
                 <div className="bg-zinc-900 rounded-xl border border-zinc-700 p-6 mb-6">
@@ -898,7 +898,7 @@ export default function DemoCRM() {
                         <i className="fas fa-users text-white"></i>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">Total Customers</h3>
+                        <h3 className="text-lg font-semibold text-white">Total de Clientes</h3>
                         <p className="text-2xl font-bold text-green-400" data-testid="text-total-customers">
                           {customers.length}
                         </p>
@@ -912,7 +912,7 @@ export default function DemoCRM() {
                         <i className="fas fa-star text-white"></i>
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white">VIP Customers</h3>
+                        <h3 className="text-lg font-semibold text-white">Clientes VIP</h3>
                         <p className="text-2xl font-bold text-purple-400" data-testid="text-vip-customers">
                           {customers.filter(c => c.status === 'VIP').length}
                         </p>
@@ -942,8 +942,8 @@ export default function DemoCRM() {
                     <table className="w-full">
                       <thead>
                         <tr className="border-b border-zinc-700">
-                          <th className="text-left py-3 text-white">Name</th>
-                          <th className="text-left py-3 text-white">Company</th>
+                          <th className="text-left py-3 text-white">Nome</th>
+                          <th className="text-left py-3 text-white">Empresa</th>
                           <th className="text-left py-3 text-white">Email</th>
                           <th className="text-left py-3 text-white">Salesperson</th>
                           <th className="text-left py-3 text-white">Valor Total</th>
