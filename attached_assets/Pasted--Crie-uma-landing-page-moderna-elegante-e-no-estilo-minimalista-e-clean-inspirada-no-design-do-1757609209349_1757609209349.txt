@@ -1,0 +1,66 @@
+"""
+Crie uma landing page moderna, elegante e no estilo minimalista e clean, inspirada no design do site da Zara (https://www.zara.com), com rolagem vertical (de cima para baixo), tipografia sofisticada (ex: Montserrat, Lato, Playfair), tons neutros (preto, branco, cinza e variações de bege), e foco visual em imagens e blocos de texto bem posicionados.
+
+O objetivo da página é funcionar como um catálogo/apresentação comercial dos sistemas desenvolvidos pela empresa. A empresa desenvolve soluções como ERP, CRM, sistema de comandas para restaurantes, sistema de controle financeiro, entre outros.
+
+### Estrutura da página:
+
+1. **Header elegante com logo da empresa e slogan**
+   - Fundo branco ou imagem minimalista.
+   - Menu superior fixo com rolagem suave para seções.
+   - Slogan: “Soluções digitais que transformam seu negócio”
+
+2. **Seção de Destaque (Hero Section)**
+   - Imagem de fundo de alta qualidade em preto e branco (negócios modernos ou tecnologia)
+   - Título impactante: "Tecnologia sob medida para seu crescimento"
+   - Subtítulo: “Sistemas inteligentes para empresas de alto desempenho”
+   - Botão: “Conheça Nossas Soluções”
+
+3. **Seção: Nossos Sistemas**
+   - Layout estilo catálogo, com blocos animados de apresentação.
+   - Cada sistema com imagem representativa, nome, breve descrição:
+     - ERP: Gestão completa de empresas
+     - CRM: Gestão de relacionamento com clientes
+     - Sistema de Comandas: Otimize o atendimento em restaurantes
+     - Sistema Financeiro: Controle total das finanças
+     - Sistema para Estoque e Logística
+     - Plataforma de EAD/educacional
+   - Blocos interativos com hover moderno.
+
+4. **Seção: Benefícios de Usar Nossos Sistemas**
+   - Títulos com ícones ou imagens sutis.
+   - Benefícios:
+     - Aumento de produtividade
+     - Redução de erros operacionais
+     - Aumento de lucros
+     - Tomada de decisão com base em dados
+     - Escalabilidade dos processos
+
+5. **Seção Comparativa (Quadro comparativo)**
+   - Tabela comparativa entre:
+     - Empresas que usam sistemas modernos
+     - Empresas que usam sistemas antigos ou nenhum
+   - Critérios: Produtividade, Lucros, Erros, Tempo Gasto, Escalabilidade, Satisfação do Cliente
+
+6. **Depoimentos de Clientes**
+   - Estilo carrossel moderno
+   - Frases curtas, com foto e nome do cliente
+
+7. **Seção: Entre em Contato / Solicite uma Demonstração**
+   - Formulário simples (nome, e-mail, empresa, mensagem)
+   - Estilo clean com botões elegantes
+
+8. **Rodapé (Footer)**
+   - Redes sociais, telefone, e-mail, endereço
+   - Links para termos de uso, política de privacidade
+
+### Requisitos técnicos:
+- HTML5 + CSS3 moderno (sem frameworks como Bootstrap)
+- Estilo visual limpo e com fontes modernas (Google Fonts: Montserrat, Lato, Playfair Display)
+- Animações suaves com scroll reveal ou CSS transitions
+- Responsivo (mobile e desktop)
+- Paleta de cores neutra (preto, branco, cinza, bege)
+- Código organizado e comentado
+
+A landing page deve ser visualmente impactante, transmitir sofisticação, inovação e profissionalismo. A navegação deve ser suave e intuitiva. Ideal para ser usada como apresentação comercial online para clientes B2B.
+"""
