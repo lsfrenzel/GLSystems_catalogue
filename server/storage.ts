@@ -10,8 +10,16 @@ import {
   type Product,
   type InsertProduct,
   type StockMovement,
-  type InsertStockMovement
+  type InsertStockMovement,
+  users,
+  contactSubmissions,
+  suppliers,
+  categories,
+  products,
+  stockMovements
 } from "@shared/schema";
+import { db } from "./db";
+import { eq, desc, sql, and, lte } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -651,5 +659,237 @@ export class MemStorage implements IStorage {
   }
 }
 
-// Use MemStorage for the demo as per project guidelines
-export const storage = new MemStorage();
+// Database storage implementation
+export class DatabaseStorage implements IStorage {
+  // User methods
+  async getUser(id: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async createContactSubmission(insertContact: InsertContact): Promise<ContactSubmission> {
+    const [contact] = await db
+      .insert(contactSubmissions)
+      .values(insertContact)
+      .returning();
+    return contact;
+  }
+
+  async getContactSubmissions(): Promise<ContactSubmission[]> {
+    return await db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.createdAt));
+  }
+
+  // Suppliers
+  async getSuppliers(): Promise<Supplier[]> {
+    return await db.select().from(suppliers).orderBy(suppliers.name);
+  }
+
+  async getSupplier(id: string): Promise<Supplier | undefined> {
+    const [supplier] = await db.select().from(suppliers).where(eq(suppliers.id, id));
+    return supplier || undefined;
+  }
+
+  async createSupplier(insertSupplier: InsertSupplier): Promise<Supplier> {
+    const [supplier] = await db
+      .insert(suppliers)
+      .values(insertSupplier)
+      .returning();
+    return supplier;
+  }
+
+  async updateSupplier(id: string, updateData: Partial<InsertSupplier>): Promise<Supplier | undefined> {
+    const [supplier] = await db
+      .update(suppliers)
+      .set(updateData)
+      .where(eq(suppliers.id, id))
+      .returning();
+    return supplier || undefined;
+  }
+
+  async deleteSupplier(id: string): Promise<boolean> {
+    const result = await db.delete(suppliers).where(eq(suppliers.id, id));
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  // Categories
+  async getCategories(): Promise<Category[]> {
+    return await db.select().from(categories).orderBy(categories.name);
+  }
+
+  async getCategory(id: string): Promise<Category | undefined> {
+    const [category] = await db.select().from(categories).where(eq(categories.id, id));
+    return category || undefined;
+  }
+
+  async createCategory(insertCategory: InsertCategory): Promise<Category> {
+    const [category] = await db
+      .insert(categories)
+      .values(insertCategory)
+      .returning();
+    return category;
+  }
+
+  async updateCategory(id: string, updateData: Partial<InsertCategory>): Promise<Category | undefined> {
+    const [category] = await db
+      .update(categories)
+      .set(updateData)
+      .where(eq(categories.id, id))
+      .returning();
+    return category || undefined;
+  }
+
+  async deleteCategory(id: string): Promise<boolean> {
+    const result = await db.delete(categories).where(eq(categories.id, id));
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  // Products
+  async getProducts(): Promise<Product[]> {
+    return await db.select().from(products).orderBy(products.name);
+  }
+
+  async getProduct(id: string): Promise<Product | undefined> {
+    const [product] = await db.select().from(products).where(eq(products.id, id));
+    return product || undefined;
+  }
+
+  async getProductByCode(code: string): Promise<Product | undefined> {
+    const [product] = await db.select().from(products).where(eq(products.code, code));
+    return product || undefined;
+  }
+
+  async createProduct(insertProduct: InsertProduct): Promise<Product> {
+    const [product] = await db
+      .insert(products)
+      .values(insertProduct)
+      .returning();
+    return product;
+  }
+
+  async updateProduct(id: string, updateData: Partial<InsertProduct>): Promise<Product | undefined> {
+    const [product] = await db
+      .update(products)
+      .set({ ...updateData, updatedAt: new Date() })
+      .where(eq(products.id, id))
+      .returning();
+    return product || undefined;
+  }
+
+  async deleteProduct(id: string): Promise<boolean> {
+    const result = await db.delete(products).where(eq(products.id, id));
+    return (result.rowCount ?? 0) > 0;
+  }
+
+  async updateProductStock(id: string, newStock: number): Promise<Product | undefined> {
+    const [product] = await db
+      .update(products)
+      .set({ currentStock: newStock, updatedAt: new Date() })
+      .where(eq(products.id, id))
+      .returning();
+    return product || undefined;
+  }
+
+  async getLowStockProducts(): Promise<Product[]> {
+    return await db.select().from(products).where(
+      lte(products.currentStock, products.minimumStock)
+    );
+  }
+
+  // Stock Movements
+  async getStockMovements(): Promise<StockMovement[]> {
+    return await db.select().from(stockMovements).orderBy(desc(stockMovements.createdAt));
+  }
+
+  async getStockMovement(id: string): Promise<StockMovement | undefined> {
+    const [movement] = await db.select().from(stockMovements).where(eq(stockMovements.id, id));
+    return movement || undefined;
+  }
+
+  async getProductMovements(productId: string): Promise<StockMovement[]> {
+    return await db.select().from(stockMovements)
+      .where(eq(stockMovements.productId, productId))
+      .orderBy(desc(stockMovements.createdAt));
+  }
+
+  async createStockMovement(insertMovement: InsertStockMovement): Promise<StockMovement> {
+    // Start a transaction to ensure data consistency
+    return await db.transaction(async (tx) => {
+      // Create the movement
+      const [movement] = await tx
+        .insert(stockMovements)
+        .values(insertMovement)
+        .returning();
+
+      // Update product stock
+      const [product] = await tx.select().from(products).where(eq(products.id, insertMovement.productId));
+      if (product) {
+        const currentStock = product.currentStock || 0;
+        const newStock = insertMovement.type === 'entrada' 
+          ? currentStock + insertMovement.quantity
+          : currentStock - insertMovement.quantity;
+        
+        await tx
+          .update(products)
+          .set({ currentStock: Math.max(0, newStock), updatedAt: new Date() })
+          .where(eq(products.id, insertMovement.productId));
+      }
+
+      return movement;
+    });
+  }
+
+  async updateStockMovement(id: string, updateData: Partial<InsertStockMovement>): Promise<StockMovement | undefined> {
+    const [movement] = await db
+      .update(stockMovements)
+      .set(updateData)
+      .where(eq(stockMovements.id, id))
+      .returning();
+    return movement || undefined;
+  }
+
+  async deleteStockMovement(id: string): Promise<boolean> {
+    return await db.transaction(async (tx) => {
+      // Get the movement to reverse
+      const [movement] = await tx.select().from(stockMovements).where(eq(stockMovements.id, id));
+      if (!movement) return false;
+
+      // Get current product stock
+      const [product] = await tx.select().from(products).where(eq(products.id, movement.productId));
+      if (product) {
+        const currentStock = product.currentStock || 0;
+        const reversedStock = movement.type === 'entrada' 
+          ? currentStock - movement.quantity
+          : currentStock + movement.quantity;
+        
+        if (reversedStock < 0) {
+          throw new Error(`Não é possível excluir esta movimentação pois resultaria em estoque negativo. Estoque atual: ${currentStock}`);
+        }
+        
+        await tx
+          .update(products)
+          .set({ currentStock: reversedStock, updatedAt: new Date() })
+          .where(eq(products.id, movement.productId));
+      }
+
+      // Delete the movement
+      const result = await tx.delete(stockMovements).where(eq(stockMovements.id, id));
+      return (result.rowCount ?? 0) > 0;
+    });
+  }
+}
+
+// Use DatabaseStorage for persistent data
+export const storage = new DatabaseStorage();
