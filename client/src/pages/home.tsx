@@ -3,7 +3,9 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SystemsShowcase from "@/components/SystemsShowcase";
 import Benefits from "@/components/Benefits";
+import VideoSection from "@/components/VideoSection";
 import Comparison from "@/components/Comparison";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 
@@ -55,7 +57,9 @@ export default function Home() {
         </section>
         
         <Benefits />
+        <VideoSection />
         <Comparison />
+        <Contact />
       </main>
       <Footer />
     </>
