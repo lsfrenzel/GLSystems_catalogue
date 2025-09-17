@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaCRM() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'crm',
-    title: 'CRM – Gestão de Relacionamento com o Cliente',
-    subtitle: 'Transforme leads em clientes fiéis',
+    title: t('sistema.crm.title'),
+    subtitle: t('sistema.crm.subtitle'),
     image: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-users',
-    description: 'O sistema CRM da TechSolutions oferece gestão completa de relacionamento com clientes, do primeiro contato à fidelização. Automatize vendas, organize dados e aumente sua taxa de conversão.',
+    description: t('sistema.crm.description'),
     mainBenefits: [
       {
         icon: 'fas fa-user-plus',
-        title: 'Geração de Leads',
-        description: 'Capture e organize todos os leads em um funil de vendas'
+        title: t('sistema.crm.benefit1.title'),
+        description: t('sistema.crm.benefit1.description')
       },
       {
         icon: 'fas fa-chart-trending-up',
-        title: 'Aumento de Vendas',
-        description: 'Aumente suas vendas em até 60% com automação inteligente'
+        title: t('sistema.crm.benefit2.title'),
+        description: t('sistema.crm.benefit2.description')
       },
       {
         icon: 'fas fa-heart',
-        title: 'Fidelização de Clientes',
-        description: 'Mantenha clientes engajados com comunicação personalizada'
+        title: t('sistema.crm.benefit3.title'),
+        description: t('sistema.crm.benefit3.description')
       },
       {
         icon: 'fas fa-analytics',
-        title: 'Análise de Desempenho',
-        description: 'Relatórios detalhados sobre equipe e resultados de vendas'
+        title: t('sistema.crm.benefit4.title'),
+        description: t('sistema.crm.benefit4.description')
       }
     ],
     detailedFeatures: {
       leads: {
-        title: 'Gestão de Leads',
+        title: t('sistema.crm.feature1.title'),
         features: [
-          'Captura automática de leads do site',
-          'Qualificação e scoring de prospects',
-          'Distribuição automática para vendedores',
-          'Acompanhamento do funil de vendas',
-          'Integração com redes sociais',
-          'Landing pages integradas'
+          t('sistema.crm.feature1.item1'),
+          t('sistema.crm.feature1.item2'),
+          t('sistema.crm.feature1.item3'),
+          t('sistema.crm.feature1.item4'),
+          t('sistema.crm.feature1.item5'),
+          t('sistema.crm.feature1.item6')
         ]
       },
       vendas: {
-        title: 'Automação de Vendas',
+        title: t('sistema.crm.feature2.title'),
         features: [
-          'Pipeline visual de oportunidades',
-          'Sequências de e-mail automatizadas',
-          'Agendamento de follow-ups',
-          'Propostas e contratos digitais',
-          'Gestão de comissões',
-          'Previsão de vendas'
+          t('sistema.crm.feature2.item1'),
+          t('sistema.crm.feature2.item2'),
+          t('sistema.crm.feature2.item3'),
+          t('sistema.crm.feature2.item4'),
+          t('sistema.crm.feature2.item5'),
+          t('sistema.crm.feature2.item6')
         ]
       },
       clientes: {
-        title: 'Relacionamento com Clientes',
+        title: t('sistema.crm.feature3.title'),
         features: [
-          'Histórico completo de interações',
-          'Segmentação de clientes',
-          'Campanhas de e-mail marketing',
-          'Pesquisas de satisfação',
-          'Programa de fidelidade',
-          'Suporte ao cliente integrado'
+          t('sistema.crm.feature3.item1'),
+          t('sistema.crm.feature3.item2'),
+          t('sistema.crm.feature3.item3'),
+          t('sistema.crm.feature3.item4'),
+          t('sistema.crm.feature3.item5'),
+          t('sistema.crm.feature3.item6')
         ]
       },
       relatorios: {
-        title: 'Relatórios e Análises',
+        title: t('sistema.crm.feature4.title'),
         features: [
-          'Dashboard de vendas em tempo real',
-          'Relatórios de performance individual',
-          'Análise de ROI de campanhas',
-          'Métricas de satisfação do cliente',
-          'Previsões de receita',
-          'Comparativos de período'
+          t('sistema.crm.feature4.item1'),
+          t('sistema.crm.feature4.item2'),
+          t('sistema.crm.feature4.item3'),
+          t('sistema.crm.feature4.item4'),
+          t('sistema.crm.feature4.item5'),
+          t('sistema.crm.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Aumento de 60% nas Vendas',
-        description: 'Automação e organização levam a mais oportunidades fechadas'
+        title: t('sistema.crm.advantage1.title'),
+        description: t('sistema.crm.advantage1.description')
       },
       {
-        title: 'Redução de 40% no Ciclo de Vendas',
-        description: 'Processos otimizados aceleram o fechamento de negócios'
+        title: t('sistema.crm.advantage2.title'),
+        description: t('sistema.crm.advantage2.description')
       },
       {
-        title: 'Melhoria de 50% na Satisfação',
-        description: 'Atendimento personalizado aumenta satisfação dos clientes'
+        title: t('sistema.crm.advantage3.title'),
+        description: t('sistema.crm.advantage3.description')
       },
       {
-        title: 'ROI de 300% no Primeiro Ano',
-        description: 'Retorno garantido com aumento significativo de vendas'
+        title: t('sistema.crm.advantage4.title'),
+        description: t('sistema.crm.advantage4.description')
       }
     ],
     testimonial: {
@@ -132,7 +135,7 @@ export default function SistemaCRM() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Voltar ao Catálogo
+                {t('sistema.backToCatalog')}
               </Link>
             </div>
             
@@ -162,7 +165,7 @@ export default function SistemaCRM() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Testar Demo
+                  {t('sistema.testDemo')}
                 </Link>
               </div>
               
@@ -181,7 +184,7 @@ export default function SistemaCRM() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +205,7 @@ export default function SistemaCRM() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -258,7 +261,7 @@ export default function SistemaCRM() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -283,7 +286,7 @@ export default function SistemaCRM() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

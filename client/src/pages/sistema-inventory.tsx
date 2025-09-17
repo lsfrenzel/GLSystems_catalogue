@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaInventory() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'inventory',
-    title: 'Sistema de Estoque e Logística',
-    subtitle: 'Gestão inteligente de estoque e supply chain',
+    title: t('sistema.inventory.title'),
+    subtitle: t('sistema.inventory.subtitle'),
     image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-boxes',
-    description: 'O sistema de estoque e logística da TechSolutions oferece controle completo da cadeia de suprimentos com rastreamento em tempo real, gestão de fornecedores e otimização de inventário.',
+    description: t('sistema.inventory.description'),
     mainBenefits: [
       {
         icon: 'fas fa-warehouse',
-        title: 'Controle de Inventário',
-        description: 'Rastreamento preciso de todos os produtos em tempo real'
+        title: t('sistema.inventory.benefit1.title'),
+        description: t('sistema.inventory.benefit1.description')
       },
       {
         icon: 'fas fa-truck',
-        title: 'Gestão Logística',
-        description: 'Otimização de rotas e controle de entregas'
+        title: t('sistema.inventory.benefit2.title'),
+        description: t('sistema.inventory.benefit2.description')
       },
       {
         icon: 'fas fa-chart-network',
-        title: 'Supply Chain',
-        description: 'Gestão completa da cadeia de suprimentos'
+        title: t('sistema.inventory.benefit3.title'),
+        description: t('sistema.inventory.benefit3.description')
       },
       {
         icon: 'fas fa-bell',
-        title: 'Alertas Inteligentes',
-        description: 'Notificações automáticas de estoque mínimo e reposição'
+        title: t('sistema.inventory.benefit4.title'),
+        description: t('sistema.inventory.benefit4.description')
       }
     ],
     detailedFeatures: {
       estoque: {
-        title: 'Gestão de Estoque',
+        title: t('sistema.inventory.feature1.title'),
         features: [
-          'Inventário em tempo real',
-          'Controle de lotes e validade',
-          'Alertas de estoque mínimo',
-          'Múltiplos depósitos',
-          'Rastreabilidade completa',
-          'Controle de qualidade'
+          t('sistema.inventory.feature1.item1'),
+          t('sistema.inventory.feature1.item2'),
+          t('sistema.inventory.feature1.item3'),
+          t('sistema.inventory.feature1.item4'),
+          t('sistema.inventory.feature1.item5'),
+          t('sistema.inventory.feature1.item6')
         ]
       },
       compras: {
-        title: 'Gestão de Compras',
+        title: t('sistema.inventory.feature2.title'),
         features: [
-          'Solicitações de compra',
-          'Cotações e aprovações',
-          'Controle de fornecedores',
-          'Histórico de preços',
-          'Análise de performance',
-          'Integração com financeiro'
+          t('sistema.inventory.feature2.item1'),
+          t('sistema.inventory.feature2.item2'),
+          t('sistema.inventory.feature2.item3'),
+          t('sistema.inventory.feature2.item4'),
+          t('sistema.inventory.feature2.item5'),
+          t('sistema.inventory.feature2.item6')
         ]
       },
       logistica: {
-        title: 'Controle Logístico',
+        title: t('sistema.inventory.feature3.title'),
         features: [
-          'Gestão de transportadoras',
-          'Otimização de rotas',
-          'Rastreamento de entregas',
-          'Controle de fretes',
-          'Agendamento de cargas',
-          'Relatórios de performance'
+          t('sistema.inventory.feature3.item1'),
+          t('sistema.inventory.feature3.item2'),
+          t('sistema.inventory.feature3.item3'),
+          t('sistema.inventory.feature3.item4'),
+          t('sistema.inventory.feature3.item5'),
+          t('sistema.inventory.feature3.item6')
         ]
       },
       analytics: {
-        title: 'Análises e Relatórios',
+        title: t('sistema.inventory.feature4.title'),
         features: [
-          'Curva ABC de produtos',
-          'Análise de giro de estoque',
-          'Previsão de demanda',
-          'Indicadores de performance',
-          'Dashboards em tempo real',
-          'Relatórios customizados'
+          t('sistema.inventory.feature4.item1'),
+          t('sistema.inventory.feature4.item2'),
+          t('sistema.inventory.feature4.item3'),
+          t('sistema.inventory.feature4.item4'),
+          t('sistema.inventory.feature4.item5'),
+          t('sistema.inventory.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Redução de 40% nos Custos de Estoque',
-        description: 'Otimização elimina excessos e reduz custos de armazenagem'
+        title: t('sistema.inventory.advantage1.title'),
+        description: t('sistema.inventory.advantage1.description')
       },
       {
-        title: 'Aumento de 95% na Precisão',
-        description: 'Controle automatizado elimina divergências de inventário'
+        title: t('sistema.inventory.advantage2.title'),
+        description: t('sistema.inventory.advantage2.description')
       },
       {
-        title: 'Melhoria de 60% na Eficiência Logística',
-        description: 'Otimização de rotas e processos acelera entregas'
+        title: t('sistema.inventory.advantage3.title'),
+        description: t('sistema.inventory.advantage3.description')
       },
       {
-        title: 'ROI de 220% no Primeiro Ano',
-        description: 'Economia em custos e otimização geram retorno rápido'
+        title: t('sistema.inventory.advantage4.title'),
+        description: t('sistema.inventory.advantage4.description')
       }
     ],
     testimonial: {
@@ -132,7 +135,7 @@ export default function SistemaInventory() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Voltar ao Catálogo
+                {t('sistema.backToCatalog')}
               </Link>
             </div>
             
@@ -162,7 +165,7 @@ export default function SistemaInventory() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Testar Demo
+                  {t('sistema.testDemo')}
                 </Link>
               </div>
               
@@ -181,7 +184,7 @@ export default function SistemaInventory() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +205,7 @@ export default function SistemaInventory() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -258,7 +261,7 @@ export default function SistemaInventory() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -283,7 +286,7 @@ export default function SistemaInventory() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

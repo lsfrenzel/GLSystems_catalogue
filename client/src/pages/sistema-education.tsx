@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaEducation() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'education',
-    title: 'Plataforma EAD Completa',
-    subtitle: 'Educação online de alta qualidade',
+    title: t('sistema.education.title'),
+    subtitle: t('sistema.education.subtitle'),
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-graduation-cap',
-    description: 'A plataforma EAD da TechSolutions oferece uma solução completa para ensino a distância com gestão de cursos, alunos, certificações e ferramentas interativas de aprendizagem.',
+    description: t('sistema.education.description'),
     mainBenefits: [
       {
         icon: 'fas fa-play-circle',
-        title: 'Aulas Interativas',
-        description: 'Vídeos, quizzes e atividades para engajar estudantes'
+        title: t('sistema.education.benefit1.title'),
+        description: t('sistema.education.benefit1.description')
       },
       {
         icon: 'fas fa-certificate',
-        title: 'Certificação Digital',
-        description: 'Emissão automática de certificados com validade legal'
+        title: t('sistema.education.benefit2.title'),
+        description: t('sistema.education.benefit2.description')
       },
       {
         icon: 'fas fa-users-class',
-        title: 'Gestão de Turmas',
-        description: 'Controle completo de alunos, professores e turmas'
+        title: t('sistema.education.benefit3.title'),
+        description: t('sistema.education.benefit3.description')
       },
       {
         icon: 'fas fa-chart-bar',
-        title: 'Analytics Educacional',
-        description: 'Relatórios detalhados de performance e engajamento'
+        title: t('sistema.education.benefit4.title'),
+        description: t('sistema.education.benefit4.description')
       }
     ],
     detailedFeatures: {
       cursos: {
-        title: 'Gestão de Cursos',
+        title: t('sistema.education.feature1.title'),
         features: [
-          'Criação de cursos modulares',
-          'Upload de vídeos e materiais',
-          'Quizzes e avaliações',
-          'Trilhas de aprendizagem',
-          'Pré-requisitos entre módulos',
-          'Controle de acesso por período'
+          t('sistema.education.feature1.item1'),
+          t('sistema.education.feature1.item2'),
+          t('sistema.education.feature1.item3'),
+          t('sistema.education.feature1.item4'),
+          t('sistema.education.feature1.item5'),
+          t('sistema.education.feature1.item6')
         ]
       },
       alunos: {
-        title: 'Portal do Aluno',
+        title: t('sistema.education.feature2.title'),
         features: [
-          'Dashboard personalizado',
-          'Progresso de estudos',
-          'Histórico de notas',
-          'Certificados digitais',
-          'Fórum de discussões',
-          'Mensagens com instrutores'
+          t('sistema.education.feature2.item1'),
+          t('sistema.education.feature2.item2'),
+          t('sistema.education.feature2.item3'),
+          t('sistema.education.feature2.item4'),
+          t('sistema.education.feature2.item5'),
+          t('sistema.education.feature2.item6')
         ]
       },
       professores: {
-        title: 'Ferramentas do Professor',
+        title: t('sistema.education.feature3.title'),
         features: [
-          'Criação de conteúdo',
-          'Correção automatizada',
-          'Relatórios de turma',
-          'Comunicação com alunos',
-          'Agendamento de aulas ao vivo',
-          'Banco de questões'
+          t('sistema.education.feature3.item1'),
+          t('sistema.education.feature3.item2'),
+          t('sistema.education.feature3.item3'),
+          t('sistema.education.feature3.item4'),
+          t('sistema.education.feature3.item5'),
+          t('sistema.education.feature3.item6')
         ]
       },
       gestao: {
-        title: 'Gestão Administrativa',
+        title: t('sistema.education.feature4.title'),
         features: [
-          'Matrículas e renovações',
-          'Controle financeiro',
-          'Relatórios gerenciais',
-          'Certificações em lote',
-          'Integração com sistemas',
-          'Backup automático'
+          t('sistema.education.feature4.item1'),
+          t('sistema.education.feature4.item2'),
+          t('sistema.education.feature4.item3'),
+          t('sistema.education.feature4.item4'),
+          t('sistema.education.feature4.item5'),
+          t('sistema.education.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Aumento de 200% na Capacidade',
-        description: 'Atenda muito mais alunos sem limitações físicas'
+        title: t('sistema.education.advantage1.title'),
+        description: t('sistema.education.advantage1.description')
       },
       {
-        title: 'Redução de 60% nos Custos',
-        description: 'Elimine custos de infraestrutura física e materiais'
+        title: t('sistema.education.advantage2.title'),
+        description: t('sistema.education.advantage2.description')
       },
       {
-        title: 'Melhoria de 80% no Engajamento',
-        description: 'Ferramentas interativas mantêm alunos mais engajados'
+        title: t('sistema.education.advantage3.title'),
+        description: t('sistema.education.advantage3.description')
       },
       {
-        title: 'ROI de 300% no Primeiro Ano',
-        description: 'Expansão digital gera retorno exponencial'
+        title: t('sistema.education.advantage4.title'),
+        description: t('sistema.education.advantage4.description')
       }
     ],
     testimonial: {
@@ -132,7 +135,7 @@ export default function SistemaEducation() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Voltar ao Catálogo
+                {t('sistema.backToCatalog')}
               </Link>
             </div>
             
@@ -162,7 +165,7 @@ export default function SistemaEducation() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Testar Demo
+                  {t('sistema.testDemo')}
                 </Link>
               </div>
               
@@ -181,7 +184,7 @@ export default function SistemaEducation() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +205,7 @@ export default function SistemaEducation() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -258,7 +261,7 @@ export default function SistemaEducation() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -283,7 +286,7 @@ export default function SistemaEducation() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

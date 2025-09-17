@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaRestaurant() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'restaurant',
-    title: 'Sistema de Gestão para Restaurantes',
-    subtitle: 'Otimize o atendimento e aumente a eficiência',
+    title: t('sistema.restaurant.title'),
+    subtitle: t('sistema.restaurant.subtitle'),
     image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-utensils',
-    description: 'O sistema de gestão de pedidos da TechSolutions revoluciona a administração de restaurantes com controle completo de pedidos, mesas e entregas. Aumente a eficiência operacional e melhore a experiência do cliente.',
+    description: t('sistema.restaurant.description'),
     mainBenefits: [
       {
         icon: 'fas fa-mobile-alt',
-        title: 'Pedidos Digitais',
-        description: 'Cardápio digital e pedidos diretamente do smartphone do cliente'
+        title: t('sistema.restaurant.benefit1.title'),
+        description: t('sistema.restaurant.benefit1.description')
       },
       {
         icon: 'fas fa-table',
-        title: 'Gestão de Mesas',
-        description: 'Controle visual de todas as mesas em tempo real'
+        title: t('sistema.restaurant.benefit2.title'),
+        description: t('sistema.restaurant.benefit2.description')
       },
       {
         icon: 'fas fa-clock',
-        title: 'Rapidez no Atendimento',
-        description: 'Reduza o tempo de espera em até 50% com automação'
+        title: t('sistema.restaurant.benefit3.title'),
+        description: t('sistema.restaurant.benefit3.description')
       },
       {
         icon: 'fas fa-chart-pie',
-        title: 'Análise de Vendas',
-        description: 'Relatórios detalhados de pratos mais vendidos e faturamento'
+        title: t('sistema.restaurant.benefit4.title'),
+        description: t('sistema.restaurant.benefit4.description')
       }
     ],
     detailedFeatures: {
       pedidos: {
-        title: 'Gestão de Pedidos',
+        title: t('sistema.restaurant.feature1.title'),
         features: [
-          'Cardápio digital interativo',
-          'Pedidos via QR Code na mesa',
-          'Customização de pratos e observações',
-          'Controle de tempo de preparo',
-          'Notificações para cozinha',
-          'Histórico completo de pedidos'
+          t('sistema.restaurant.feature1.item1'),
+          t('sistema.restaurant.feature1.item2'),
+          t('sistema.restaurant.feature1.item3'),
+          t('sistema.restaurant.feature1.item4'),
+          t('sistema.restaurant.feature1.item5'),
+          t('sistema.restaurant.feature1.item6')
         ]
       },
       mesas: {
-        title: 'Controle de Mesas',
+        title: t('sistema.restaurant.feature2.title'),
         features: [
-          'Layout visual do restaurante',
-          'Status em tempo real das mesas',
-          'Reservas e agendamentos',
-          'Controle de ocupação',
-          'Transferência entre mesas',
-          'Relatório de rotatividade'
+          t('sistema.restaurant.feature2.item1'),
+          t('sistema.restaurant.feature2.item2'),
+          t('sistema.restaurant.feature2.item3'),
+          t('sistema.restaurant.feature2.item4'),
+          t('sistema.restaurant.feature2.item5'),
+          t('sistema.restaurant.feature2.item6')
         ]
       },
       cozinha: {
-        title: 'Gestão da Cozinha',
+        title: t('sistema.restaurant.feature3.title'),
         features: [
-          'Painel de pedidos para cozinha',
-          'Controle de tempo de preparo',
-          'Priorização automática',
-          'Alertas de atraso',
-          'Controle de ingredientes',
-          'Integração com estoque'
+          t('sistema.restaurant.feature3.item1'),
+          t('sistema.restaurant.feature3.item2'),
+          t('sistema.restaurant.feature3.item3'),
+          t('sistema.restaurant.feature3.item4'),
+          t('sistema.restaurant.feature3.item5'),
+          t('sistema.restaurant.feature3.item6')
         ]
       },
       pagamentos: {
-        title: 'Sistema de Pagamentos',
+        title: t('sistema.restaurant.feature4.title'),
         features: [
-          'Múltiplas formas de pagamento',
-          'Divisão de conta automática',
-          'Pagamento via PIX e cartão',
-          'Cupom fiscal eletrônico',
-          'Relatórios financeiros',
-          'Controle de comissões'
+          t('sistema.restaurant.feature4.item1'),
+          t('sistema.restaurant.feature4.item2'),
+          t('sistema.restaurant.feature4.item3'),
+          t('sistema.restaurant.feature4.item4'),
+          t('sistema.restaurant.feature4.item5'),
+          t('sistema.restaurant.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Aumento de 300% na Capacidade',
-        description: 'Atenda mais clientes com a mesma equipe através da automação'
+        title: t('sistema.restaurant.advantage1.title'),
+        description: t('sistema.restaurant.advantage1.description')
       },
       {
-        title: 'Redução de 50% no Tempo de Espera',
-        description: 'Processos otimizados aceleram todo o atendimento'
+        title: t('sistema.restaurant.advantage2.title'),
+        description: t('sistema.restaurant.advantage2.description')
       },
       {
-        title: 'Aumento de 25% no Ticket Médio',
-        description: 'Sugestões inteligentes aumentam o valor dos pedidos'
+        title: t('sistema.restaurant.advantage3.title'),
+        description: t('sistema.restaurant.advantage3.description')
       },
       {
-        title: 'ROI de 200% em 6 Meses',
-        description: 'Retorno rápido com aumento significativo de eficiência'
+        title: t('sistema.restaurant.advantage4.title'),
+        description: t('sistema.restaurant.advantage4.description')
       }
     ],
     testimonial: {
@@ -133,7 +136,7 @@ export default function SistemaRestaurant() {
                   data-testid="back-to-catalog"
                 >
                   <i className="fas fa-arrow-left mr-2"></i>
-                  Voltar ao Catálogo
+                  {t('sistema.backToCatalog')}
                 </Link>
               </div>
               
@@ -163,7 +166,7 @@ export default function SistemaRestaurant() {
                     data-testid="button-demo"
                   >
                     <i className="fas fa-play mr-2"></i>
-                    Testar Demo
+                    {t('sistema.testDemo')}
                   </Link>
                 </div>
               </div>
@@ -182,7 +185,7 @@ export default function SistemaRestaurant() {
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -203,7 +206,7 @@ export default function SistemaRestaurant() {
         <section className="py-16 md:py-20 bg-card">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -259,7 +262,7 @@ export default function SistemaRestaurant() {
         <section className="py-16 md:py-20 bg-card">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
@@ -284,7 +287,7 @@ export default function SistemaRestaurant() {
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">

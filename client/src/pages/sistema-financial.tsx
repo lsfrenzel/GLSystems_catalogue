@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaFinancial() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'financial',
-    title: 'Sistema Financeiro Completo',
-    subtitle: 'Controle total das finanças da sua empresa',
+    title: t('sistema.financial.title'),
+    subtitle: t('sistema.financial.subtitle'),
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-calculator',
-    description: 'O sistema financeiro da TechSolutions oferece controle total das finanças com gestão de fluxo de caixa, análises preditivas e relatórios gerenciais. Tome decisões financeiras inteligentes baseadas em dados.',
+    description: t('sistema.financial.description'),
     mainBenefits: [
       {
         icon: 'fas fa-money-bill-wave',
-        title: 'Fluxo de Caixa',
-        description: 'Controle completo de entradas e saídas em tempo real'
+        title: t('sistema.financial.benefit1.title'),
+        description: t('sistema.financial.benefit1.description')
       },
       {
         icon: 'fas fa-chart-line',
-        title: 'Análises Preditivas',
-        description: 'Previsões financeiras baseadas em inteligência artificial'
+        title: t('sistema.financial.benefit2.title'),
+        description: t('sistema.financial.benefit2.description')
       },
       {
         icon: 'fas fa-file-invoice',
-        title: 'Gestão Fiscal',
-        description: 'Emissão de NFe e controle completo de impostos'
+        title: t('sistema.financial.benefit3.title'),
+        description: t('sistema.financial.benefit3.description')
       },
       {
         icon: 'fas fa-shield-check',
-        title: 'Segurança Bancária',
-        description: 'Conciliação automática e proteção de dados financeiros'
+        title: t('sistema.financial.benefit4.title'),
+        description: t('sistema.financial.benefit4.description')
       }
     ],
     detailedFeatures: {
       caixa: {
-        title: 'Fluxo de Caixa',
+        title: t('sistema.financial.feature1.title'),
         features: [
-          'Controle de contas a pagar e receber',
-          'Projeções de fluxo de caixa',
-          'Alertas de vencimento',
-          'Controle de inadimplência',
-          'Múltiplas formas de pagamento',
-          'Relatórios de movimentação'
+          t('sistema.financial.feature1.item1'),
+          t('sistema.financial.feature1.item2'),
+          t('sistema.financial.feature1.item3'),
+          t('sistema.financial.feature1.item4'),
+          t('sistema.financial.feature1.item5'),
+          t('sistema.financial.feature1.item6')
         ]
       },
       fiscal: {
-        title: 'Gestão Fiscal',
+        title: t('sistema.financial.feature2.title'),
         features: [
-          'Emissão de NFe, NFCe e NFSe',
-          'Cálculo automático de impostos',
-          'SPED Fiscal e Contábil',
-          'Controle de regime tributário',
-          'Declarações obrigatórias',
-          'Auditoria fiscal integrada'
+          t('sistema.financial.feature2.item1'),
+          t('sistema.financial.feature2.item2'),
+          t('sistema.financial.feature2.item3'),
+          t('sistema.financial.feature2.item4'),
+          t('sistema.financial.feature2.item5'),
+          t('sistema.financial.feature2.item6')
         ]
       },
       bancario: {
-        title: 'Controle Bancário',
+        title: t('sistema.financial.feature3.title'),
         features: [
-          'Conciliação bancária automática',
-          'Múltiplas contas correntes',
-          'Controle de cheques',
-          'Transferências entre contas',
-          'Extrato bancário integrado',
-          'Controle de aplicações'
+          t('sistema.financial.feature3.item1'),
+          t('sistema.financial.feature3.item2'),
+          t('sistema.financial.feature3.item3'),
+          t('sistema.financial.feature3.item4'),
+          t('sistema.financial.feature3.item5'),
+          t('sistema.financial.feature3.item6')
         ]
       },
       relatorios: {
-        title: 'Relatórios Gerenciais',
+        title: t('sistema.financial.feature4.title'),
         features: [
-          'DRE (Demonstração de Resultado)',
-          'Balanço patrimonial',
-          'Análise de custos',
-          'Indicadores financeiros',
-          'Comparativos de período',
-          'Gráficos e dashboards'
+          t('sistema.financial.feature4.item1'),
+          t('sistema.financial.feature4.item2'),
+          t('sistema.financial.feature4.item3'),
+          t('sistema.financial.feature4.item4'),
+          t('sistema.financial.feature4.item5'),
+          t('sistema.financial.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Redução de 80% em Erros Contábeis',
-        description: 'Automação elimina erros manuais em cálculos e lançamentos'
+        title: t('sistema.financial.advantage1.title'),
+        description: t('sistema.financial.advantage1.description')
       },
       {
-        title: 'Economia de 60% no Tempo Contábil',
-        description: 'Processos automatizados aceleram rotinas financeiras'
+        title: t('sistema.financial.advantage2.title'),
+        description: t('sistema.financial.advantage2.description')
       },
       {
-        title: 'Melhoria de 90% na Precisão Fiscal',
-        description: 'Cálculos automáticos garantem conformidade tributária'
+        title: t('sistema.financial.advantage3.title'),
+        description: t('sistema.financial.advantage3.description')
       },
       {
-        title: 'ROI de 180% no Primeiro Ano',
-        description: 'Economia em multas e otimização financeira geram retorno'
+        title: t('sistema.financial.advantage4.title'),
+        description: t('sistema.financial.advantage4.description')
       }
     ],
     testimonial: {
@@ -132,7 +135,7 @@ export default function SistemaFinancial() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Voltar ao Catálogo
+                {t('sistema.backToCatalog')}
               </Link>
             </div>
             
@@ -162,7 +165,7 @@ export default function SistemaFinancial() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Testar Demo
+                  {t('sistema.testDemo')}
                 </Link>
               </div>
               
@@ -181,7 +184,7 @@ export default function SistemaFinancial() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +205,7 @@ export default function SistemaFinancial() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -258,7 +261,7 @@ export default function SistemaFinancial() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -283,7 +286,7 @@ export default function SistemaFinancial() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

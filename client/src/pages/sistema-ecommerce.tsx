@@ -3,103 +3,106 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaEcommerce() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
   const systemData = {
     id: 'ecommerce',
-    title: 'E-commerce para Lojas Físicas',
-    subtitle: 'Transforme sua loja física em digital',
+    title: t('sistema.ecommerce.title'),
+    subtitle: t('sistema.ecommerce.subtitle'),
     image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-shopping-cart',
-    description: 'Nossa plataforma de e-commerce foi desenvolvida especialmente para empresários que já possuem loja física e querem expandir suas vendas para o mundo digital. Mantenha a mesma gestão de estoque da sua loja física sincronizada com seu site.',
+    description: t('sistema.ecommerce.description'),
     mainBenefits: [
       {
         icon: 'fas fa-sync-alt',
-        title: 'Sincronização de Estoque',
-        description: 'Estoque único entre loja física e virtual - nunca mais venda o que não tem'
+        title: t('sistema.ecommerce.benefit1.title'),
+        description: t('sistema.ecommerce.benefit1.description')
       },
       {
         icon: 'fas fa-mobile-alt',
-        title: 'Design Responsivo',
-        description: 'Loja que funciona perfeitamente em qualquer dispositivo móvel'
+        title: t('sistema.ecommerce.benefit2.title'),
+        description: t('sistema.ecommerce.benefit2.description')
       },
       {
         icon: 'fas fa-shipping-fast',
-        title: 'Gestão de Entregas',
-        description: 'Controle completo de entregas, retirada na loja e fretes automáticos'
+        title: t('sistema.ecommerce.benefit3.title'),
+        description: t('sistema.ecommerce.benefit3.description')
       },
       {
         icon: 'fas fa-chart-line',
-        title: 'Relatórios Integrados',
-        description: 'Análise de vendas unificada entre canais físico e digital'
+        title: t('sistema.ecommerce.benefit4.title'),
+        description: t('sistema.ecommerce.benefit4.description')
       }
     ],
     detailedFeatures: {
       catalogo: {
-        title: 'Catálogo de Produtos',
+        title: t('sistema.ecommerce.feature1.title'),
         features: [
-          'Importação automática do seu estoque atual',
-          'Fotos profissionais dos produtos',
-          'Descrições otimizadas para SEO',
-          'Categorização inteligente',
-          'Sistema de busca avançada',
-          'Produtos relacionados automáticos'
+          t('sistema.ecommerce.feature1.item1'),
+          t('sistema.ecommerce.feature1.item2'),
+          t('sistema.ecommerce.feature1.item3'),
+          t('sistema.ecommerce.feature1.item4'),
+          t('sistema.ecommerce.feature1.item5'),
+          t('sistema.ecommerce.feature1.item6')
         ]
       },
       vendas: {
-        title: 'Processamento de Vendas',
+        title: t('sistema.ecommerce.feature2.title'),
         features: [
-          'Carrinho de compras intuitivo',
-          'Checkout em uma página',
-          'Múltiplas formas de pagamento',
-          'Cupons de desconto automáticos',
-          'Abandono de carrinho recuperado',
-          'Upsell e cross-sell inteligente'
+          t('sistema.ecommerce.feature2.item1'),
+          t('sistema.ecommerce.feature2.item2'),
+          t('sistema.ecommerce.feature2.item3'),
+          t('sistema.ecommerce.feature2.item4'),
+          t('sistema.ecommerce.feature2.item5'),
+          t('sistema.ecommerce.feature2.item6')
         ]
       },
       estoque: {
-        title: 'Gestão Unificada',
+        title: t('sistema.ecommerce.feature3.title'),
         features: [
-          'Estoque único para ambos os canais',
-          'Alertas de baixo estoque',
-          'Controle de fornecedores',
-          'Histórico de movimentações',
-          'Inventário automatizado',
-          'Previsão de demanda'
+          t('sistema.ecommerce.feature3.item1'),
+          t('sistema.ecommerce.feature3.item2'),
+          t('sistema.ecommerce.feature3.item3'),
+          t('sistema.ecommerce.feature3.item4'),
+          t('sistema.ecommerce.feature3.item5'),
+          t('sistema.ecommerce.feature3.item6')
         ]
       },
       marketing: {
-        title: 'Marketing Digital',
+        title: t('sistema.ecommerce.feature4.title'),
         features: [
-          'Email marketing automatizado',
-          'Integração com redes sociais',
-          'Programas de fidelidade',
-          'Remarketing personalizado',
-          'Análise de comportamento',
-          'Campanhas segmentadas'
+          t('sistema.ecommerce.feature4.item1'),
+          t('sistema.ecommerce.feature4.item2'),
+          t('sistema.ecommerce.feature4.item3'),
+          t('sistema.ecommerce.feature4.item4'),
+          t('sistema.ecommerce.feature4.item5'),
+          t('sistema.ecommerce.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Aumento de 250% nas Vendas',
-        description: 'Lojas físicas que migram para digital aumentam vendas significativamente'
+        title: t('sistema.ecommerce.advantage1.title'),
+        description: t('sistema.ecommerce.advantage1.description')
       },
       {
-        title: 'Redução de 40% em Custos',
-        description: 'Automatização de processos reduz custos operacionais'
+        title: t('sistema.ecommerce.advantage2.title'),
+        description: t('sistema.ecommerce.advantage2.description')
       },
       {
-        title: 'Alcance 24/7 de Clientes',
-        description: 'Sua loja funcionando 24 horas por dia, 7 dias por semana'
+        title: t('sistema.ecommerce.advantage3.title'),
+        description: t('sistema.ecommerce.advantage3.description')
       },
       {
-        title: 'ROI de 300% em 8 Meses',
-        description: 'Retorno rápido do investimento com crescimento sustentável'
+        title: t('sistema.ecommerce.advantage4.title'),
+        description: t('sistema.ecommerce.advantage4.description')
       }
     ],
     testimonial: {
@@ -134,7 +137,7 @@ export default function SistemaEcommerce() {
                   data-testid="back-to-catalog"
                 >
                   <i className="fas fa-arrow-left mr-2"></i>
-                  Voltar ao Catálogo
+                  {t('sistema.backToCatalog')}
                 </Link>
               </div>
               
@@ -164,7 +167,7 @@ export default function SistemaEcommerce() {
                     data-testid="button-demo"
                   >
                     <i className="fas fa-play mr-2"></i>
-                    Ver Demo da Loja
+                    {t('sistema.ecommerce.demo')}
                   </Link>
                 </div>
               </div>
@@ -183,7 +186,7 @@ export default function SistemaEcommerce() {
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
@@ -204,7 +207,7 @@ export default function SistemaEcommerce() {
         <section className="py-16 md:py-20 bg-card">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="interface-title">
-              Interface da Loja Virtual
+              {t('sistema.ecommerce.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
@@ -260,7 +263,7 @@ export default function SistemaEcommerce() {
         <section className="py-16 md:py-20 bg-card">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 lg:gap-12">
@@ -285,7 +288,7 @@ export default function SistemaEcommerce() {
         <section className="py-16 md:py-20 bg-background">
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <h2 className="raleway text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 md:mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">

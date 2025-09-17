@@ -3,102 +3,105 @@ import { useLayoutEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function SistemaERP() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   const systemData = {
     id: 'erp',
-    title: 'ERP – Sistema de Gestão Empresarial',
-    subtitle: 'Gestão completa e integrada para sua empresa',
+    title: t('sistema.erp.title'),
+    subtitle: t('sistema.erp.subtitle'),
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600',
     icon: 'fas fa-chart-line',
-    description: 'O sistema ERP da TechSolutions é uma solução completa que integra todos os departamentos da sua empresa em uma única plataforma. Controle financeiro, estoque, vendas, compras e recursos humanos em um só lugar.',
+    description: t('sistema.erp.description'),
     mainBenefits: [
       {
         icon: 'fas fa-integrate',
-        title: 'Integração Total',
-        description: 'Todos os setores da empresa conectados em uma única plataforma'
+        title: t('sistema.erp.benefit1.title'),
+        description: t('sistema.erp.benefit1.description')
       },
       {
         icon: 'fas fa-chart-bar',
-        title: 'Relatórios em Tempo Real',
-        description: 'Visualize o desempenho da empresa com dashboards interativos'
+        title: t('sistema.erp.benefit2.title'),
+        description: t('sistema.erp.benefit2.description')
       },
       {
         icon: 'fas fa-shield-alt',
-        title: 'Segurança de Dados',
-        description: 'Controle de acesso de usuários e backup automático'
+        title: t('sistema.erp.benefit3.title'),
+        description: t('sistema.erp.benefit3.description')
       },
       {
         icon: 'fas fa-mobile-alt',
-        title: 'Acesso Móvel',
-        description: 'Gerencie sua empresa de qualquer lugar através do aplicativo móvel'
+        title: t('sistema.erp.benefit4.title'),
+        description: t('sistema.erp.benefit4.description')
       }
     ],
     detailedFeatures: {
       financeiro: {
-        title: 'Gestão Financeira',
+        title: t('sistema.erp.feature1.title'),
         features: [
-          'Controle de contas a pagar e receber',
-          'Fluxo de caixa em tempo real',
-          'Conciliação bancária automática',
-          'Relatórios fiscais e contábeis',
-          'Controle de centro de custos',
-          'Análise de rentabilidade'
+          t('sistema.erp.feature1.item1'),
+          t('sistema.erp.feature1.item2'),
+          t('sistema.erp.feature1.item3'),
+          t('sistema.erp.feature1.item4'),
+          t('sistema.erp.feature1.item5'),
+          t('sistema.erp.feature1.item6')
         ]
       },
       vendas: {
-        title: 'Gestão de Vendas',
+        title: t('sistema.erp.feature2.title'),
         features: [
-          'Cadastro completo de clientes',
-          'Gestão de pedidos e orçamentos',
-          'Controle de comissões',
-          'Análise da equipe de vendas',
-          'Histórico de negociações',
-          'Integração com e-commerce'
+          t('sistema.erp.feature2.item1'),
+          t('sistema.erp.feature2.item2'),
+          t('sistema.erp.feature2.item3'),
+          t('sistema.erp.feature2.item4'),
+          t('sistema.erp.feature2.item5'),
+          t('sistema.erp.feature2.item6')
         ]
       },
       estoque: {
-        title: 'Controle de Estoque',
+        title: t('sistema.erp.feature3.title'),
         features: [
-          'Estoque em tempo real',
-          'Controle de entrada e saída',
-          'Gestão de fornecedores',
-          'Alertas de estoque mínimo',
-          'Rastreabilidade de produtos',
-          'Controle de data de validade'
+          t('sistema.erp.feature3.item1'),
+          t('sistema.erp.feature3.item2'),
+          t('sistema.erp.feature3.item3'),
+          t('sistema.erp.feature3.item4'),
+          t('sistema.erp.feature3.item5'),
+          t('sistema.erp.feature3.item6')
         ]
       },
       rh: {
-        title: 'Recursos Humanos',
+        title: t('sistema.erp.feature4.title'),
         features: [
-          'Cadastro de funcionários',
-          'Controle de ponto',
-          'Folha de pagamento',
-          'Gestão de benefícios',
-          'Avaliação de desempenho',
-          'Relatórios trabalhistas'
+          t('sistema.erp.feature4.item1'),
+          t('sistema.erp.feature4.item2'),
+          t('sistema.erp.feature4.item3'),
+          t('sistema.erp.feature4.item4'),
+          t('sistema.erp.feature4.item5'),
+          t('sistema.erp.feature4.item6')
         ]
       }
     },
     advantages: [
       {
-        title: 'Redução de 70% no Tempo de Processos',
-        description: 'Automação elimina tarefas manuais repetitivas'
+        title: t('sistema.erp.advantage1.title'),
+        description: t('sistema.erp.advantage1.description')
       },
       {
-        title: 'Aumento de 45% na Produtividade',
-        description: 'Informações centralizadas aceleram tomada de decisões'
+        title: t('sistema.erp.advantage2.title'),
+        description: t('sistema.erp.advantage2.description')
       },
       {
-        title: 'Economia de 30% nos Custos Operacionais',
-        description: 'Otimização de recursos e redução de desperdícios'
+        title: t('sistema.erp.advantage3.title'),
+        description: t('sistema.erp.advantage3.description')
       },
       {
-        title: 'ROI de 250% no Primeiro Ano',
-        description: 'Retorno sobre investimento comprovado pelos nossos clientes'
+        title: t('sistema.erp.advantage4.title'),
+        description: t('sistema.erp.advantage4.description')
       }
     ],
     testimonial: {
@@ -132,7 +135,7 @@ export default function SistemaERP() {
                 data-testid="back-to-catalog"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                Voltar ao Catálogo
+                {t('sistema.backToCatalog')}
               </Link>
             </div>
             
@@ -162,7 +165,7 @@ export default function SistemaERP() {
                   data-testid="button-demo"
                 >
                   <i className="fas fa-play mr-2"></i>
-                  Testar Demo
+                  {t('sistema.testDemo')}
                 </Link>
               </div>
               
@@ -181,7 +184,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="benefits-title">
-              Principais Benefícios
+              {t('sistema.mainBenefitsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -202,7 +205,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="interface-title">
-              Interface do Sistema
+              {t('sistema.interfaceTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -258,7 +261,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-card">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="features-title">
-              Funcionalidades Detalhadas
+              {t('sistema.detailedFeaturesTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -283,7 +286,7 @@ export default function SistemaERP() {
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="raleway text-4xl font-bold text-center mb-16" data-testid="advantages-title">
-              Resultados Comprovados
+              {t('sistema.provenResultsTitle')}
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
