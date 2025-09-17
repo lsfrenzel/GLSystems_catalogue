@@ -179,6 +179,16 @@ export const products: Product[] = [
   }
 ];
 
+// Function to get translated categories
+export const getCategoriesWithTranslations = (t: (key: string) => string) => [
+  { id: 'todos', name: t('categories.todos'), icon: 'fas fa-th-large' },
+  { id: 'eletronicos', name: t('categories.eletronicos'), icon: 'fas fa-mobile-alt' },
+  { id: 'moda', name: t('categories.moda'), icon: 'fas fa-tshirt' },
+  { id: 'casa', name: t('categories.casa'), icon: 'fas fa-home' },
+  { id: 'esportes', name: t('categories.esportes'), icon: 'fas fa-dumbbell' }
+];
+
+// Backup static categories for components that don't use translations
 export const categories = [
   { id: 'todos', name: 'Todos os Produtos', icon: 'fas fa-th-large' },
   { id: 'eletronicos', name: 'Eletrônicos', icon: 'fas fa-mobile-alt' },

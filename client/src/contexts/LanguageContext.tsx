@@ -885,7 +885,14 @@ const translations = {
     'demo.ecommerce.installments': 'Parcelamento',
     'demo.ecommerce.installmentsDesc': 'Em até 12x sem juros no cartão',
     'demo.ecommerce.easyReturns': 'Troca Fácil',
-    'demo.ecommerce.easyReturnsDesc': '30 dias para trocas e devoluções'
+    'demo.ecommerce.easyReturnsDesc': '30 dias para trocas e devoluções',
+    
+    // Categories
+    'categories.todos': 'Todos os Produtos',
+    'categories.eletronicos': 'Eletrônicos',
+    'categories.moda': 'Moda & Acessórios',
+    'categories.casa': 'Casa & Decoração',
+    'categories.esportes': 'Esportes & Lazer'
   },
   en: {
     // Header  
@@ -1763,7 +1770,14 @@ const translations = {
     'demo.ecommerce.installments': 'Installments',
     'demo.ecommerce.installmentsDesc': 'Up to 12x interest-free on credit card',
     'demo.ecommerce.easyReturns': 'Easy Returns',
-    'demo.ecommerce.easyReturnsDesc': '30 days for exchanges and returns'
+    'demo.ecommerce.easyReturnsDesc': '30 days for exchanges and returns',
+    
+    // Categories
+    'categories.todos': 'All Products',
+    'categories.eletronicos': 'Electronics',
+    'categories.moda': 'Fashion & Accessories',
+    'categories.casa': 'Home & Decor',
+    'categories.esportes': 'Sports & Leisure'
   }
 };
 

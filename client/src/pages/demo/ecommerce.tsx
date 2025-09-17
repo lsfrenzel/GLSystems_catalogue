@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { useLayoutEffect, useState } from "react";
 import { useCartStore } from "@/lib/cartStore";
-import { products, categories } from "@/data/products";
+import { products, getCategoriesWithTranslations } from "@/data/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
@@ -15,6 +15,9 @@ export default function EcommerceDemo() {
 
   const [activeCategory, setActiveCategory] = useState<string>('todos');
   const { addItem, getTotalItems } = useCartStore();
+  
+  // Get translated categories
+  const categories = getCategoriesWithTranslations(t);
 
   const filteredProducts = activeCategory === 'todos' 
     ? products 
