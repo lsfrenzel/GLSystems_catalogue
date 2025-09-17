@@ -44,26 +44,16 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-24">
-          {/* Logo and Brand */}
+          {/* Logo */}
           <Link href="/" className="flex items-center hover:opacity-90 transition-all duration-300 group">
-            <div className="flex items-center gap-4">
-              <div className="relative">
-                <img 
-                  src={glSystemsLogo} 
-                  alt="G&L Systems Logo" 
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-contain group-hover:scale-110 transition-transform duration-300 filter drop-shadow-sm"
-                  data-testid="company-logo"
-                />
-                <div className="absolute -inset-3 bg-gradient-to-r from-primary/20 to-primary/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-              </div>
-              <div className="hidden sm:block">
-                <div className="text-xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
-                  G&L Systems
-                </div>
-                <div className="text-sm text-muted-foreground font-medium">
-                  {t('header.tagline')}
-                </div>
-              </div>
+            <div className="relative">
+              <img 
+                src={glSystemsLogo} 
+                alt="G&L Systems Logo" 
+                className="w-24 h-24 sm:w-28 sm:h-28 object-contain group-hover:scale-110 transition-transform duration-300 filter drop-shadow-lg"
+                data-testid="company-logo"
+              />
+              <div className="absolute -inset-4 bg-gradient-to-r from-primary/25 to-primary/15 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </div>
           </Link>
 
