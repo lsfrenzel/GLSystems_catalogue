@@ -18,7 +18,7 @@ import {
   products,
   stockMovements
 } from "@shared/schema";
-import { db } from "./db";
+import { db, hasDatabaseUrl } from "./db";
 import { eq, desc, sql, and, lte } from "drizzle-orm";
 
 export interface IStorage {
@@ -663,16 +663,19 @@ export class MemStorage implements IStorage {
 export class DatabaseStorage implements IStorage {
   // User methods
   async getUser(id: string): Promise<User | undefined> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
+    if (!db) throw new Error("Database not available");
     const [user] = await db
       .insert(users)
       .values(insertUser)
@@ -681,6 +684,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async createContactSubmission(insertContact: InsertContact): Promise<ContactSubmission> {
+    if (!db) throw new Error("Database not available");
     const [contact] = await db
       .insert(contactSubmissions)
       .values(insertContact)
@@ -689,20 +693,24 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getContactSubmissions(): Promise<ContactSubmission[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(contactSubmissions).orderBy(desc(contactSubmissions.createdAt));
   }
 
   // Suppliers
   async getSuppliers(): Promise<Supplier[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(suppliers).orderBy(suppliers.name);
   }
 
   async getSupplier(id: string): Promise<Supplier | undefined> {
+    if (!db) throw new Error("Database not available");
     const [supplier] = await db.select().from(suppliers).where(eq(suppliers.id, id));
     return supplier || undefined;
   }
 
   async createSupplier(insertSupplier: InsertSupplier): Promise<Supplier> {
+    if (!db) throw new Error("Database not available");
     const [supplier] = await db
       .insert(suppliers)
       .values(insertSupplier)
@@ -711,6 +719,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateSupplier(id: string, updateData: Partial<InsertSupplier>): Promise<Supplier | undefined> {
+    if (!db) throw new Error("Database not available");
     const [supplier] = await db
       .update(suppliers)
       .set(updateData)
@@ -720,21 +729,25 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteSupplier(id: string): Promise<boolean> {
+    if (!db) throw new Error("Database not available");
     const result = await db.delete(suppliers).where(eq(suppliers.id, id));
     return (result.rowCount ?? 0) > 0;
   }
 
   // Categories
   async getCategories(): Promise<Category[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(categories).orderBy(categories.name);
   }
 
   async getCategory(id: string): Promise<Category | undefined> {
+    if (!db) throw new Error("Database not available");
     const [category] = await db.select().from(categories).where(eq(categories.id, id));
     return category || undefined;
   }
 
   async createCategory(insertCategory: InsertCategory): Promise<Category> {
+    if (!db) throw new Error("Database not available");
     const [category] = await db
       .insert(categories)
       .values(insertCategory)
@@ -743,6 +756,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateCategory(id: string, updateData: Partial<InsertCategory>): Promise<Category | undefined> {
+    if (!db) throw new Error("Database not available");
     const [category] = await db
       .update(categories)
       .set(updateData)
@@ -752,26 +766,31 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteCategory(id: string): Promise<boolean> {
+    if (!db) throw new Error("Database not available");
     const result = await db.delete(categories).where(eq(categories.id, id));
     return (result.rowCount ?? 0) > 0;
   }
 
   // Products
   async getProducts(): Promise<Product[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(products).orderBy(products.name);
   }
 
   async getProduct(id: string): Promise<Product | undefined> {
+    if (!db) throw new Error("Database not available");
     const [product] = await db.select().from(products).where(eq(products.id, id));
     return product || undefined;
   }
 
   async getProductByCode(code: string): Promise<Product | undefined> {
+    if (!db) throw new Error("Database not available");
     const [product] = await db.select().from(products).where(eq(products.code, code));
     return product || undefined;
   }
 
   async createProduct(insertProduct: InsertProduct): Promise<Product> {
+    if (!db) throw new Error("Database not available");
     const [product] = await db
       .insert(products)
       .values(insertProduct)
@@ -780,6 +799,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateProduct(id: string, updateData: Partial<InsertProduct>): Promise<Product | undefined> {
+    if (!db) throw new Error("Database not available");
     const [product] = await db
       .update(products)
       .set({ ...updateData, updatedAt: new Date() })
@@ -789,11 +809,13 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteProduct(id: string): Promise<boolean> {
+    if (!db) throw new Error("Database not available");
     const result = await db.delete(products).where(eq(products.id, id));
     return (result.rowCount ?? 0) > 0;
   }
 
   async updateProductStock(id: string, newStock: number): Promise<Product | undefined> {
+    if (!db) throw new Error("Database not available");
     const [product] = await db
       .update(products)
       .set({ currentStock: newStock, updatedAt: new Date() })
@@ -803,6 +825,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async getLowStockProducts(): Promise<Product[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(products).where(
       lte(products.currentStock, products.minimumStock)
     );
@@ -810,21 +833,25 @@ export class DatabaseStorage implements IStorage {
 
   // Stock Movements
   async getStockMovements(): Promise<StockMovement[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(stockMovements).orderBy(desc(stockMovements.createdAt));
   }
 
   async getStockMovement(id: string): Promise<StockMovement | undefined> {
+    if (!db) throw new Error("Database not available");
     const [movement] = await db.select().from(stockMovements).where(eq(stockMovements.id, id));
     return movement || undefined;
   }
 
   async getProductMovements(productId: string): Promise<StockMovement[]> {
+    if (!db) throw new Error("Database not available");
     return await db.select().from(stockMovements)
       .where(eq(stockMovements.productId, productId))
       .orderBy(desc(stockMovements.createdAt));
   }
 
   async createStockMovement(insertMovement: InsertStockMovement): Promise<StockMovement> {
+    if (!db) throw new Error("Database not available");
     // Start a transaction to ensure data consistency
     return await db.transaction(async (tx) => {
       // Create the movement
@@ -852,6 +879,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async updateStockMovement(id: string, updateData: Partial<InsertStockMovement>): Promise<StockMovement | undefined> {
+    if (!db) throw new Error("Database not available");
     const [movement] = await db
       .update(stockMovements)
       .set(updateData)
@@ -861,6 +889,7 @@ export class DatabaseStorage implements IStorage {
   }
 
   async deleteStockMovement(id: string): Promise<boolean> {
+    if (!db) throw new Error("Database not available");
     return await db.transaction(async (tx) => {
       // Get the movement to reverse
       const [movement] = await tx.select().from(stockMovements).where(eq(stockMovements.id, id));
@@ -891,5 +920,13 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-// Use DatabaseStorage for persistent data
-export const storage = new DatabaseStorage();
+// Choose storage implementation based on database availability
+export const storage: IStorage = hasDatabaseUrl ? new DatabaseStorage() : new MemStorage();
+
+// Log which storage is being used
+if (hasDatabaseUrl) {
+  console.log('[Storage] Using PostgreSQL database storage');
+} else {
+  console.log('[Storage] Using in-memory storage (data will not persist)');
+  console.log('[Storage] To enable persistent storage: Add PostgreSQL service on Railway and set DATABASE_URL');
+}
