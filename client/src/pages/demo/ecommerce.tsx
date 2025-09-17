@@ -67,7 +67,7 @@ export default function EcommerceDemo() {
                 </Link>
                 
                 <div className="hidden md:flex items-center space-x-1">
-                  <h1 className="text-xl font-bold text-blue-600">Moda & Estilo</h1>
+                  <h1 className="text-xl font-bold text-blue-600">{t('demo.ecommerce.storeName')}</h1>
                   <span className="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold">DEMO</span>
                 </div>
               </div>
@@ -77,7 +77,7 @@ export default function EcommerceDemo() {
                   <i className="fas fa-search text-gray-500 mr-2"></i>
                   <input 
                     type="text" 
-                    placeholder="Buscar produtos..." 
+                    placeholder={t('demo.ecommerce.searchPlaceholder')} 
                     className="bg-transparent border-none outline-none text-sm w-64"
                     data-testid="search-input"
                   />
@@ -106,7 +106,7 @@ export default function EcommerceDemo() {
             <div className="text-center">
               <p className="text-sm md:text-base font-medium">
                 <i className="fas fa-info-circle mr-2"></i>
-                Esta é uma demonstração do nosso e-commerce para lojas físicas. Todos os produtos são fictícios.
+                {t('demo.ecommerce.demoBanner')}
               </p>
             </div>
           </div>
@@ -140,10 +140,10 @@ export default function EcommerceDemo() {
           <div className="max-w-7xl mx-auto px-4 md:px-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl md:text-2xl font-bold text-gray-900" data-testid="products-title">
-                {activeCategory === 'todos' ? 'Todos os Produtos' : categories.find(c => c.id === activeCategory)?.name}
+                {activeCategory === 'todos' ? t('demo.ecommerce.allProducts') : categories.find(c => c.id === activeCategory)?.name}
               </h2>
               <p className="text-gray-600 text-sm">
-                {filteredProducts.length} produtos encontrados
+                {filteredProducts.length} {t('demo.ecommerce.productsFound')}
               </p>
             </div>
 
@@ -163,7 +163,7 @@ export default function EcommerceDemo() {
                     )}
                     {!product.inStock && (
                       <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">Esgotado</span>
+                        <span className="text-white font-bold text-sm">{t('demo.ecommerce.outOfStock')}</span>
                       </div>
                     )}
                   </div>
@@ -198,7 +198,7 @@ export default function EcommerceDemo() {
                       data-testid={`add-to-cart-${product.id}`}
                     >
                       <i className="fas fa-shopping-cart mr-2"></i>
-                      {product.inStock ? 'Adicionar' : 'Indisponível'}
+                      {product.inStock ? t('demo.ecommerce.addToCart') : t('demo.ecommerce.unavailable')}
                     </button>
                   </div>
                 </div>
@@ -215,24 +215,24 @@ export default function EcommerceDemo() {
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
                   <i className="fas fa-shipping-fast text-white"></i>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Frete Grátis</h3>
-                <p className="text-sm text-gray-600">Acima de R$ 299 para todo Brasil</p>
+                <h3 className="font-semibold text-gray-900 mb-1">{t('demo.ecommerce.freeShipping')}</h3>
+                <p className="text-sm text-gray-600">{t('demo.ecommerce.freeShippingDesc')}</p>
               </div>
               
               <div className="text-center" data-testid="feature-payment">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
                   <i className="fas fa-credit-card text-white"></i>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Parcelamento</h3>
-                <p className="text-sm text-gray-600">Em até 12x sem juros no cartão</p>
+                <h3 className="font-semibold text-gray-900 mb-1">{t('demo.ecommerce.installments')}</h3>
+                <p className="text-sm text-gray-600">{t('demo.ecommerce.installmentsDesc')}</p>
               </div>
               
               <div className="text-center" data-testid="feature-return">
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-3">
                   <i className="fas fa-undo text-white"></i>
                 </div>
-                <h3 className="font-semibold text-gray-900 mb-1">Troca Fácil</h3>
-                <p className="text-sm text-gray-600">30 dias para trocas e devoluções</p>
+                <h3 className="font-semibold text-gray-900 mb-1">{t('demo.ecommerce.easyReturns')}</h3>
+                <p className="text-sm text-gray-600">{t('demo.ecommerce.easyReturnsDesc')}</p>
               </div>
             </div>
           </div>

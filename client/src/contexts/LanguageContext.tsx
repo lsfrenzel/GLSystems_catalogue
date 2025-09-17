@@ -837,7 +837,21 @@ const translations = {
     'demo.education.badge': 'Sistema Educacional',
     
     // Demo Ecommerce
-    'demo.ecommerce.backToSystem': 'Voltar ao Sistema'
+    'demo.ecommerce.backToSystem': 'Voltar ao Sistema',
+    'demo.ecommerce.storeName': 'Moda & Estilo',
+    'demo.ecommerce.searchPlaceholder': 'Buscar produtos...',
+    'demo.ecommerce.demoBanner': 'Esta é uma demonstração do nosso e-commerce para lojas físicas. Todos os produtos são fictícios.',
+    'demo.ecommerce.allProducts': 'Todos os Produtos',
+    'demo.ecommerce.productsFound': 'produtos encontrados',
+    'demo.ecommerce.outOfStock': 'Esgotado',
+    'demo.ecommerce.addToCart': 'Adicionar',
+    'demo.ecommerce.unavailable': 'Indisponível',
+    'demo.ecommerce.freeShipping': 'Frete Grátis',
+    'demo.ecommerce.freeShippingDesc': 'Acima de R$ 299 para todo Brasil',
+    'demo.ecommerce.installments': 'Parcelamento',
+    'demo.ecommerce.installmentsDesc': 'Em até 12x sem juros no cartão',
+    'demo.ecommerce.easyReturns': 'Troca Fácil',
+    'demo.ecommerce.easyReturnsDesc': '30 dias para trocas e devoluções'
   },
   en: {
     // Header  
@@ -1667,7 +1681,21 @@ const translations = {
     'demo.education.badge': 'Educational System',
     
     // Demo Ecommerce
-    'demo.ecommerce.backToSystem': 'Back to System'
+    'demo.ecommerce.backToSystem': 'Back to System',
+    'demo.ecommerce.storeName': 'Fashion & Style',
+    'demo.ecommerce.searchPlaceholder': 'Search products...',
+    'demo.ecommerce.demoBanner': 'This is a demonstration of our e-commerce platform for physical stores. All products are fictional.',
+    'demo.ecommerce.allProducts': 'All Products',
+    'demo.ecommerce.productsFound': 'products found',
+    'demo.ecommerce.outOfStock': 'Out of Stock',
+    'demo.ecommerce.addToCart': 'Add to Cart',
+    'demo.ecommerce.unavailable': 'Unavailable',
+    'demo.ecommerce.freeShipping': 'Free Shipping',
+    'demo.ecommerce.freeShippingDesc': 'Orders over $50 nationwide',
+    'demo.ecommerce.installments': 'Installments',
+    'demo.ecommerce.installmentsDesc': 'Up to 12x interest-free on credit card',
+    'demo.ecommerce.easyReturns': 'Easy Returns',
+    'demo.ecommerce.easyReturnsDesc': '30 days for exchanges and returns'
   }
 };
 
