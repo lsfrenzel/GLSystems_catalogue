@@ -1,4 +1,5 @@
 import { Target } from "lucide-react";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface CustomSystemsMessageProps {
   className?: string;
@@ -6,13 +7,14 @@ interface CustomSystemsMessageProps {
 }
 
 export default function CustomSystemsMessage({ className = "", variant = 'default' }: CustomSystemsMessageProps) {
+  const { t } = useLanguage();
   if (variant === 'compact') {
     return (
       <div className={`bg-primary/5 border border-primary/20 rounded-lg p-3 ${className}`} data-testid="custom-systems-message">
         <div className="flex items-center gap-2">
           <Target className="w-5 h-5 text-primary flex-shrink-0" aria-hidden="true" />
           <p className="text-primary font-medium text-sm">
-            Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+            {t('customSystems.description')}
           </p>
         </div>
       </div>
@@ -28,10 +30,10 @@ export default function CustomSystemsMessage({ className = "", variant = 'defaul
           </div>
           <div>
             <h3 className="text-primary font-bold text-lg mb-1">
-              Soluções Personalizadas
+              {t('customSystems.title')}
             </h3>
             <p className="text-primary/80 font-medium">
-              Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+              {t('customSystems.description')}
             </p>
           </div>
         </div>
@@ -44,7 +46,7 @@ export default function CustomSystemsMessage({ className = "", variant = 'defaul
       <div className="flex items-center gap-3">
         <Target className="w-6 h-6 text-primary flex-shrink-0" aria-hidden="true" />
         <p className="text-primary font-semibold text-lg">
-          🎯 Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa
+          🎯 {t('customSystems.description')}
         </p>
       </div>
     </div>

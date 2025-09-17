@@ -157,6 +157,10 @@ const translations = {
     'comparison.customerSatisfactionOld': 'Reclamações frequentes',
     'comparison.customerSatisfactionOldDesc': 'Atrasos e falta de informações',
     
+    // Custom Systems Message
+    'customSystems.title': 'Soluções Personalizadas',
+    'customSystems.description': 'Desenvolvemos sistemas personalizados de acordo com as necessidades específicas da sua empresa',
+    
     // Contact
     'contact.title': 'Entre em Contato',
     'contact.subtitle': 'Solicite uma demonstração gratuita e descubra como podemos transformar seu negócio',
@@ -365,6 +369,10 @@ const translations = {
     'comparison.customerSatisfactionModernDesc': 'Agile and personalized service',
     'comparison.customerSatisfactionOld': 'Frequent complaints',
     'comparison.customerSatisfactionOldDesc': 'Delays and lack of information',
+    
+    // Custom Systems Message
+    'customSystems.title': 'Custom Solutions',
+    'customSystems.description': 'We develop customized systems according to the specific needs of your company',
     
     // Contact
     'contact.title': 'Get in Touch',
