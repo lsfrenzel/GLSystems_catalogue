@@ -51,14 +51,14 @@ export default function VideoSection() {
                     src={assets.video}
                     controls
                     autoPlay
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover"
                     data-testid="video-player"
                   />
                 ) : (
                   <img 
                     src={assets.poster}
                     alt={t('video.imageAlt')}
-                    className="w-full h-64 md:h-80 object-cover"
+                    className="w-full h-48 sm:h-56 md:h-64 lg:h-80 object-cover"
                     data-testid="video-thumbnail"
                   />
                 )}

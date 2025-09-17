@@ -65,15 +65,27 @@ export default function Footer() {
             <h4 className="text-lg font-semibold text-foreground mb-4" data-testid="footer-contact-title">
               {t('footer.contactTitle')}
             </h4>
-            <div className="flex items-center">
-              <i className="fas fa-phone text-primary mr-3"></i>
-              <a 
-                href="tel:+5511975363887" 
-                className="text-muted-foreground hover:text-primary transition-colors"
-                data-testid="footer-phone"
-              >
-                {t('footer.phoneNumber')}
-              </a>
+            <div className="space-y-3">
+              <div className="flex items-center">
+                <i className="fas fa-phone text-primary mr-3"></i>
+                <a 
+                  href="tel:+5511975363887" 
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="footer-phone"
+                >
+                  +55 11 97536-3887
+                </a>
+              </div>
+              <div className="flex items-center">
+                <i className="fas fa-envelope text-primary mr-3"></i>
+                <a 
+                  href="mailto:contato@gl-systems.site" 
+                  className="text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="footer-email"
+                >
+                  contato@gl-systems.site
+                </a>
+              </div>
             </div>
           </div>
         </div>
