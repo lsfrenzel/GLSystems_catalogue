@@ -1,10 +1,13 @@
 import { Link } from "wouter";
 import { useLayoutEffect } from "react";
 import { useCartStore } from "@/lib/cartStore";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export default function Cart() {
+  const { t } = useLanguage();
+  
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -26,10 +29,10 @@ export default function Cart() {
           <div className="max-w-4xl mx-auto px-6 text-center">
             <i className="fas fa-shopping-cart text-6xl text-gray-300 mb-6"></i>
             <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-4" data-testid="empty-cart-title">
-              Seu carrinho está vazio
+              {t('demo.cart.emptyTitle')}
             </h1>
             <p className="text-gray-600 dark:text-gray-300 mb-8" data-testid="empty-cart-message">
-              Adicione produtos ao seu carrinho para começar a comprar
+              {t('demo.cart.emptyMessage')}
             </p>
             <Link 
               href="/demo/ecommerce" 
@@ -37,7 +40,7 @@ export default function Cart() {
               data-testid="continue-shopping-button"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continuar Comprando
+              {t('demo.cart.continueShopping')}
             </Link>
           </div>
         </div>
@@ -55,10 +58,10 @@ export default function Cart() {
           <div className="flex items-center justify-between mb-8">
             <div>
               <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2" data-testid="cart-title">
-                Meu Carrinho
+                {t('demo.cart.title')}
               </h1>
               <p className="text-gray-600 dark:text-gray-300" data-testid="cart-items-count">
-                {items.length} {items.length === 1 ? 'item' : 'itens'} no carrinho
+                {items.length} {items.length === 1 ? t('demo.cart.item') : t('demo.cart.items')} {t('demo.cart.inCart')}
               </p>
             </div>
             <Link 
@@ -67,7 +70,7 @@ export default function Cart() {
               data-testid="continue-shopping-link"
             >
               <i className="fas fa-arrow-left mr-2"></i>
-              Continuar Comprando
+              {t('demo.cart.continueShopping')}
             </Link>
           </div>
 
@@ -124,7 +127,7 @@ export default function Cart() {
                           data-testid={`remove-item-${item.id}`}
                         >
                           <i className="fas fa-trash mr-1"></i>
-                          Remover
+                          {t('demo.cart.remove')}
                         </button>
                       </div>
                     </div>
@@ -147,25 +150,25 @@ export default function Cart() {
             <div className="lg:col-span-1">
               <div className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sticky top-24">
                 <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-4" data-testid="order-summary-title">
-                  Resumo do Pedido
+                  {t('demo.cart.orderSummary')}
                 </h3>
                 
                 <div className="space-y-3 mb-6">
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-300">Subtotal</span>
+                    <span className="text-gray-600 dark:text-gray-300">{t('demo.cart.subtotal')}</span>
                     <span className="font-medium" data-testid="subtotal">
                       {formatPrice(getTotalPrice())}
                     </span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600 dark:text-gray-300">Frete</span>
+                    <span className="text-gray-600 dark:text-gray-300">{t('demo.cart.shipping')}</span>
                     <span className="text-green-600 font-medium" data-testid="shipping">
-                      Grátis
+                      {t('demo.cart.free')}
                     </span>
                   </div>
                   <div className="border-t border-gray-200 dark:border-gray-700 pt-3">
                     <div className="flex justify-between">
-                      <span className="text-lg font-bold text-gray-800 dark:text-white">Total</span>
+                      <span className="text-lg font-bold text-gray-800 dark:text-white">{t('demo.cart.total')}</span>
                       <span className="text-lg font-bold text-gray-800 dark:text-white" data-testid="total">
                         {formatPrice(getTotalPrice())}
                       </span>
@@ -177,7 +180,7 @@ export default function Cart() {
                   className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium mb-3"
                   data-testid="checkout-button"
                 >
-                  Finalizar Compra
+                  {t('demo.cart.checkout')}
                 </button>
                 
                 <button 
@@ -185,22 +188,22 @@ export default function Cart() {
                   className="w-full text-gray-600 dark:text-gray-300 py-2 text-sm hover:text-red-600 transition-colors"
                   data-testid="clear-cart-button"
                 >
-                  Limpar Carrinho
+                  {t('demo.cart.clearCart')}
                 </button>
 
                 {/* Garantias */}
                 <div className="mt-6 space-y-3 text-sm text-gray-600 dark:text-gray-300">
                   <div className="flex items-center">
                     <i className="fas fa-truck text-green-600 mr-2"></i>
-                    Frete grátis para todo o Brasil
+                    {t('demo.cart.freeShippingBrazil')}
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-shield-alt text-green-600 mr-2"></i>
-                    Compra 100% segura
+                    {t('demo.cart.securePurchase')}
                   </div>
                   <div className="flex items-center">
                     <i className="fas fa-undo text-green-600 mr-2"></i>
-                    30 dias para trocar ou devolver
+                    {t('demo.cart.returnPolicy')}
                   </div>
                 </div>
               </div>

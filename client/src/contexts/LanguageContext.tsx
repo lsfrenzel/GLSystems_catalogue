@@ -892,7 +892,27 @@ const translations = {
     'categories.eletronicos': 'Eletrônicos',
     'categories.moda': 'Moda & Acessórios',
     'categories.casa': 'Casa & Decoração',
-    'categories.esportes': 'Esportes & Lazer'
+    'categories.esportes': 'Esportes & Lazer',
+    
+    // Demo Cart
+    'demo.cart.emptyTitle': 'Seu carrinho está vazio',
+    'demo.cart.emptyMessage': 'Adicione produtos ao seu carrinho para começar a comprar',
+    'demo.cart.continueShopping': 'Continuar Comprando',
+    'demo.cart.title': 'Meu Carrinho',
+    'demo.cart.item': 'item',
+    'demo.cart.items': 'itens',
+    'demo.cart.inCart': 'no carrinho',
+    'demo.cart.remove': 'Remover',
+    'demo.cart.orderSummary': 'Resumo do Pedido',
+    'demo.cart.subtotal': 'Subtotal',
+    'demo.cart.shipping': 'Frete',
+    'demo.cart.free': 'Grátis',
+    'demo.cart.total': 'Total',
+    'demo.cart.checkout': 'Finalizar Compra',
+    'demo.cart.clearCart': 'Limpar Carrinho',
+    'demo.cart.freeShippingBrazil': 'Frete grátis para todo o Brasil',
+    'demo.cart.securePurchase': 'Compra 100% segura',
+    'demo.cart.returnPolicy': '30 dias para trocar ou devolver'
   },
   en: {
     // Header  
@@ -1777,7 +1797,27 @@ const translations = {
     'categories.eletronicos': 'Electronics',
     'categories.moda': 'Fashion & Accessories',
     'categories.casa': 'Home & Decor',
-    'categories.esportes': 'Sports & Leisure'
+    'categories.esportes': 'Sports & Leisure',
+    
+    // Demo Cart
+    'demo.cart.emptyTitle': 'Your cart is empty',
+    'demo.cart.emptyMessage': 'Add products to your cart to start shopping',
+    'demo.cart.continueShopping': 'Continue Shopping',
+    'demo.cart.title': 'My Cart',
+    'demo.cart.item': 'item',
+    'demo.cart.items': 'items',
+    'demo.cart.inCart': 'in cart',
+    'demo.cart.remove': 'Remove',
+    'demo.cart.orderSummary': 'Order Summary',
+    'demo.cart.subtotal': 'Subtotal',
+    'demo.cart.shipping': 'Shipping',
+    'demo.cart.free': 'Free',
+    'demo.cart.total': 'Total',
+    'demo.cart.checkout': 'Checkout',
+    'demo.cart.clearCart': 'Clear Cart',
+    'demo.cart.freeShippingBrazil': 'Free shipping nationwide',
+    'demo.cart.securePurchase': '100% secure purchase',
+    'demo.cart.returnPolicy': '30 days to exchange or return'
   }
 };
 
