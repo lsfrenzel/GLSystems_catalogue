@@ -3,6 +3,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NavItem {
   id: string;
@@ -35,6 +36,7 @@ export default function AppShell({
   children,
   currentUser = "Sistema Ativo"
 }: AppShellProps) {
+  const { t } = useLanguage();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const NavContent = () => (
@@ -118,7 +120,7 @@ export default function AppShell({
                 data-testid="back-link"
               >
                 <i className="fas fa-arrow-left mr-2"></i>
-                <span className="hidden sm:inline">Voltar</span>
+                <span className="hidden sm:inline">{t('common.back')}</span>
               </Link>
               <div className="hidden sm:block w-px h-6 bg-white opacity-30"></div>
               <h1 className="text-lg sm:text-2xl font-bold text-white raleway truncate">{title}</h1>

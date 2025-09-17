@@ -222,6 +222,9 @@ const translations = {
     // Scroll to top
     'scrollTop.tooltip': 'Voltar ao topo',
     
+    // Common navigation
+    'common.back': 'Voltar',
+    
     // Sistema ERP
     'sistema.erp.title': 'Sistema ERP Completo',
     'sistema.erp.subtitle': 'Gestão empresarial integrada e inteligente',
@@ -1126,6 +1129,9 @@ const translations = {
     
     // Scroll to top
     'scrollTop.tooltip': 'Back to top',
+    
+    // Common navigation
+    'common.back': 'Back',
     
     // Sistema ERP
     'sistema.erp.title': 'Complete ERP System',
