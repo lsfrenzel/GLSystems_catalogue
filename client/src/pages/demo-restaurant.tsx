@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import AppShell from "@/components/layout/AppShell";
+import { useLanguage } from "@/contexts/LanguageContext";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Cell, LineChart, Line, AreaChart, Area } from 'recharts';
 
@@ -24,41 +25,42 @@ const STAFF_STATUS = {
 } as const;
 
 export default function DemoRestaurant() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
   
   // Navigation items for AppShell
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: t('demo.nav.dashboard'),
       icon: 'fas fa-tachometer-alt',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'pedidos',
-      label: 'Orders',
+      label: t('demo.nav.pedidos'),
       icon: 'fas fa-receipt',
       onClick: () => setSelectedModule('pedidos'),
       isActive: selectedModule === 'pedidos'
     },
     {
       id: 'cardapio',
-      label: 'Menu',
+      label: t('demo.nav.cardapio'),
       icon: 'fas fa-book-open',
       onClick: () => setSelectedModule('cardapio'),
       isActive: selectedModule === 'cardapio'
     },
     {
       id: 'mesas',
-      label: 'Tables',
+      label: t('demo.nav.mesas'),
       icon: 'fas fa-chair',
       onClick: () => setSelectedModule('mesas'),
       isActive: selectedModule === 'mesas'
     },
     {
       id: 'relatorios',
-      label: 'Reports',
+      label: t('demo.nav.relatorios'),
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'
@@ -171,12 +173,12 @@ export default function DemoRestaurant() {
 
   return (
     <AppShell
-      title="RestaurantPro - TechSolutions"
-      subtitle="Food Service Edition"
+      title={t('demo.restaurant.title')}
+      subtitle={t('demo.restaurant.subtitle')}
       systemIcon="fas fa-utensils"
       systemColor="from-orange-600 to-orange-500"
-      backHref="/sistema/restaurant"
-      statusBadge="Restaurant System"
+      backHref="/sistema-restaurant"
+      statusBadge={t('demo.restaurant.badge')}
       navItems={navItems}
       currentUser="Dinner Shift - 7:30 PM to 11:00 PM"
     >
