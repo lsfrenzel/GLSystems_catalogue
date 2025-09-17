@@ -213,45 +213,45 @@ export default function SistemaERP() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Painel Principal do ERP"
+                    alt={t('sistema.erp.interface1.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Painel Principal</span>
+                    <span className="text-white font-semibold">{t('sistema.erp.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Painel Executivo</h3>
-                <p className="text-sm text-muted-foreground">Visão geral de vendas, estoque e finanças</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.erp.interface1.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.erp.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Módulo Financeiro do ERP"
+                    alt={t('sistema.erp.interface2.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Gestão Financeira</span>
+                    <span className="text-white font-semibold">{t('sistema.erp.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Módulo Financeiro</h3>
-                <p className="text-sm text-muted-foreground">Controle completo de receitas e despesas</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.erp.interface2.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.erp.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Módulo de Estoque do ERP"
+                    alt={t('sistema.erp.interface3.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Controle de Estoque</span>
+                    <span className="text-white font-semibold">{t('sistema.erp.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Gestão de Estoque</h3>
-                <p className="text-sm text-muted-foreground">Controle de produtos e movimentações</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.erp.interface3.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.erp.interface3.description')}</p>
               </div>
             </div>
           </div>
