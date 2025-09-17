@@ -739,6 +739,7 @@ const translations = {
     'demo.nav.fornecedores': 'Fornecedores',
     'demo.nav.estoque': 'Estoque',
     'demo.nav.logistica': 'Logística',
+    'demo.nav.financeiro': 'Financeiro',
     
     // Demo Status Values
     'demo.status.paid': 'Pago',
@@ -809,7 +810,30 @@ const translations = {
     'demo.label.prioridade': 'Prioridade',
     'demo.label.fornecedor': 'Fornecedor',
     'demo.label.vencimento': 'Vencimento',
-    'demo.label.dias': 'Dias'
+    'demo.label.dias': 'Dias',
+    
+    // Demo System Titles
+    'demo.erp.title': 'ERPSystem Pro - TechSolutions',
+    'demo.erp.subtitle': 'Edição Empresarial',
+    'demo.erp.badge': 'Sistema Empresarial',
+    'demo.crm.title': 'CRM Pro - TechSolutions',
+    'demo.crm.subtitle': 'Edição Premium',
+    'demo.crm.badge': 'Sistema CRM',
+    'demo.restaurant.title': 'RestaurantPro - TechSolutions',
+    'demo.restaurant.subtitle': 'Gestão Completa',
+    'demo.restaurant.badge': 'Sistema de Comandas',
+    'demo.financial.title': 'FinancePro - TechSolutions',
+    'demo.financial.subtitle': 'Controle Total',
+    'demo.financial.badge': 'Sistema Financeiro',
+    'demo.inventory.title': 'InventoryPro - TechSolutions',
+    'demo.inventory.subtitle': 'Estoque e Logística',
+    'demo.inventory.badge': 'Sistema de Estoque',
+    'demo.ecommerce.title': 'Moda & Estilo - TechSolutions',
+    'demo.ecommerce.subtitle': 'E-commerce Demo',
+    'demo.ecommerce.badge': 'DEMO',
+    'demo.education.title': 'EduPlatform - TechSolutions',
+    'demo.education.subtitle': 'Plataforma EAD',
+    'demo.education.badge': 'Sistema Educacional'
   },
   en: {
     // Header  
@@ -1541,6 +1565,7 @@ const translations = {
     'demo.nav.fornecedores': 'Suppliers',
     'demo.nav.estoque': 'Inventory',
     'demo.nav.logistica': 'Logistics',
+    'demo.nav.financeiro': 'Financial',
     
     // Demo Status Values
     'demo.status.paid': 'Paid',
@@ -1611,7 +1636,30 @@ const translations = {
     'demo.label.prioridade': 'Priority',
     'demo.label.fornecedor': 'Supplier',
     'demo.label.vencimento': 'Due Date',
-    'demo.label.dias': 'Days'
+    'demo.label.dias': 'Days',
+    
+    // Demo System Titles
+    'demo.erp.title': 'ERPSystem Pro - TechSolutions',
+    'demo.erp.subtitle': 'Enterprise Edition',
+    'demo.erp.badge': 'Enterprise System',
+    'demo.crm.title': 'CRM Pro - TechSolutions',
+    'demo.crm.subtitle': 'Premium Edition',
+    'demo.crm.badge': 'CRM System',
+    'demo.restaurant.title': 'RestaurantPro - TechSolutions',
+    'demo.restaurant.subtitle': 'Complete Management',
+    'demo.restaurant.badge': 'Order Management System',
+    'demo.financial.title': 'FinancePro - TechSolutions',
+    'demo.financial.subtitle': 'Total Control',
+    'demo.financial.badge': 'Financial System',
+    'demo.inventory.title': 'InventoryPro - TechSolutions',
+    'demo.inventory.subtitle': 'Inventory & Logistics',
+    'demo.inventory.badge': 'Inventory System',
+    'demo.ecommerce.title': 'Fashion & Style - TechSolutions',
+    'demo.ecommerce.subtitle': 'E-commerce Demo',
+    'demo.ecommerce.badge': 'DEMO',
+    'demo.education.title': 'EduPlatform - TechSolutions',
+    'demo.education.subtitle': 'Learning Platform',
+    'demo.education.badge': 'Educational System'
   }
 };
 

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 import AppShell from "@/components/layout/AppShell";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface Sale {
   id: string;
@@ -31,6 +32,7 @@ interface Transaction {
 }
 
 export default function DemoERP() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
   
   // States for dynamic data
@@ -151,28 +153,28 @@ export default function DemoERP() {
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: t('demo.nav.dashboard'),
       icon: 'fas fa-tachometer-alt',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'vendas',
-      label: 'Sales',
+      label: t('demo.nav.vendas'),
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('vendas'),
       isActive: selectedModule === 'vendas'
     },
     {
       id: 'estoque',
-      label: 'Inventory',
+      label: t('demo.nav.estoque'),
       icon: 'fas fa-boxes',
       onClick: () => setSelectedModule('estoque'),
       isActive: selectedModule === 'estoque'
     },
     {
       id: 'financeiro',
-      label: 'Financial',
+      label: t('demo.nav.financeiro'),
       icon: 'fas fa-calculator',
       onClick: () => setSelectedModule('financeiro'),
       isActive: selectedModule === 'financeiro'
@@ -181,12 +183,12 @@ export default function DemoERP() {
 
   return (
     <AppShell
-      title="ERPSystem Pro - TechSolutions"
-      subtitle="Enterprise Edition"
+      title={t('demo.erp.title')}
+      subtitle={t('demo.erp.subtitle')}
       systemIcon="fas fa-chart-line"
       systemColor="from-blue-600 to-blue-500"
-      backHref="/sistema/erp"
-      statusBadge="Enterprise System"
+      backHref="/sistema-erp"
+      statusBadge={t('demo.erp.badge')}
       navItems={navItems}
       currentUser="Admin Demo"
     >
