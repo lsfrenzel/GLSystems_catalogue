@@ -80,17 +80,6 @@ export default function VideoSection() {
                   </>
                 )}
 
-                {/* Video Info Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                  <div className="text-white">
-                    <h3 className="font-bold text-lg mb-1" data-testid="video-overlay-title">
-                      {t('video.overlayTitle')}
-                    </h3>
-                    <p className="text-sm opacity-90" data-testid="video-overlay-duration">
-                      {t('video.overlayDuration')}
-                    </p>
-                  </div>
-                </div>
               </div>
 
               {/* Video Stats */}
