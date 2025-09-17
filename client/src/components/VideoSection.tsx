@@ -1,8 +1,28 @@
 import { Play, Star, Users, Award } from "lucide-react";
+import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import glSystemsEng from "@assets/glsystems_eng_1758136892569.png";
+import glSystemsPt from "@assets/glsystems_pt_1758136993057.png";
+import engVideo from "@assets/eng_glsystems_1758136965262.mp4";
+import ptVideo from "@assets/pt_glsystems_1758137013322.mp4";
 
 export default function VideoSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const [isPlaying, setIsPlaying] = useState(false);
+  
+  // Get assets based on current language
+  const getAssets = () => {
+    return {
+      poster: language === 'en' ? glSystemsEng : glSystemsPt,
+      video: language === 'en' ? engVideo : ptVideo
+    };
+  };
+  
+  const assets = getAssets();
+  
+  const handlePlayVideo = () => {
+    setIsPlaying(true);
+  };
   
   return (
     <section id="video" className="py-20 bg-gradient-to-br from-primary/5 via-background to-blue-50/30 dark:from-primary/10 dark:via-background dark:to-blue-950/20">
@@ -26,27 +46,39 @@ export default function VideoSection() {
           <div className="fade-in">
             <div className="relative group">
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=675" 
-                  alt={t('video.imageAlt')}
-                  className="w-full h-64 md:h-80 object-cover"
-                  data-testid="video-thumbnail"
-                />
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors"></div>
+{isPlaying ? (
+                  <video 
+                    src={assets.video}
+                    controls
+                    autoPlay
+                    className="w-full h-64 md:h-80 object-cover"
+                    data-testid="video-player"
+                  />
+                ) : (
+                  <img 
+                    src={assets.poster}
+                    alt={t('video.imageAlt')}
+                    className="w-full h-64 md:h-80 object-cover"
+                    data-testid="video-thumbnail"
+                  />
+                )}
                 
-                {/* Play Button */}
-                <button 
-                  className="absolute inset-0 flex items-center justify-center group"
-                  data-testid="play-button"
-                  onClick={() => {
-                    // Here you would implement video playback
-                    console.log('Play video');
-                  }}
-                >
-                  <div className="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all shadow-xl">
-                    <Play className="w-8 h-8 text-white ml-1" fill="white" />
-                  </div>
-                </button>
+                {!isPlaying && (
+                  <>
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors"></div>
+                    
+                    {/* Play Button */}
+                    <button 
+                      className="absolute inset-0 flex items-center justify-center group"
+                      data-testid="play-button"
+                      onClick={handlePlayVideo}
+                    >
+                      <div className="w-20 h-20 bg-primary/90 backdrop-blur-sm rounded-full flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all shadow-xl">
+                        <Play className="w-8 h-8 text-white ml-1" fill="white" />
+                      </div>
+                    </button>
+                  </>
+                )}
 
                 {/* Video Info Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
