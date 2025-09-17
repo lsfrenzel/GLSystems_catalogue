@@ -1,8 +1,8 @@
 import { Play, Star, Users, Award } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import glSystemsEng from "@assets/glsystems_eng_1758136892569.png";
-import glSystemsPt from "@assets/glsystems_pt_1758136993057.png";
+import glSystemsEng from "@assets/glsystems_eng_1758138072050.png";
+import glSystemsPt from "@assets/glsystems_pt_1758138072050.png";
 import engVideo from "@assets/eng_glsystems_1758136965262.mp4";
 import ptVideo from "@assets/pt_glsystems_1758137013322.mp4";
 
