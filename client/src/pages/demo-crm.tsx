@@ -289,7 +289,7 @@ export default function DemoCRM() {
       subtitle={t('demo.crm.subtitle')}
       systemIcon="fas fa-users"
       systemColor="from-green-600 to-green-500"
-      backHref="/sistema-crm"
+      backHref="/sistema/crm"
       statusBadge={t('demo.crm.badge')}
       navItems={navItems}
       currentUser="Vendedor Silva"

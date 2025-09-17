@@ -993,7 +993,7 @@ export default function DemoInventory() {
       subtitle={t('demo.inventory.subtitle')}
       systemIcon="fas fa-boxes"
       systemColor="from-yellow-600 to-yellow-500"
-      backHref="/sistema-inventory"
+      backHref="/sistema/inventory"
       statusBadge={t('demo.inventory.badge')}
       navItems={navItems}
     >

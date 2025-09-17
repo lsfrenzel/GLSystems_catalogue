@@ -177,7 +177,7 @@ export default function DemoRestaurant() {
       subtitle={t('demo.restaurant.subtitle')}
       systemIcon="fas fa-utensils"
       systemColor="from-orange-600 to-orange-500"
-      backHref="/sistema-restaurant"
+      backHref="/sistema/restaurant"
       statusBadge={t('demo.restaurant.badge')}
       navItems={navItems}
       currentUser="Dinner Shift - 7:30 PM to 11:00 PM"

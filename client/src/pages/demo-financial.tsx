@@ -443,7 +443,7 @@ export default function DemoFinancial() {
       subtitle={t('demo.financial.subtitle')}
       systemIcon="fas fa-chart-bar"
       systemColor="from-purple-600 to-purple-500"
-      backHref="/sistema-financial"
+      backHref="/sistema/financial"
       statusBadge={t('demo.financial.badge')}
       navItems={navItems}
       currentUser="Fiscal Period: Nov 2024"

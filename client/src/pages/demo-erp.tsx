@@ -187,7 +187,7 @@ export default function DemoERP() {
       subtitle={t('demo.erp.subtitle')}
       systemIcon="fas fa-chart-line"
       systemColor="from-blue-600 to-blue-500"
-      backHref="/sistema-erp"
+      backHref="/sistema/erp"
       statusBadge={t('demo.erp.badge')}
       navItems={navItems}
       currentUser="Admin Demo"
