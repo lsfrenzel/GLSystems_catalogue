@@ -17,6 +17,26 @@ const translations = {
     'nav.contact': 'Contato',
     'header.tagline': 'Líder em soluções tecnológicas empresariais',
     
+    // Page Titles
+    'page.title.home': 'Catálogo de Soluções Digitais | Soluções Empresariais Modernas',
+    'page.title.sistema.erp': 'Sistema ERP Completo | G&L Systems',
+    'page.title.sistema.crm': 'Sistema CRM | G&L Systems', 
+    'page.title.sistema.restaurant': 'Sistema de Comandas | G&L Systems',
+    'page.title.sistema.financial': 'Sistema Financeiro | G&L Systems',
+    'page.title.sistema.inventory': 'Estoque e Logística | G&L Systems',
+    'page.title.sistema.ecommerce': 'E-commerce para Lojas | G&L Systems',
+    'page.title.sistema.education': 'Plataforma EAD | G&L Systems',
+    'page.title.demo.erp': 'Demo ERP | G&L Systems',
+    'page.title.demo.crm': 'Demo CRM | G&L Systems',
+    'page.title.demo.restaurant': 'Demo Sistema de Comandas | G&L Systems', 
+    'page.title.demo.financial': 'Demo Sistema Financeiro | G&L Systems',
+    'page.title.demo.inventory': 'Demo Estoque | G&L Systems',
+    'page.title.demo.ecommerce': 'Demo E-commerce | G&L Systems',
+    'page.title.demo.education': 'Demo Plataforma EAD | G&L Systems',
+    'page.title.demo.cart': 'Meu Carrinho | G&L Systems',
+    'page.title.demo.product': 'Produto | G&L Systems',
+    'page.title.notfound': 'Página Não Encontrada | G&L Systems',
+    
     // Hero
     'hero.badge': '🚀 LÍDER DE MERCADO EM TECNOLOGIA',
     'hero.title': 'Revolucionamos seu negócio',
@@ -924,6 +944,26 @@ const translations = {
     'nav.comparison': 'Comparison', 
     'nav.contact': 'Contact',
     'header.tagline': 'Leader in enterprise technology solutions',
+    
+    // Page Titles
+    'page.title.home': 'Digital Solutions Catalog | Modern Business Solutions',
+    'page.title.sistema.erp': 'Complete ERP System | G&L Systems',
+    'page.title.sistema.crm': 'CRM System | G&L Systems', 
+    'page.title.sistema.restaurant': 'Order Management System | G&L Systems',
+    'page.title.sistema.financial': 'Financial System | G&L Systems',
+    'page.title.sistema.inventory': 'Inventory & Logistics | G&L Systems',
+    'page.title.sistema.ecommerce': 'E-commerce for Stores | G&L Systems',
+    'page.title.sistema.education': 'E-Learning Platform | G&L Systems',
+    'page.title.demo.erp': 'ERP Demo | G&L Systems',
+    'page.title.demo.crm': 'CRM Demo | G&L Systems',
+    'page.title.demo.restaurant': 'Order Management Demo | G&L Systems', 
+    'page.title.demo.financial': 'Financial System Demo | G&L Systems',
+    'page.title.demo.inventory': 'Inventory Demo | G&L Systems',
+    'page.title.demo.ecommerce': 'E-commerce Demo | G&L Systems',
+    'page.title.demo.education': 'E-Learning Demo | G&L Systems',
+    'page.title.demo.cart': 'My Cart | G&L Systems',
+    'page.title.demo.product': 'Product | G&L Systems',
+    'page.title.notfound': 'Page Not Found | G&L Systems',
     
     // Hero
     'hero.badge': '🚀 MARKET-LEADING TECHNOLOGY COMPANY',
