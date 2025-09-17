@@ -1,5 +1,6 @@
 import { useState } from "react";
 import AppShell from "@/components/layout/AppShell";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, FunnelChart, Funnel, LabelList } from 'recharts';
 
 interface Lead {
@@ -47,41 +48,42 @@ interface Activity {
 }
 
 export default function DemoCRM() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
   
   // Navigation items for AppShell
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Painel',
+      label: t('demo.nav.painel'),
       icon: 'fas fa-chart-pie',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'clientes',
-      label: 'Clientes',
+      label: t('demo.nav.clientes'),
       icon: 'fas fa-heart',
       onClick: () => setSelectedModule('clientes'),
       isActive: selectedModule === 'clientes'
     },
     {
       id: 'vendas',
-      label: 'Vendas',
+      label: t('demo.nav.vendas'),
       icon: 'fas fa-user-plus',
       onClick: () => setSelectedModule('vendas'),
       isActive: selectedModule === 'vendas'
     },
     {
       id: 'oportunidades',
-      label: 'Oportunidades',
+      label: t('demo.nav.oportunidades'),
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('pipeline'),
       isActive: selectedModule === 'pipeline'
     },
     {
       id: 'relatorios',
-      label: 'Relatórios',
+      label: t('demo.nav.relatorios'),
       icon: 'fas fa-file-chart-line',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'
@@ -283,12 +285,12 @@ export default function DemoCRM() {
 
   return (
     <AppShell
-      title="CRMProfessional - TechSolutions"
-      subtitle="Edição para Clientes"
+      title={t('demo.crm.title')}
+      subtitle={t('demo.crm.subtitle')}
       systemIcon="fas fa-users"
       systemColor="from-green-600 to-green-500"
-      backHref="/sistema/crm"
-      statusBadge="Sistema de CRM"
+      backHref="/sistema-crm"
+      statusBadge={t('demo.crm.badge')}
       navItems={navItems}
       currentUser="Vendedor Silva"
     >
