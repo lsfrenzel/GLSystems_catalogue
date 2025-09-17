@@ -1,45 +1,55 @@
 import { useState } from "react";
 import AppShell from "@/components/layout/AppShell";
+import { useLanguage } from "@/contexts/LanguageContext";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 import { useToast } from "@/hooks/use-toast";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area } from 'recharts';
 
+// Utility function to format currency as Brazilian Real
+const formatBRL = (value: number): string => {
+  return value.toLocaleString('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  });
+};
+
 export default function DemoFinancial() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
 
   // Navigation items for AppShell
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: t('demo.nav.dashboard'),
       icon: 'fas fa-chart-pie',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'receitas',
-      label: 'Revenue',
+      label: t('demo.nav.receitas'),
       icon: 'fas fa-arrow-up',
       onClick: () => setSelectedModule('receitas'),
       isActive: selectedModule === 'receitas'
     },
     {
       id: 'despesas',
-      label: 'Expenses',
+      label: t('demo.nav.despesas'),
       icon: 'fas fa-arrow-down',
       onClick: () => setSelectedModule('despesas'),
       isActive: selectedModule === 'despesas'
     },
     {
       id: 'investimentos',
-      label: 'Investments',
+      label: t('demo.nav.investimentos'),
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('investimentos'),
       isActive: selectedModule === 'investimentos'
     },
     {
       id: 'relatorios',
-      label: 'Reports',
+      label: t('demo.nav.relatorios'),
       icon: 'fas fa-file-chart-column',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'
@@ -429,12 +439,12 @@ export default function DemoFinancial() {
 
   return (
     <AppShell
-      title="FinancePro - TechSolutions"
-      subtitle="Financial Edition"
+      title={t('demo.financial.title')}
+      subtitle={t('demo.financial.subtitle')}
       systemIcon="fas fa-chart-bar"
       systemColor="from-purple-600 to-purple-500"
-      backHref="/sistema/financial"
-      statusBadge="Financial System"
+      backHref="/sistema-financial"
+      statusBadge={t('demo.financial.badge')}
       navItems={navItems}
       currentUser="Fiscal Period: Nov 2024"
     >

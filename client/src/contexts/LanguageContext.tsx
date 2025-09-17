@@ -738,6 +738,7 @@ const translations = {
     'demo.nav.produtos': 'Produtos',
     'demo.nav.fornecedores': 'Fornecedores',
     'demo.nav.estoque': 'Estoque',
+    'demo.nav.movimentacoes': 'Movimentações',
     'demo.nav.logistica': 'Logística',
     'demo.nav.financeiro': 'Financeiro',
     
@@ -1564,6 +1565,7 @@ const translations = {
     'demo.nav.produtos': 'Products',
     'demo.nav.fornecedores': 'Suppliers',
     'demo.nav.estoque': 'Inventory',
+    'demo.nav.movimentacoes': 'Movements',
     'demo.nav.logistica': 'Logistics',
     'demo.nav.financeiro': 'Financial',
     

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import AppShell from "@/components/layout/AppShell";
+import { useLanguage } from "@/contexts/LanguageContext";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -613,6 +614,7 @@ function MovementForm({
 }
 
 export default function DemoInventory() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
   const [isDialogOpen, setIsDialogOpen] = useState<string | null>(null);
   const [editingItem, setEditingItem] = useState<any>(null);
@@ -957,28 +959,28 @@ export default function DemoInventory() {
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: t('demo.nav.dashboard'),
       icon: 'fas fa-tachometer-alt',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'estoque',
-      label: 'Stock',
+      label: t('demo.nav.estoque'),
       icon: 'fas fa-warehouse',
       onClick: () => setSelectedModule('estoque'),
       isActive: selectedModule === 'estoque'
     },
     {
       id: 'movimentacoes',
-      label: 'Movements',
+      label: t('demo.nav.movimentacoes'),
       icon: 'fas fa-exchange-alt',
       onClick: () => setSelectedModule('movimentacoes'),
       isActive: selectedModule === 'movimentacoes'
     },
     {
       id: 'fornecedores',
-      label: 'Suppliers',
+      label: t('demo.nav.fornecedores'),
       icon: 'fas fa-truck',
       onClick: () => setSelectedModule('fornecedores'),
       isActive: selectedModule === 'fornecedores'
@@ -987,12 +989,12 @@ export default function DemoInventory() {
 
   return (
     <AppShell
-      title="StockControl Pro - TechSolutions"
-      subtitle="Pro Industrial"
+      title={t('demo.inventory.title')}
+      subtitle={t('demo.inventory.subtitle')}
       systemIcon="fas fa-boxes"
       systemColor="from-yellow-600 to-yellow-500"
-      backHref="/system/inventory"
-      statusBadge="Industrial System"
+      backHref="/sistema-inventory"
+      statusBadge={t('demo.inventory.badge')}
       navItems={navItems}
     >
       {/* Custom Systems Message */}
