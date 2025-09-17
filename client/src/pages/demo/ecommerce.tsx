@@ -61,7 +61,7 @@ export default function EcommerceDemo() {
             <div className="flex items-center justify-between py-4">
               <div className="flex items-center space-x-6">
                 <Link 
-                  href="/sistema-ecommerce" 
+                  href="/sistema/ecommerce" 
                   className="text-blue-600 hover:text-blue-800 flex items-center text-sm font-medium"
                   data-testid="back-to-system"
                 >
