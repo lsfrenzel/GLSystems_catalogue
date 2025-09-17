@@ -1831,12 +1831,12 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Language>(() => {
-    // Try to get from localStorage, default to Portuguese
+    // Try to get from localStorage, default to English
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('gl-systems-language');
-      return (saved as Language) || 'pt';
+      return (saved as Language) || 'en';
     }
-    return 'pt';
+    return 'en';
   });
 
   useEffect(() => {
