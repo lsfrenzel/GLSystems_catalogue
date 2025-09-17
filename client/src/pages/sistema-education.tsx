@@ -105,9 +105,9 @@ export default function SistemaEducation() {
       }
     ],
     testimonial: {
-      quote: 'A plataforma EAD nos permitiu expandir nossos cursos nacionalmente. Triplicamos nossa receita no primeiro ano.',
-      name: 'Ana Costa',
-      position: 'Diretora, EduTech Academy',
+      quote: t('sistema.education.testimonial.quote'),
+      name: t('sistema.education.testimonial.name'),
+      position: t('sistema.education.testimonial.position'),
       image: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150'
     }
   };

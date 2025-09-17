@@ -10,6 +10,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
 interface Student {
@@ -59,6 +60,7 @@ interface Professor {
 }
 
 export default function DemoEducation() {
+  const { t } = useLanguage();
   const [selectedModule, setSelectedModule] = useState('dashboard');
   const { toast } = useToast();
 
@@ -66,42 +68,42 @@ export default function DemoEducation() {
   const navItems = [
     {
       id: 'dashboard',
-      label: 'Dashboard',
+      label: t('demo.education.nav.dashboard'),
       icon: 'fas fa-chart-pie',
       onClick: () => setSelectedModule('dashboard'),
       isActive: selectedModule === 'dashboard'
     },
     {
       id: 'alunos',
-      label: 'Alunos',
+      label: t('demo.education.nav.alunos'),
       icon: 'fas fa-users',
       onClick: () => setSelectedModule('alunos'),
       isActive: selectedModule === 'alunos'
     },
     {
       id: 'cursos',
-      label: 'Cursos',
+      label: t('demo.education.nav.cursos'),
       icon: 'fas fa-book',
       onClick: () => setSelectedModule('cursos'),
       isActive: selectedModule === 'cursos'
     },
     {
       id: 'professores',
-      label: 'Professores',
+      label: t('demo.education.nav.professores'),
       icon: 'fas fa-chalkboard-teacher',
       onClick: () => setSelectedModule('professores'),
       isActive: selectedModule === 'professores'
     },
     {
       id: 'avaliacoes',
-      label: 'Avaliações',
+      label: t('demo.education.nav.avaliacoes'),
       icon: 'fas fa-clipboard-check',
       onClick: () => setSelectedModule('avaliacoes'),
       isActive: selectedModule === 'avaliacoes'
     },
     {
       id: 'relatorios',
-      label: 'Relatórios',
+      label: t('demo.education.nav.relatorios'),
       icon: 'fas fa-chart-line',
       onClick: () => setSelectedModule('relatorios'),
       isActive: selectedModule === 'relatorios'
@@ -214,8 +216,8 @@ export default function DemoEducation() {
     setStudents(prev => [...prev, newStudent]);
     setNewStudent({});
     toast({
-      title: "Aluno adicionado!",
-      description: `${newStudent.nome} foi matriculado com sucesso.`,
+      title: t('demo.education.toast.studentAdded'),
+      description: `${newStudent.nome} ${t('demo.education.toast.studentAddedDesc')}`,
     });
   };
 
@@ -223,8 +225,8 @@ export default function DemoEducation() {
     setStudents(prev => prev.map(s => s.id === id ? { ...s, ...updates, ultimoAcesso: 'Agora' } : s));
     setEditingStudent(null);
     toast({
-      title: "Aluno atualizado!",
-      description: "As informações foram atualizadas com sucesso.",
+      title: t('demo.education.toast.studentUpdated'),
+      description: t('demo.education.toast.studentUpdatedDesc'),
     });
   };
 
@@ -232,8 +234,8 @@ export default function DemoEducation() {
     const student = students.find(s => s.id === id);
     setStudents(prev => prev.filter(s => s.id !== id));
     toast({
-      title: "Aluno removido!",
-      description: `${student?.nome} foi removido do sistema.`,
+      title: t('demo.education.toast.studentRemoved'),
+      description: `${student?.nome} ${t('demo.education.toast.studentRemovedDesc')}`,
     });
   };
 
@@ -412,14 +414,14 @@ export default function DemoEducation() {
 
   return (
     <AppShell
-      title="EduSoftware - TechSolutions"
-      subtitle="Education Edition"
+      title={t('demo.education.title')}
+      subtitle={t('demo.education.subtitle')}
       systemIcon="fas fa-graduation-cap"
       systemColor="from-indigo-600 to-indigo-500"
       backHref="/sistema/education"
-      statusBadge="Sistema Educacional"
+      statusBadge={t('demo.education.systemIcon')}
       navItems={navItems}
-      currentUser="Período Letivo 2024.2"
+      currentUser={t('demo.education.currentUser')}
     >
       {/* Custom Systems Message */}
       <div className="mb-6">
@@ -428,8 +430,8 @@ export default function DemoEducation() {
             {selectedModule === 'dashboard' && (
               <div>
                 <div className="mb-6">
-                  <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 raleway">Dashboard Acadêmico</h2>
-                  <p className="text-slate-600 dark:text-slate-400">Visão geral das atividades educacionais</p>
+                  <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2 raleway">{t('demo.education.dashboard.title')}</h2>
+                  <p className="text-slate-600 dark:text-slate-400">{t('demo.education.dashboard.subtitle')}</p>
                 </div>
 
                 {/* KPI Cards */}
@@ -442,8 +444,8 @@ export default function DemoEducation() {
                       <span className="text-blue-600 dark:text-blue-400 text-sm font-medium">+127</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{educationData.totalAlunos}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Total de Alunos</p>
-                    <p className="text-blue-600 dark:text-blue-400 text-xs mt-2">{educationData.alunosAtivos} ativos</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{t('demo.education.kpi.totalStudents')}</p>
+                    <p className="text-blue-600 dark:text-blue-400 text-xs mt-2">{educationData.alunosAtivos} {t('demo.education.kpi.activeStudents')}</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-indigo-200 dark:border-slate-700 shadow-lg">
@@ -453,8 +455,8 @@ export default function DemoEducation() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{educationData.cursosDisponiveis}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Cursos Disponíveis</p>
-                    <p className="text-purple-600 dark:text-purple-400 text-xs mt-2">{educationData.professorAtivos} professores</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{t('demo.education.kpi.availableCourses')}</p>
+                    <p className="text-purple-600 dark:text-purple-400 text-xs mt-2">{educationData.professorAtivos} {t('demo.education.kpi.professors')}</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-indigo-200 dark:border-slate-700 shadow-lg">
@@ -464,8 +466,8 @@ export default function DemoEducation() {
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{educationData.aulasHoje}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Aulas Hoje</p>
-                    <p className="text-green-600 dark:text-green-400 text-xs mt-2">4 em andamento</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{t('demo.education.kpi.todayClasses')}</p>
+                    <p className="text-green-600 dark:text-green-400 text-xs mt-2">4 {t('demo.education.kpi.inProgress')}</p>
                   </div>
 
                   <div className="bg-white dark:bg-slate-800 p-6 rounded-xl border border-indigo-200 dark:border-slate-700 shadow-lg">
@@ -473,11 +475,11 @@ export default function DemoEducation() {
                       <div className="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center">
                         <i className="fas fa-clipboard-check text-white"></i>
                       </div>
-                      <span className="text-orange-600 dark:text-orange-400 text-sm font-medium">Pendente</span>
+                      <span className="text-orange-600 dark:text-orange-400 text-sm font-medium">{t('demo.education.kpi.pending')}</span>
                     </div>
                     <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-1">{educationData.avaliacoesPendentes}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">Avaliações</p>
-                    <p className="text-orange-600 dark:text-orange-400 text-xs mt-2">Para correção</p>
+                    <p className="text-slate-600 dark:text-slate-400 text-sm">{t('demo.education.kpi.evaluations')}</p>
+                    <p className="text-orange-600 dark:text-orange-400 text-xs mt-2">{t('demo.education.kpi.forCorrection')}</p>
                   </div>
                 </div>
 
@@ -487,7 +489,7 @@ export default function DemoEducation() {
                   <div className="bg-white dark:bg-slate-800 rounded-xl border border-indigo-200 dark:border-slate-700 shadow-lg p-6">
                     <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-4 raleway flex items-center">
                       <i className="fas fa-chart-bar text-indigo-600 mr-2"></i>
-                      Taxa de Ocupação por Professor
+                      {t('demo.education.chart.occupationRate')}
                     </h3>
                     <div className="h-64" data-testid="chart-professor-occupation">
                       <ResponsiveContainer width="100%" height="100%">
@@ -523,7 +525,7 @@ export default function DemoEducation() {
                       </ResponsiveContainer>
                     </div>
                     <div className="mt-4 text-sm text-slate-600 dark:text-slate-400">
-                      <p>Capacidade máxima: {MAX_DISCIPLINAS_POR_PROFESSOR} disciplinas por professor</p>
+                      <p>{t('demo.education.chart.maxCapacity')}: {MAX_DISCIPLINAS_POR_PROFESSOR} {t('demo.education.chart.disciplines')}</p>
                     </div>
                   </div>
 
