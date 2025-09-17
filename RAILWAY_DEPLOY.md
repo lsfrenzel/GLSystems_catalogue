@@ -103,16 +103,46 @@ Railway detecta automaticamente a estrutura monorepo e:
    - Serve arquivos estáticos do `dist/public/`
    - APIs disponíveis em `/api/*`
 
-## Banco de Dados (Opcional)
+## Banco de Dados
 
-Se seu projeto usar banco PostgreSQL:
+O projeto suporta dois modos de armazenamento:
+
+### Modo 1: Memória (Padrão no Railway)
+- **Sem configuração adicional** - funcionará automaticamente
+- **Dados temporários** - perdidos a cada reinicialização
+- **Ideal para** - testes, demos, desenvolvimento
+
+### Modo 2: PostgreSQL (Recomendado para Produção)
+- **Dados persistentes** - mantidos permanentemente
+- **Ideal para** - produção, dados importantes
+
+#### Como Adicionar PostgreSQL no Railway:
 
 1. **No Railway Dashboard**:
-   - Clique "New" → "Database" → "PostgreSQL"
-   - Copie a `DATABASE_URL` das variáveis
+   - Acesse seu projeto
+   - Clique no botão **"+ New"**
+   - Selecione **"Database"** → **"Add PostgreSQL"**
+   - Aguarde a criação do banco (alguns segundos)
 
-2. **Configure a variável**:
-   - Cole a `DATABASE_URL` nas variáveis do seu serviço
+2. **Conecte ao seu App**:
+   - Vá para seu **serviço da aplicação** (não o banco)
+   - Clique na aba **"Variables"**
+   - Clique **"+ New Variable"**
+   - **Name**: `DATABASE_URL`
+   - **Value**: `${{Postgres.DATABASE_URL}}` (isso referencia automaticamente o banco)
+   - Clique **"Add"**
+
+3. **Redeploy** (automático):
+   - Railway automaticamente fará redeploy
+   - Verifique os logs: deve mostrar "Connected to PostgreSQL database"
+
+#### Migrações de Banco:
+```bash
+# Se você tiver o Railway CLI instalado
+railway run npm run db:push
+```
+
+**✅ O projeto detecta automaticamente se há DATABASE_URL e escolhe o armazenamento correto!**
 
 ## Domínio e URLs
 
