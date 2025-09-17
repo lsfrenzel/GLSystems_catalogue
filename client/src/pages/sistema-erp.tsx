@@ -4,9 +4,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function SistemaERP() {
   const { t } = useLanguage();
+  
+  // Set page title
+  usePageTitle('page.title.sistema.erp');
   
   useLayoutEffect(() => {
     window.scrollTo(0, 0);

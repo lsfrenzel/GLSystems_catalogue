@@ -9,8 +9,11 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import FloatingButtons from "@/components/FloatingButtons";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { usePageTitle } from "@/hooks/use-page-title";
 
 export default function Home() {
+  // Set page title
+  usePageTitle('page.title.home');
   useEffect(() => {
     // Get all fade-in elements
     const els = Array.from(document.querySelectorAll('.fade-in')) as HTMLElement[];
