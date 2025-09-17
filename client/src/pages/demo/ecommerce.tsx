@@ -5,8 +5,10 @@ import { products, categories } from "@/data/products";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CustomSystemsMessage from "@/components/CustomSystemsMessage";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function EcommerceDemo() {
+  const { t } = useLanguage();
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -61,7 +63,7 @@ export default function EcommerceDemo() {
                   data-testid="back-to-system"
                 >
                   <i className="fas fa-arrow-left mr-2"></i>
-                  Voltar ao Sistema
+                  {t('demo.ecommerce.backToSystem')}
                 </Link>
                 
                 <div className="hidden md:flex items-center space-x-1">

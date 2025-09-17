@@ -834,7 +834,10 @@ const translations = {
     'demo.ecommerce.badge': 'DEMO',
     'demo.education.title': 'EduPlatform - TechSolutions',
     'demo.education.subtitle': 'Plataforma EAD',
-    'demo.education.badge': 'Sistema Educacional'
+    'demo.education.badge': 'Sistema Educacional',
+    
+    // Demo Ecommerce
+    'demo.ecommerce.backToSystem': 'Voltar ao Sistema'
   },
   en: {
     // Header  
@@ -1661,7 +1664,10 @@ const translations = {
     'demo.ecommerce.badge': 'DEMO',
     'demo.education.title': 'EduPlatform - TechSolutions',
     'demo.education.subtitle': 'Learning Platform',
-    'demo.education.badge': 'Educational System'
+    'demo.education.badge': 'Educational System',
+    
+    // Demo Ecommerce
+    'demo.ecommerce.backToSystem': 'Back to System'
   }
 };
 
