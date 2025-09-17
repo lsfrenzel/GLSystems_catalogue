@@ -213,45 +213,45 @@ export default function SistemaCRM() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Dashboard do CRM"
+                    alt={t('sistema.crm.interface1.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Dashboard CRM</span>
+                    <span className="text-white font-semibold">{t('sistema.crm.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Dashboard de Vendas</h3>
-                <p className="text-sm text-muted-foreground">Visão geral de oportunidades e conversões</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.crm.interface1.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.crm.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Funil de Vendas do CRM"
+                    alt={t('sistema.crm.interface2.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Funil de Vendas</span>
+                    <span className="text-white font-semibold">{t('sistema.crm.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Pipeline de Oportunidades</h3>
-                <p className="text-sm text-muted-foreground">Acompanhe cada lead até o fechamento</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.crm.interface2.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.crm.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Relatórios do CRM"
+                    alt={t('sistema.crm.interface3.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Relatórios</span>
+                    <span className="text-white font-semibold">{t('sistema.crm.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Análise de Performance</h3>
-                <p className="text-sm text-muted-foreground">Relatórios detalhados de vendas e equipe</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.crm.interface3.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.crm.interface3.description')}</p>
               </div>
             </div>
           </div>

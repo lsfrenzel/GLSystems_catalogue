@@ -215,45 +215,45 @@ export default function SistemaEcommerce() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Dashboard de Vendas"
+                    alt={t('sistema.ecommerce.interface1.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Dashboard de Vendas</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.ecommerce.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Painel de Controle</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Acompanhe vendas e métricas em tempo real</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.ecommerce.interface1.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.ecommerce.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Catálogo de Produtos"
+                    alt={t('sistema.ecommerce.interface2.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Catálogo de Produtos</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.ecommerce.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Gestão de Produtos</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Organize e gerencie todo seu catálogo</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.ecommerce.interface2.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.ecommerce.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer md:col-span-2 lg:col-span-1" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Checkout da Loja"
+                    alt={t('sistema.ecommerce.interface3.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Processo de Compra</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.ecommerce.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Checkout Otimizado</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Processo de compra simples e seguro</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.ecommerce.interface3.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.ecommerce.interface3.description')}</p>
               </div>
             </div>
           </div>

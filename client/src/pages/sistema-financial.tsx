@@ -213,45 +213,45 @@ export default function SistemaFinancial() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Dashboard Financeiro"
+                    alt={t('sistema.financial.interface1.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Dashboard Financeiro</span>
+                    <span className="text-white font-semibold">{t('sistema.financial.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Painel Financeiro</h3>
-                <p className="text-sm text-muted-foreground">Visão geral de receitas e despesas</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.financial.interface1.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.financial.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Fluxo de Caixa"
+                    alt={t('sistema.financial.interface2.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Fluxo de Caixa</span>
+                    <span className="text-white font-semibold">{t('sistema.financial.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Controle de Fluxo</h3>
-                <p className="text-sm text-muted-foreground">Gestão de contas a pagar e receber</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.financial.interface2.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.financial.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Relatórios Financeiros"
+                    alt={t('sistema.financial.interface3.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Relatórios</span>
+                    <span className="text-white font-semibold">{t('sistema.financial.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Análises Detalhadas</h3>
-                <p className="text-sm text-muted-foreground">DRE, balanços e indicadores</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.financial.interface3.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.financial.interface3.description')}</p>
               </div>
             </div>
           </div>

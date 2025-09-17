@@ -213,45 +213,45 @@ export default function SistemaEducation() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Portal do Aluno"
+                    alt={t('sistema.education.interface1.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Portal do Aluno</span>
+                    <span className="text-white font-semibold">{t('sistema.education.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Dashboard do Aluno</h3>
-                <p className="text-sm text-muted-foreground">Área personalizada para estudos</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.education.interface1.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.education.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Aulas Online"
+                    alt={t('sistema.education.interface2.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Aulas Interativas</span>
+                    <span className="text-white font-semibold">{t('sistema.education.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Sala Virtual</h3>
-                <p className="text-sm text-muted-foreground">Vídeo-aulas e conteúdo interativo</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.education.interface2.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.education.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Relatórios Educacionais"
+                    alt={t('sistema.education.interface3.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Analytics</span>
+                    <span className="text-white font-semibold">{t('sistema.education.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Gestão Acadêmica</h3>
-                <p className="text-sm text-muted-foreground">Relatórios e análise de performance</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.education.interface3.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.education.interface3.description')}</p>
               </div>
             </div>
           </div>

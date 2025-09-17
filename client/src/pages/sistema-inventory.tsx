@@ -213,45 +213,45 @@ export default function SistemaInventory() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Controle de Estoque"
+                    alt={t('sistema.inventory.interface1.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Controle de Estoque</span>
+                    <span className="text-white font-semibold">{t('sistema.inventory.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Gestão de Inventário</h3>
-                <p className="text-sm text-muted-foreground">Controle de produtos e movimentações</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.inventory.interface1.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.inventory.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Gestão de Fornecedores"
+                    alt={t('sistema.inventory.interface2.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Fornecedores</span>
+                    <span className="text-white font-semibold">{t('sistema.inventory.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Gestão de Compras</h3>
-                <p className="text-sm text-muted-foreground">Controle de fornecedores e cotações</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.inventory.interface2.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.inventory.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Rastreamento Logístico"
+                    alt={t('sistema.inventory.interface3.alt')}
                     className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold">Logística</span>
+                    <span className="text-white font-semibold">{t('sistema.inventory.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold mt-4 raleway">Controle Logístico</h3>
-                <p className="text-sm text-muted-foreground">Rastreamento e otimização de entregas</p>
+                <h3 className="text-lg font-semibold mt-4 raleway">{t('sistema.inventory.interface3.title')}</h3>
+                <p className="text-sm text-muted-foreground">{t('sistema.inventory.interface3.description')}</p>
               </div>
             </div>
           </div>

@@ -214,45 +214,45 @@ export default function SistemaRestaurant() {
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Interface de Mesas do Restaurante"
+                    alt={t('sistema.restaurant.interface1.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Gestão de Mesas</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.restaurant.interface1.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Controle de Mesas</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Layout visual com status em tempo real</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.restaurant.interface1.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.restaurant.interface1.description')}</p>
               </div>
               
               <div className="group cursor-pointer" data-testid="interface-image-2">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1559329007-40df8a9345d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Cardápio Digital do Sistema"
+                    alt={t('sistema.restaurant.interface2.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Cardápio Digital</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.restaurant.interface2.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Menu Interativo</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Cardápio digital com pedidos via QR Code</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.restaurant.interface2.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.restaurant.interface2.description')}</p>
               </div>
               
               <div className="group cursor-pointer md:col-span-2 lg:col-span-1" data-testid="interface-image-3">
                 <div className="relative overflow-hidden rounded-lg bg-background border">
                   <img 
                     src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400"
-                    alt="Painel da Cozinha"
+                    alt={t('sistema.restaurant.interface3.alt')}
                     className="w-full h-48 sm:h-56 md:h-64 object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="text-white font-semibold text-sm sm:text-base">Painel da Cozinha</span>
+                    <span className="text-white font-semibold text-sm sm:text-base">{t('sistema.restaurant.interface3.overlay')}</span>
                   </div>
                 </div>
-                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">Gestão da Cozinha</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">Controle de pedidos e tempo de preparo</p>
+                <h3 className="text-base sm:text-lg font-semibold mt-3 sm:mt-4 raleway">{t('sistema.restaurant.interface3.title')}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground">{t('sistema.restaurant.interface3.description')}</p>
               </div>
             </div>
           </div>
